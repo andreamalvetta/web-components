@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Web Components</title>
+    <!-- <script src="./dist/vendor/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" defer></script> -->
+    <script src="./dist/vendor/@webcomponents/webcomponentsjs/webcomponents-loader.js" defer></script>
+  </head>
+  <body>
+    <web-component msg="brett"></web-component>
+    <web-component msg="ethan"></web-component>
+    <web-component msg="andrea"></web-component>
+    <web-component msg="geoff"></web-component>
+    <script>
+      window.addEventListener('WebComponentsReady', function() {
+        var appScript = document.createElement('script');
+        appScript.src = './dist/app.js';
+        document.head.appendChild(appScript);
+      });
+    </script>
+  </body>
+</html>
