@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/Cellar/node/9.3.0_1/bin/node /usr/local/bin/yarn add --dev @babel/plugin-proposal-class-properties @babel/proposal-decorators
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.9.4/libexec/bin/yarn.js add --dev @babel/proposal-decorators
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/usr/local/sbin:/Users/amalvetta/Library/Android/sdk/platform-tools:/Users/amalvetta/Library/Android/sdk/tools:/Applications/MAMP/Library/bin:/Users/amalvetta/Library/Android/sdk/platform-tools:/Users/amalvetta/Library/Android/sdk/tools:/Applications/MAMP/Library/bin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
 
 Yarn version: 
   1.9.4
@@ -15,12 +15,12 @@ Platform:
 
 Trace: 
   Error: https://registry.yarnpkg.com/@babel%2fproposal-decorators: Not found
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:64202:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:137468:22)
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:64202:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:137468:22)
       at Request.emit (events.js:180:13)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:138440:10)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:138440:10)
       at Request.emit (events.js:180:13)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:138362:12)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.9.4/libexec/lib/cli.js:138362:12)
       at Object.onceWrapper (events.js:272:13)
       at IncomingMessage.emit (events.js:185:15)
       at endReadableNT (_stream_readable.js:1106:12)
@@ -33,7 +33,6 @@ npm manifest:
     "description": "",
     "main": "app.js",
     "dependencies": {
-      "@polymer/polymer": "^3.2.0",
       "@webcomponents/webcomponentsjs": "^2.2.7",
       "lit-element": "^2.1.0"
     },
@@ -41,7 +40,6 @@ npm manifest:
       "@babel/core": "^7.2.2",
       "@babel/plugin-syntax-dynamic-import": "^7.2.0",
       "@babel/preset-env": "^7.2.3",
-      "@babel/preset-react": "^7.0.0",
       "babel-loader": "^8.0.5",
       "clean-webpack-plugin": "^2.0.1",
       "copy-webpack-plugin": "^5.0.2",
@@ -115,13 +113,6 @@ Lockfile:
     dependencies:
       "@babel/helper-explode-assignable-expression" "^7.1.0"
       "@babel/types" "^7.0.0"
-  
-  "@babel/helper-builder-react-jsx@^7.3.0":
-    version "7.3.0"
-    resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.3.0.tgz#a1ac95a5d2b3e88ae5e54846bf462eeb81b318a4"
-    dependencies:
-      "@babel/types" "^7.3.0"
-      esutils "^2.0.0"
   
   "@babel/helper-call-delegate@^7.4.0":
     version "7.4.0"
@@ -321,12 +312,6 @@ Lockfile:
     dependencies:
       "@babel/helper-plugin-utils" "^7.0.0"
   
-  "@babel/plugin-syntax-jsx@^7.2.0":
-    version "7.2.0"
-    resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.2.0.tgz#0b85a3b4bc7cdf4cc4b8bf236335b907ca22e7c7"
-    dependencies:
-      "@babel/helper-plugin-utils" "^7.0.0"
-  
   "@babel/plugin-syntax-object-rest-spread@^7.2.0":
     version "7.2.0"
     resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-object-rest-spread/-/plugin-syntax-object-rest-spread-7.2.0.tgz#3b7a3e733510c57e820b9142a6579ac8b0dfad2e"
@@ -487,34 +472,6 @@ Lockfile:
       "@babel/helper-get-function-arity" "^7.0.0"
       "@babel/helper-plugin-utils" "^7.0.0"
   
-  "@babel/plugin-transform-react-display-name@^7.0.0":
-    version "7.2.0"
-    resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.2.0.tgz#ebfaed87834ce8dc4279609a4f0c324c156e3eb0"
-    dependencies:
-      "@babel/helper-plugin-utils" "^7.0.0"
-  
-  "@babel/plugin-transform-react-jsx-self@^7.0.0":
-    version "7.2.0"
-    resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-self/-/plugin-transform-react-jsx-self-7.2.0.tgz#461e21ad9478f1031dd5e276108d027f1b5240ba"
-    dependencies:
-      "@babel/helper-plugin-utils" "^7.0.0"
-      "@babel/plugin-syntax-jsx" "^7.2.0"
-  
-  "@babel/plugin-transform-react-jsx-source@^7.0.0":
-    version "7.2.0"
-    resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.2.0.tgz#20c8c60f0140f5dd3cd63418d452801cf3f7180f"
-    dependencies:
-      "@babel/helper-plugin-utils" "^7.0.0"
-      "@babel/plugin-syntax-jsx" "^7.2.0"
-  
-  "@babel/plugin-transform-react-jsx@^7.0.0":
-    version "7.3.0"
-    resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.3.0.tgz#f2cab99026631c767e2745a5368b331cfe8f5290"
-    dependencies:
-      "@babel/helper-builder-react-jsx" "^7.3.0"
-      "@babel/helper-plugin-utils" "^7.0.0"
-      "@babel/plugin-syntax-jsx" "^7.2.0"
-  
   "@babel/plugin-transform-regenerator@^7.4.0":
     version "7.4.0"
     resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.4.0.tgz#0780e27ee458cc3fdbad18294d703e972ae1f6d1"
@@ -611,16 +568,6 @@ Lockfile:
       js-levenshtein "^1.1.3"
       semver "^5.3.0"
   
-  "@babel/preset-react@^7.0.0":
-    version "7.0.0"
-    resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.0.0.tgz#e86b4b3d99433c7b3e9e91747e2653958bc6b3c0"
-    dependencies:
-      "@babel/helper-plugin-utils" "^7.0.0"
-      "@babel/plugin-transform-react-display-name" "^7.0.0"
-      "@babel/plugin-transform-react-jsx" "^7.0.0"
-      "@babel/plugin-transform-react-jsx-self" "^7.0.0"
-      "@babel/plugin-transform-react-jsx-source" "^7.0.0"
-  
   "@babel/template@^7.1.0", "@babel/template@^7.2.2", "@babel/template@^7.4.0":
     version "7.4.0"
     resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.0.tgz#12474e9c077bae585c5d835a95c0b0b790c25c8b"
@@ -643,19 +590,13 @@ Lockfile:
       globals "^11.1.0"
       lodash "^4.17.11"
   
-  "@babel/types@^7.0.0", "@babel/types@^7.2.0", "@babel/types@^7.2.2", "@babel/types@^7.3.0", "@babel/types@^7.4.0":
+  "@babel/types@^7.0.0", "@babel/types@^7.2.0", "@babel/types@^7.2.2", "@babel/types@^7.4.0":
     version "7.4.0"
     resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.4.0.tgz#670724f77d24cce6cc7d8cf64599d511d164894c"
     dependencies:
       esutils "^2.0.2"
       lodash "^4.17.11"
       to-fast-properties "^2.0.0"
-  
-  "@polymer/polymer@^3.2.0":
-    version "3.2.0"
-    resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.2.0.tgz#b41fddec4ecac63b12936b93726678d23add7afd"
-    dependencies:
-      "@webcomponents/shadycss" "^1.8.0"
   
   "@webassemblyjs/ast@1.8.5":
     version "1.8.5"
@@ -784,10 +725,6 @@ Lockfile:
       "@webassemblyjs/ast" "1.8.5"
       "@webassemblyjs/wast-parser" "1.8.5"
       "@xtuc/long" "4.2.2"
-  
-  "@webcomponents/shadycss@^1.8.0":
-    version "1.9.0"
-    resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.0.tgz#8450465037370d4f5c32e801bb2554a7cf2f5037"
   
   "@webcomponents/webcomponentsjs@^2.2.7":
     version "2.2.7"
@@ -1701,7 +1638,7 @@ Lockfile:
     version "4.2.0"
     resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
   
-  esutils@^2.0.0, esutils@^2.0.2:
+  esutils@^2.0.2:
     version "2.0.2"
     resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
   

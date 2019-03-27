@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from "lit-element";
 
 class WebComponent extends LitElement {
   constructor() {
@@ -29,4 +29,4 @@ class WebComponent extends LitElement {
   }
 }
 
-customElements.define('web-component', WebComponent);
+customElements.define("web-component", WebComponent);

@@ -1,1 +1,3 @@
-import './components/web-component';
+WebComponents.waitFor(async () => {
+  return import("./components/web-component.js");
+});
