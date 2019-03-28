@@ -8,6 +8,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [ ] Integrate Storybook in the project
 - [ ] Investigate on event handlers, event propagation, etc.
 - [ ] Create a demo
+- [ ] More browser testing with Browserstack
 
 ## Prerequisites
 - Node.js - [https://nodejs.org/en/](https://nodejs.org/en/)
