@@ -161,6 +161,7 @@ const developmentConfig = merge([
       port: 5000,
       host: 'localhost',
       historyApiFallback: true,
+      disableHostCheck: true,
       proxy: {
         '/api': 'http://localhost:8000'
       }
