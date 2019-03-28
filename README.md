@@ -1,4 +1,5 @@
 # Web Components with LitElement
+LitElement starter built with webpack and modern tools
 
 Take a look at this
 https://github.com/web-padawan/polymer3-webpack-starter
