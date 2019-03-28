@@ -5,26 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Web Components</title>
-    <script
-      src="./vendor/webcomponents/custom-elements-es5-adapter.js"
-      defer
-    ></script>
-    <script src="./vendor/webcomponents/webcomponents-loader.js" defer></script>
-    <script type="module">
-      window.WebComponents = window.WebComponents || {
-        waitFor(cb) {
-          addEventListener("WebComponentsReady", cb);
-        }
-      };
-      WebComponents.waitFor(async () => {
-        return import("./app.js");
-      });
-    </script>
   </head>
   <body>
-    <web-component msg="brett"></web-component>
-    <web-component msg="ethan"></web-component>
-    <web-component msg="andrea"></web-component>
-    <web-component msg="geoff"></web-component>
+    <custom-author>
+      <span>Author: Brett</span>
+      <author-quote>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </author-quote>
+    </custom-author>
+    <custom-author>
+      <span>Author: Ethan</span>
+      <author-quote>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </author-quote>
+    </custom-author>
+    <custom-author>
+      <span>Author: Andrea</span>
+      <author-quote>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </author-quote>
+    </custom-author>
+    <custom-author>
+      <span>Author: Geoff</span>
+      <author-quote>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </author-quote>
+    </custom-author>
+
+    <!-- Load the external helpers to run the code transpiled to ES5 -->
+    <script src="./vendor/babel-helpers.min.js"></script>
+    <script src="./vendor/regenerator-runtime.min.js"></script>
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="./vendor/webcomponents-loader.js"></script>
   </body>
 </html>

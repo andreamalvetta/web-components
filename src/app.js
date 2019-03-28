@@ -1,3 +1,3 @@
 WebComponents.waitFor(async () => {
-  return import("./components/web-component.js");
+  return Promise.all([import('./components/author.js'), import('./components/author-quote.js')]);
 });

@@ -1,6 +1,6 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from 'lit-element';
 
-class WebComponent extends LitElement {
+class Author extends LitElement {
   constructor() {
     super();
   }
@@ -18,15 +18,15 @@ class WebComponent extends LitElement {
           margin: 1rem 0;
         }
       </style>
-      hello: ${this.msg}
+      <slot></slot>
     `;
   }
 
   static get properties() {
     return {
-      msg: { type: String }
+      name: { type: String }
     };
   }
 }
 
-customElements.define("web-component", WebComponent);
+customElements.define('custom-author', Author);
