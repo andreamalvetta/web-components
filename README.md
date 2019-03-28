@@ -1,4 +1,4 @@
-# web-components
+# Web Components with LitElement
 
-take a look at this
+Take a look at this
 https://github.com/web-padawan/polymer3-webpack-starter

@@ -41,7 +41,7 @@
     "workbox-webpack-plugin": "^4.1.1"
   },
   "scripts": {
-    "build": "webpack --env production",
+    "build": "node utils/generate-helpers.js && webpack --env production",
     "start": "node utils/generate-helpers.js && webpack-dev-server --env development"
   },
   "author": "",
