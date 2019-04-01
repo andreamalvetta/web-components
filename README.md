@@ -2,7 +2,7 @@
 
 LitElement starter built with webpack and modern tools
 
-Take a look at this
+This project has been created using the following repo as reference:
 https://github.com/web-padawan/polymer3-webpack-starter
 
 ## To-Do List
