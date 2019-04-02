@@ -59,7 +59,7 @@ const commonConfig = merge([
       rules: [
         {
           test: /\.js$/,
-          use: [BabelMultiTargetPlugin.loader(), 'uglify-template-string-loader']
+          use: [BabelMultiTargetPlugin.loader()]
         }
       ]
     },
@@ -81,12 +81,15 @@ const commonConfig = merge([
               require('babel-plugin-template-html-minifier'),
               {
                 modules: {
-                  '@polymer/polymer/lib/utils/html-tag.js': ['html']
+                  'lit-html': ['html'],
+                  'lit-element': ['html', { name: 'css', encapsulation: 'style' }],
+                  'choo/html': [null],
+                  hyperhtml: [{ name: 'bind', type: 'factory' }],
+                  'hyperhtml-element': [{ name: null, member: 'html' }]
                 },
                 htmlMinifier: {
                   collapseWhitespace: true,
-                  minifyCSS: true,
-                  removeComments: true
+                  minifyCSS: true
                 }
               }
             ]

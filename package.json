@@ -44,7 +44,6 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
-    "uglify-template-string-loader": "^1.1.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-babel-multi-target-plugin": "^2.1.0",

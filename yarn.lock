@@ -6182,10 +6182,6 @@ uglify-js@^3.5.1:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uglify-template-string-loader@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/uglify-template-string-loader/-/uglify-template-string-loader-1.1.0.tgz#23074e028963113b15e6e595c4c464c9e51fe085"
-
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
