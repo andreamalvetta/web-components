@@ -65,6 +65,7 @@ const mainHelpers = [
   // es2015 destructuring
   'objectDestructuringEmpty',
   'objectWithoutProperties',
+  'objectWithoutPropertiesLoose',
 
   // es2015 template-literals
   'taggedTemplateLiteral',

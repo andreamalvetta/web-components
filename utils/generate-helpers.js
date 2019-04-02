@@ -5,10 +5,12 @@ const path = require('path');
 const fs = require('fs');
 
 const helperWhitelist = require('./helper-whitelist');
+const helperWhitelistModern = require('./helper-whitelist-modern');
 
 const babelPresetMinify = require('babel-preset-minify')({}, { simplifyComparisons: false });
 
 minifyAndWriteJs(babelCore.buildExternalHelpers(helperWhitelist), 'babel-helpers.min.js');
+minifyAndWriteJs(babelCore.buildExternalHelpers(helperWhitelistModern), 'babel-helpers-modern.min.js');
 
 const dir = path.dirname(require.resolve('regenerator-runtime'));
 const js = fs.readFileSync(path.join(dir, 'runtime.js'), 'utf-8');

@@ -1,80 +1,73 @@
-"use strict";
+'use strict';
 
-const { resolve, join } = require("path");
-const merge = require("webpack-merge");
-const { BabelMultiTargetPlugin } = require("webpack-babel-multi-target-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const TerserWebpackPlugin = require("terser-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const { InjectManifest } = require("workbox-webpack-plugin");
-const helperWhitelist = require("./utils/helper-whitelist");
+const { resolve, join } = require('path');
+const merge = require('webpack-merge');
+const { BabelMultiTargetPlugin } = require('webpack-babel-multi-target-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { InjectManifest } = require('workbox-webpack-plugin');
+const helperWhitelist = require('./utils/helper-whitelist');
+const helperWhitelistModern = require('./utils/helper-whitelist-modern');
 
-const ENV = process.argv.find(arg => arg.includes("production"))
-  ? "production"
-  : "development";
-const ANALYZE = process.argv.find(arg => arg.includes("--analyze"));
-const OUTPUT_PATH = ENV === "production" ? resolve("dist") : resolve("src");
-const INDEX_TEMPLATE = resolve("./src/index.html");
+const ENV = process.argv.find(arg => arg.includes('production')) ? 'production' : 'development';
+const ANALYZE = process.argv.find(arg => arg.includes('--analyze'));
+const OUTPUT_PATH = ENV === 'production' ? resolve('dist') : resolve('src');
+const INDEX_TEMPLATE = resolve('./src/index.html');
 
-const webcomponentsjs = "./node_modules/@webcomponents/webcomponentsjs";
+const webcomponentsjs = './node_modules/@webcomponents/webcomponentsjs';
 
 const polyfills = [
   {
     from: resolve(`${webcomponentsjs}/webcomponents-*.{js,map}`),
-    to: join(OUTPUT_PATH, "vendor"),
+    to: join(OUTPUT_PATH, 'vendor'),
     flatten: true
   },
   {
     from: resolve(`${webcomponentsjs}/bundles/*.{js,map}`),
-    to: join(OUTPUT_PATH, "vendor", "bundles"),
+    to: join(OUTPUT_PATH, 'vendor', 'bundles'),
     flatten: true
   }
 ];
 
 const helpers = [
   {
-    from: resolve("./src/vendor/babel-helpers.min.js"),
-    to: join(OUTPUT_PATH, "vendor")
-  },
-  {
-    from: resolve("./src/vendor/regenerator-runtime.min.js"),
-    to: join(OUTPUT_PATH, "vendor")
+    from: resolve('./src/vendor/*.js'),
+    to: join(OUTPUT_PATH, 'vendor'),
+    flatten: true
   }
 ];
 
 const assets = [
   {
-    from: resolve("./src/assets"),
-    to: join(OUTPUT_PATH, "assets")
+    from: resolve('./src/assets'),
+    to: join(OUTPUT_PATH, 'assets')
   },
   {
-    from: resolve("./src/favicon.ico"),
+    from: resolve('./src/favicon.ico'),
     to: OUTPUT_PATH
   },
   {
-    from: resolve("./src/manifest.json"),
+    from: resolve('./src/manifest.json'),
     to: OUTPUT_PATH
   }
 ];
 
 const commonConfig = merge([
   {
-    entry: "./src/app.js",
+    entry: './src/app.js',
     output: {
       path: OUTPUT_PATH,
-      filename: "[name].[chunkhash:8].js"
+      filename: '[name].[chunkhash:8].js'
     },
     module: {
       rules: [
         {
           test: /\.js$/,
-          use: [
-            BabelMultiTargetPlugin.loader(),
-            "uglify-template-string-loader"
-          ]
+          use: [BabelMultiTargetPlugin.loader(), 'uglify-template-string-loader']
         }
       ]
     },
@@ -85,18 +78,18 @@ const commonConfig = merge([
         babel: {
           plugins: [
             [
-              require("@babel/plugin-external-helpers"),
+              require('@babel/plugin-external-helpers'),
               {
-                whitelist: helperWhitelist
+                whitelist: [...helperWhitelist, ...helperWhitelistModern]
               }
             ],
 
             // Minify HTML and CSS in tagged template literals
             [
-              require("babel-plugin-template-html-minifier"),
+              require('babel-plugin-template-html-minifier'),
               {
                 modules: {
-                  "@polymer/polymer/lib/utils/html-tag.js": ["html"]
+                  '@polymer/polymer/lib/utils/html-tag.js': ['html']
                 },
                 htmlMinifier: {
                   collapseWhitespace: true,
@@ -110,7 +103,8 @@ const commonConfig = merge([
           // @babel/preset-env options common for all bundles
           presetOptions: {
             // Don’t add polyfills, they are provided from webcomponents-loader.js
-            useBuiltIns: false
+            useBuiltIns: false,
+            debug: true
           }
         },
 
@@ -125,23 +119,19 @@ const commonConfig = merge([
         ],
 
         // Fix for `nomodule` attribute to work correctly in Safari 10.1
-        safari10NoModuleFix: "inline-data-base64",
+        safari10NoModuleFix: 'inline-data-base64',
 
         // Target browsers with and without ES modules support
         targets: {
           es6: {
-            browsers: [
-              "Chrome >= 60",
-              "Firefox >= 60",
-              "Safari >= 10",
-              "iOS >= 10",
-              "Edge >= 12"
-            ],
+            browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15'],
             tagAssetsWithKey: false, // don’t append a suffix to the file name
             esModule: true // marks the bundle used with <script type="module">
           },
           es5: {
-            browsers: ["ie 11"],
+            browsers: [
+              'defaults' // > 0.5%, last 2 versions, Firefox ESR, not dead
+            ],
             tagAssetsWithKey: true, // append a suffix to the file name
             noModule: true // marks the bundle included without `type="module"`
           }
@@ -153,7 +143,7 @@ const commonConfig = merge([
 
 const developmentConfig = merge([
   {
-    devtool: "cheap-module-source-map",
+    devtool: 'cheap-module-source-map',
     plugins: [
       new CopyWebpackPlugin(polyfills),
       new HtmlWebpackPlugin({
@@ -165,11 +155,11 @@ const developmentConfig = merge([
       compress: true,
       overlay: true,
       port: 5000,
-      host: "localhost",
+      host: 'localhost',
       historyApiFallback: true,
       disableHostCheck: true,
       proxy: {
-        "/api": "http://localhost:8000"
+        '/api': 'http://localhost:8000'
       }
     }
   }
@@ -179,7 +169,7 @@ const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
 
 const productionConfig = merge([
   {
-    devtool: "nosources-source-map",
+    devtool: 'nosources-source-map',
     optimization: {
       minimizer: [
         new TerserWebpackPlugin({
@@ -194,7 +184,7 @@ const productionConfig = merge([
       ]
     },
     plugins: [
-      new CleanWebpackPlugin(),
+      new CleanWebpackPlugin({ verbose: true }),
       new CopyWebpackPlugin([...polyfills, ...helpers, ...assets]),
       new HtmlWebpackPlugin({
         template: INDEX_TEMPLATE,
@@ -206,25 +196,21 @@ const productionConfig = merge([
         }
       }),
       new InjectManifest({
-        swSrc: resolve("src", "service-worker.js"),
-        swDest: resolve(OUTPUT_PATH, "sw.js"),
-        exclude: [
-          /.*\.map$/,
-          /.*\/webcomponents-(?!loader).*\.js$/,
-          /.*\.es5\..*\.js$/
-        ]
+        swSrc: resolve('src', 'service-worker.js'),
+        swDest: resolve(OUTPUT_PATH, 'sw.js'),
+        exclude: [/.*\.map$/, /.*\/webcomponents-(?!loader).*\.js$/, /.*\.es5\..*\.js$/]
       }),
       new CompressionPlugin({
-        filename: "[path].gz[query]",
+        filename: '[path].gz[query]',
         test: /\.js(\.map)?$/i,
-        algorithm: "gzip",
+        algorithm: 'gzip',
         threshold: 20,
         minRatio: 0.8
       }),
       new CompressionPlugin({
-        filename: "[path].br[query]",
+        filename: '[path].br[query]',
         test: /\.js(\.map)?$/i,
-        algorithm: "brotliCompress",
+        algorithm: 'brotliCompress',
         threshold: 20,
         minRatio: 0.8,
         deleteOriginalAssets: false
@@ -235,7 +221,7 @@ const productionConfig = merge([
 ]);
 
 module.exports = mode => {
-  if (mode === "production") {
+  if (mode === 'production') {
     return merge(commonConfig, productionConfig, { mode });
   }
 
