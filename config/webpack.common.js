@@ -92,7 +92,9 @@ const commonConfig = merge([
                   minifyCSS: true
                 }
               }
-            ]
+            ],
+            require('@babel/plugin-proposal-class-properties'),
+            [require('@babel/plugin-proposal-decorators'), { decoratorsBeforeExport: true }]
           ],
 
           // @babel/preset-env options common for all bundles
