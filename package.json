@@ -1,8 +1,14 @@
 {
   "name": "web-components",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "LitElement starter built with webpack and modern tools",
+  "main": "src/app.js",
+  "author": "Andrea Malvetta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreamalvetta/web-components.git"
+  },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "lit-element": "^2.1.0"
@@ -60,7 +66,5 @@
   "scripts": {
     "build": "node src/utils/generate-helpers.js && webpack --env production --config config/webpack.config.prod.js",
     "start": "node src/utils/generate-helpers.js && webpack-dev-server --env development --config config/webpack.config.dev.js"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
