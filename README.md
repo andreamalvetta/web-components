@@ -13,7 +13,7 @@ Github Pages - https://andreamalvetta.github.io/web-components
 - [x] Tidy-up webpack config
 - [ ] Integrate Storybook in the project
 - [x] Investigate on event handlers, event propagation, etc.
-- [ ] Create a demo
+- [x] Create a demo
 - [ ] More browser testing with Browserstack
 
 ## Prerequisites
