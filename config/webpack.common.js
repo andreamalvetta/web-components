@@ -1,33 +1,25 @@
-'use strict';
-
 const { resolve, join } = require('path');
 const merge = require('webpack-merge');
 const { BabelMultiTargetPlugin } = require('webpack-babel-multi-target-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { InjectManifest } = require('workbox-webpack-plugin');
-const helperWhitelist = require('./utils/helper-whitelist');
-const helperWhitelistModern = require('./utils/helper-whitelist-modern');
+const helperWhitelist = require('../src/utils/helper-whitelist');
+const helperWhitelistModern = require('../src/utils/helper-whitelist-modern');
 
+const ROOT_DIR = resolve(__dirname, '../');
 const ENV = process.argv.find(arg => arg.includes('production')) ? 'production' : 'development';
 const ANALYZE = process.argv.find(arg => arg.includes('--analyze'));
-const OUTPUT_PATH = ENV === 'production' ? resolve('dist') : resolve('src');
-const INDEX_TEMPLATE = resolve('./src/index.html');
+const OUTPUT_PATH = ENV === 'production' ? resolve(ROOT_DIR, 'dist') : resolve(ROOT_DIR, 'src');
+const INDEX_TEMPLATE = resolve(ROOT_DIR, 'src/index.html');
 
-const webcomponentsjs = './node_modules/@webcomponents/webcomponentsjs';
+const webcomponentsjs = 'node_modules/@webcomponents/webcomponentsjs';
 
 const polyfills = [
   {
-    from: resolve(`${webcomponentsjs}/webcomponents-*.{js,map}`),
+    from: resolve(ROOT_DIR, `${webcomponentsjs}/webcomponents-*.{js,map}`),
     to: join(OUTPUT_PATH, 'vendor'),
     flatten: true
   },
   {
-    from: resolve(`${webcomponentsjs}/bundles/*.{js,map}`),
+    from: resolve(ROOT_DIR, `${webcomponentsjs}/bundles/*.{js,map}`),
     to: join(OUTPUT_PATH, 'vendor', 'bundles'),
     flatten: true
   }
@@ -35,7 +27,7 @@ const polyfills = [
 
 const helpers = [
   {
-    from: resolve('./src/vendor/*.js'),
+    from: resolve(ROOT_DIR, 'src/vendor/*.js'),
     to: join(OUTPUT_PATH, 'vendor'),
     flatten: true
   }
@@ -43,22 +35,22 @@ const helpers = [
 
 const assets = [
   {
-    from: resolve('./src/assets'),
+    from: resolve(ROOT_DIR, 'src/assets'),
     to: join(OUTPUT_PATH, 'assets')
   },
   {
-    from: resolve('./src/favicon.ico'),
+    from: resolve(ROOT_DIR, 'src/favicon.ico'),
     to: OUTPUT_PATH
   },
   {
-    from: resolve('./src/manifest.json'),
+    from: resolve(ROOT_DIR, 'src/manifest.json'),
     to: OUTPUT_PATH
   }
 ];
 
 const commonConfig = merge([
   {
-    entry: './src/app.js',
+    entry: resolve(ROOT_DIR, 'src/app.js'),
     output: {
       path: OUTPUT_PATH,
       filename: '[name].[chunkhash:8].js'
@@ -141,89 +133,13 @@ const commonConfig = merge([
   }
 ]);
 
-const developmentConfig = merge([
-  {
-    devtool: 'cheap-module-source-map',
-    plugins: [
-      new CopyWebpackPlugin(polyfills),
-      new HtmlWebpackPlugin({
-        template: INDEX_TEMPLATE
-      })
-    ],
-    devServer: {
-      contentBase: OUTPUT_PATH,
-      compress: true,
-      overlay: true,
-      port: 5000,
-      host: 'localhost',
-      historyApiFallback: true,
-      disableHostCheck: true,
-      proxy: {
-        '/api': 'http://localhost:8000'
-      }
-    }
-  }
-]);
-
-const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
-
-const productionConfig = merge([
-  {
-    devtool: 'nosources-source-map',
-    optimization: {
-      minimizer: [
-        new TerserWebpackPlugin({
-          terserOptions: {
-            output: {
-              comments: false
-            }
-          },
-          sourceMap: true,
-          parallel: true
-        })
-      ]
-    },
-    plugins: [
-      new CleanWebpackPlugin({ verbose: true }),
-      new CopyWebpackPlugin([...polyfills, ...helpers, ...assets]),
-      new HtmlWebpackPlugin({
-        template: INDEX_TEMPLATE,
-        minify: {
-          collapseWhitespace: true,
-          removeComments: true,
-          minifyCSS: true,
-          minifyJS: true
-        }
-      }),
-      new InjectManifest({
-        swSrc: resolve('src', 'service-worker.js'),
-        swDest: resolve(OUTPUT_PATH, 'sw.js'),
-        exclude: [/.*\.map$/, /.*\/webcomponents-(?!loader).*\.js$/, /.*\.es5\..*\.js$/]
-      }),
-      new CompressionPlugin({
-        filename: '[path].gz[query]',
-        test: /\.js(\.map)?$/i,
-        algorithm: 'gzip',
-        threshold: 20,
-        minRatio: 0.8
-      }),
-      new CompressionPlugin({
-        filename: '[path].br[query]',
-        test: /\.js(\.map)?$/i,
-        algorithm: 'brotliCompress',
-        threshold: 20,
-        minRatio: 0.8,
-        deleteOriginalAssets: false
-      }),
-      ...analyzeConfig
-    ]
-  }
-]);
-
-module.exports = mode => {
-  if (mode === 'production') {
-    return merge(commonConfig, productionConfig, { mode });
-  }
-
-  return merge(commonConfig, developmentConfig, { mode });
+module.exports = {
+  commonConfig,
+  polyfills,
+  helpers,
+  assets,
+  ROOT_DIR,
+  ANALYZE,
+  OUTPUT_PATH,
+  INDEX_TEMPLATE
 };

@@ -7,9 +7,9 @@ https://github.com/web-padawan/polymer3-webpack-starter
 
 ## To-Do List
 
-- [ ] Tidy-up webpack config
+- [x] Tidy-up webpack config
 - [ ] Integrate Storybook in the project
-- [ ] Investigate on event handlers, event propagation, etc.
+- [x] Investigate on event handlers, event propagation, etc.
 - [ ] Create a demo
 - [ ] More browser testing with Browserstack
 

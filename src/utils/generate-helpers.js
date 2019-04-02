@@ -24,7 +24,7 @@ function minifyAndWriteJs(js, filename) {
   const output = babelCore.transform(js, {
     presets: [babelPresetMinify]
   }).code;
-  const vendor = path.join(__dirname, '..', 'src', 'vendor');
+  const vendor = path.join(__dirname, '..', 'vendor');
   try {
     fs.mkdirSync(vendor);
   } catch (e) {
