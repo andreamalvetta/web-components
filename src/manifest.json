@@ -1,7 +1,7 @@
 {
-  "name": "Polymer 3 Webpack App",
-  "short_name": "Vaadin App",
-  "description": "demo project built with Vaadin components and Vaadin.Router library",
+  "name": "Web Components",
+  "short_name": "web-components",
+  "description": "LitElement starter built with webpack and modern tools",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#1576f3",
