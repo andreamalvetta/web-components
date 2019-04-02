@@ -2,7 +2,7 @@
   "name": "Web Components",
   "short_name": "web-components",
   "description": "LitElement starter built with webpack and modern tools",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#1576f3",
   "background_color": "#1576f3",
