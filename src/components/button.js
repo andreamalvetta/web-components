@@ -1,5 +1,5 @@
-import { LitElement, html } from "lit-element";
-import theme from "../styles/theme";
+import { LitElement, html } from 'lit-element';
+import theme from '../styles/theme';
 
 class Button extends LitElement {
   constructor() {
@@ -83,10 +83,7 @@ class Button extends LitElement {
   render() {
     return html`
       ${this.getStyles()}
-      <button
-        @click="${this.href ? this.handleHref : this.handleAnchor}"
-        ?disabled="${this.disabled}"
-      >
+      <button @click="${this.href ? this.handleHref : this.handleAnchor}" ?disabled="${this.disabled}">
         <slot></slot>
       </button>
     `;
@@ -107,4 +104,4 @@ class Button extends LitElement {
   }
 }
 
-customElements.define("custom-button", Button);
+customElements.define('custom-button', Button);
