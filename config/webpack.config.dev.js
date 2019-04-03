@@ -1,4 +1,5 @@
 const { commonConfig, polyfills, INDEX_TEMPLATE, OUTPUT_PATH } = require('./webpack.common');
+const { resolve } = require('path');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,7 +10,8 @@ const developmentConfig = merge([
     plugins: [
       new CopyWebpackPlugin(polyfills),
       new HtmlWebpackPlugin({
-        template: INDEX_TEMPLATE
+        template: INDEX_TEMPLATE,
+        filename: resolve(OUTPUT_PATH, 'index.html')
       })
     ],
     devServer: {

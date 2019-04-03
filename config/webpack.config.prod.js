@@ -22,6 +22,10 @@ const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
 
 const productionConfig = merge([
   {
+    output: {
+      path: resolve(OUTPUT_PATH, 'assets/js/'),
+      publicPath: 'assets/js/'
+    },
     devtool: 'nosources-source-map',
     optimization: {
       minimizer: [
@@ -37,10 +41,11 @@ const productionConfig = merge([
       ]
     },
     plugins: [
-      new CleanWebpackPlugin({ verbose: true }),
+      new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [resolve(OUTPUT_PATH)], verbose: true }),
       new CopyWebpackPlugin([...polyfills, ...helpers, ...assets]),
       new HtmlWebpackPlugin({
         template: INDEX_TEMPLATE,
+        filename: resolve(OUTPUT_PATH, 'index.html'),
         minify: {
           collapseWhitespace: true,
           removeComments: true,
@@ -55,16 +60,16 @@ const productionConfig = merge([
       }),
       new CompressionPlugin({
         filename: '[path].gz[query]',
-        test: /\.js(\.map)?$/i,
+        test: /\.js(\.map)?$|\.css$|\.html$/i,
         algorithm: 'gzip',
-        threshold: 20,
+        threshold: 10240,
         minRatio: 0.8
       }),
       new CompressionPlugin({
         filename: '[path].br[query]',
-        test: /\.js(\.map)?$/i,
+        test: /\.js(\.map)?$|\.css$|\.html$/i,
         algorithm: 'brotliCompress',
-        threshold: 20,
+        threshold: 10240,
         minRatio: 0.8,
         deleteOriginalAssets: false
       }),

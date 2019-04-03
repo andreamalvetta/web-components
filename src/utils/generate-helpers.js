@@ -25,12 +25,18 @@ function minifyAndWriteJs(js, filename) {
     presets: [babelPresetMinify]
   }).code;
   const vendor = path.join(__dirname, '..', 'vendor');
+  const vendorHelpers = path.join(__dirname, '..', 'vendor/helpers');
   try {
     fs.mkdirSync(vendor);
   } catch (e) {
     /* don't care */
   }
-  fs.writeFileSync(path.join(vendor, filename), output, {
+  try {
+    fs.mkdirSync(vendorHelpers);
+  } catch (e) {
+    /* don't care */
+  }
+  fs.writeFileSync(path.join(vendorHelpers, filename), output, {
     encoding: 'utf-8'
   });
 }

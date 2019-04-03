@@ -25,14 +25,14 @@
     <meta name="apple-mobile-web-app-title" content="Polymer 3 Webpack App" />
 
     <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" href="assets/images/icon-48x48.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="96x96" href="assets/images/icon-96x96.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="assets/img/icon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="96x96" href="assets/img/icon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/img/icon-192x192.png" />
 
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="assets/images/icon-144x144.png" />
+    <meta name="msapplication-TileImage" content="assets/img/icon-144x144.png" />
     <meta name="msapplication-TileColor" content="#1576f3" />
     <meta name="msapplication-tap-highlight" content="no" />
 
@@ -55,11 +55,11 @@
     <custom-button link>Link</custom-button>
     <custom-button disabled>Disabled</custom-button>
 
-    <script src="./vendor/babel-helpers-modern.min.js"></script>
+    <script src="vendor/helpers/babel-helpers-modern.min.js"></script>
     <!-- Load the external helpers to run the code transpiled to ES5 -->
-    <script nomodule src="./vendor/babel-helpers.min.js"></script>
-    <script nomodule src="./vendor/regenerator-runtime.min.js"></script>
+    <script nomodule src="vendor/helpers/babel-helpers.min.js"></script>
+    <script nomodule src="vendor/helpers/regenerator-runtime.min.js"></script>
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-    <script src="./vendor/webcomponents-loader.js"></script>
+    <script src="vendor/webcomponents/webcomponents-loader.js"></script>
   </body>
 </html>

@@ -15,20 +15,20 @@ const webcomponentsjs = 'node_modules/@webcomponents/webcomponentsjs';
 const polyfills = [
   {
     from: resolve(ROOT_DIR, `${webcomponentsjs}/webcomponents-*.{js,map}`),
-    to: join(OUTPUT_PATH, 'vendor'),
+    to: join(OUTPUT_PATH, 'vendor/webcomponents'),
     flatten: true
   },
   {
     from: resolve(ROOT_DIR, `${webcomponentsjs}/bundles/*.{js,map}`),
-    to: join(OUTPUT_PATH, 'vendor', 'bundles'),
+    to: join(OUTPUT_PATH, 'vendor/webcomponents', 'bundles'),
     flatten: true
   }
 ];
 
 const helpers = [
   {
-    from: resolve(ROOT_DIR, 'src/vendor/*.js'),
-    to: join(OUTPUT_PATH, 'vendor'),
+    from: resolve(ROOT_DIR, 'src/vendor/helpers/*.js'),
+    to: join(OUTPUT_PATH, 'vendor/helpers'),
     flatten: true
   }
 ];
@@ -48,13 +48,25 @@ const assets = [
   }
 ];
 
+const server = [
+  {
+    from: resolve(ROOT_DIR, 'src/server/server.js'),
+    to: join(OUTPUT_PATH, 'server/server.js')
+  },
+  {
+    from: resolve(ROOT_DIR, 'src/server/package.json'),
+    to: OUTPUT_PATH
+  }
+];
+
 const commonConfig = merge([
   {
-    entry: resolve(ROOT_DIR, 'src/app.js'),
     output: {
       path: OUTPUT_PATH,
-      filename: '[name].[chunkhash:8].js'
+      filename: '[name].[chunkhash:8].js',
+      chunkFilename: '[id].[chunkhash:8].js'
     },
+    entry: resolve(ROOT_DIR, 'src/app.js'),
     module: {
       rules: [
         {
