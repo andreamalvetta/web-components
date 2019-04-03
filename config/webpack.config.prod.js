@@ -60,16 +60,17 @@ const productionConfig = merge([
       }),
       new CompressionPlugin({
         filename: '[path].gz[query]',
-        test: /\.js(\.map)?$|\.css$|\.html$/i,
+        test: /\.(js|css|html|svg|map|ico)$/,
         algorithm: 'gzip',
-        threshold: 10240,
+        threshold: 20,
         minRatio: 0.8
       }),
       new CompressionPlugin({
         filename: '[path].br[query]',
-        test: /\.js(\.map)?$|\.css$|\.html$/i,
+        test: /\.(js|css|html|svg|map|ico)$/,
+        compressionOptions: { level: 11 },
         algorithm: 'brotliCompress',
-        threshold: 10240,
+        threshold: 20,
         minRatio: 0.8,
         deleteOriginalAssets: false
       }),
