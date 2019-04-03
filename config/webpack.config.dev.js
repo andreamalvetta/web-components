@@ -3,6 +3,7 @@ const { resolve } = require('path');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const developmentConfig = merge([
   {
@@ -12,6 +13,9 @@ const developmentConfig = merge([
       new HtmlWebpackPlugin({
         template: INDEX_TEMPLATE,
         filename: resolve(OUTPUT_PATH, 'index.html')
+      }),
+      new ScriptExtHtmlWebpackPlugin({
+        defaultAttribute: 'defer'
       })
     ],
     devServer: {

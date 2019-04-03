@@ -17,6 +17,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
 
@@ -52,6 +53,9 @@ const productionConfig = merge([
           minifyCSS: true,
           minifyJS: true
         }
+      }),
+      new ScriptExtHtmlWebpackPlugin({
+        defaultAttribute: 'defer'
       }),
       new InjectManifest({
         swSrc: resolve(ROOT_DIR, 'src', 'service-worker.js'),
