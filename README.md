@@ -7,6 +7,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 
 ## Demo
 Github Pages - https://andreamalvetta.github.io/web-components
+Heroku (with Express server) - https://web-components-lit-element.herokuapp.com/
 
 ## To-Do List
 
