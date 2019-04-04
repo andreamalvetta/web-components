@@ -19,6 +19,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [x] Setup CSS/SCSS handler into webpack
 - [ ] Setup images handler into webpack
 - [ ] Setup fonts handler into webpack
+- [ ] Unit tests
 
 ## Prerequisites
 
