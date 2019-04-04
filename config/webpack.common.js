@@ -1,6 +1,7 @@
 const { resolve, join } = require('path');
 const merge = require('webpack-merge');
 const { BabelMultiTargetPlugin } = require('webpack-babel-multi-target-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const helperWhitelist = require('../src/utils/helper-whitelist');
 const helperWhitelistModern = require('../src/utils/helper-whitelist-modern');
 
@@ -63,8 +64,8 @@ const commonConfig = merge([
   {
     output: {
       path: OUTPUT_PATH,
-      filename: '[name].[chunkhash:8].js',
-      chunkFilename: '[id].[chunkhash:8].js'
+      filename: `assets/js/${ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js'}`,
+      chunkFilename: `assets/js/${ENV === 'production' ? '[id].[chunkhash:8].js' : '[id].js'}`
     },
     entry: resolve(ROOT_DIR, 'src/app.js'),
     module: {
@@ -72,6 +73,21 @@ const commonConfig = merge([
         {
           test: /\.js$/,
           use: [BabelMultiTargetPlugin.loader()]
+        },
+        {
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            ENV === 'production' ? { loader: MiniCssExtractPlugin.loader } : { loader: 'style-loader' },
+            { loader: 'css-loader', options: { sourceMap: true } },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [require('autoprefixer')],
+                sourceMap: true
+              }
+            },
+            { loader: 'sass-loader', options: { sourceMap: true } }
+          ]
         }
       ]
     },
@@ -145,8 +161,18 @@ const commonConfig = merge([
             noModule: true // marks the bundle included without `type="module"`
           }
         }
+      }),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: `assets/css/${ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css'}`,
+        chunkFilename: `assets/css/${ENV === 'production' ? '[id].[chunkhash:8].css' : '[id].css'}`
       })
-    ]
+    ],
+    resolve: {
+      extensions: ['.js', '.json', '.css', '.scss', '.sass'],
+      modules: [resolve(ROOT_DIR, 'node_modules'), resolve(ROOT_DIR, 'src')]
+    }
   }
 ]);
 

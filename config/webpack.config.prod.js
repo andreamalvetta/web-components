@@ -18,15 +18,12 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
 
 const productionConfig = merge([
   {
-    output: {
-      path: resolve(OUTPUT_PATH, 'assets/js/'),
-      publicPath: 'assets/js/'
-    },
     devtool: 'nosources-source-map',
     optimization: {
       minimizer: [
@@ -38,7 +35,8 @@ const productionConfig = merge([
           },
           sourceMap: true,
           parallel: true
-        })
+        }),
+        new OptimizeCSSAssetsPlugin({})
       ]
     },
     plugins: [
