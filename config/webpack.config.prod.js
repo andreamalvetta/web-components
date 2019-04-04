@@ -19,6 +19,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Critters = require('critters-webpack-plugin');
 
 const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
 
@@ -59,6 +60,12 @@ const productionConfig = merge([
         swSrc: resolve(ROOT_DIR, 'src', 'service-worker.js'),
         swDest: resolve(OUTPUT_PATH, 'sw.js'),
         exclude: [/.*\.map$/, /.*\/webcomponents-(?!loader).*\.js$/, /.*\.es5\..*\.js$/]
+      }),
+      new Critters({
+        preload: 'swap',
+        preloadFonts: true,
+        noscriptFallback: true,
+        pruneSource: false
       }),
       new CompressionPlugin({
         filename: '[path].gz[query]',

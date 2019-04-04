@@ -49,17 +49,6 @@ const assets = [
   }
 ];
 
-const server = [
-  {
-    from: resolve(ROOT_DIR, 'src/server/server.js'),
-    to: join(OUTPUT_PATH, 'server/server.js')
-  },
-  {
-    from: resolve(ROOT_DIR, 'src/server/package.json'),
-    to: OUTPUT_PATH
-  }
-];
-
 const commonConfig = merge([
   {
     output: {
