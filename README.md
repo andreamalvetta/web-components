@@ -49,3 +49,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 ## Contributions
 
 Feel free to contribute to this project
+
+## License
+
+This project is released under the [MIT License](http://www.opensource.org/licenses/MIT).
