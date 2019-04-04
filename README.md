@@ -16,7 +16,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [x] Investigate on event handlers, event propagation, etc.
 - [x] Create a demo
 - [ ] More browser testing with Browserstack
-- [ ] Setup CSS/SCSS handler into webpack
+- [x] Setup CSS/SCSS handler into webpack
 - [ ] Setup images handler into webpack
 - [ ] Setup fonts handler into webpack
 
