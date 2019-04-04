@@ -21,6 +21,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [ ] Setup fonts handler into webpack
 - [ ] Static HTML generation
 - [ ] Unit tests
+- [ ] Add contributions instructions (CONTRIBUTING.md)
 
 ## Prerequisites
 
