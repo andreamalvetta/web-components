@@ -53,4 +53,4 @@ Feel free to contribute to this project
 
 ## License
 
-This project is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+This project is released under the [MIT License](http://www.opensource.org/licenses/MIT)
