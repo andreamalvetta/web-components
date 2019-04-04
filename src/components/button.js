@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import theme from '../styles/theme';
+import icon from '../assets/img/icon-48x48.png';
 
 class Button extends LitElement {
   constructor() {
@@ -68,6 +69,24 @@ class Button extends LitElement {
         :host([link]) button:hover {
           text-decoration: underline;
         }
+
+        :host button img {
+          width: 20px;
+          position: relative;
+          margin-right: 8px;
+          overflow: hidden;
+          border-radius: 50%;
+          margin-top: 10px;
+          float: left;
+        }
+
+        :host([large]) button img {
+          margin-top: 4px;
+        }
+
+        :host([small]) button img {
+          margin-top: 5px;
+        }
       </style>
     `;
   }
@@ -84,6 +103,7 @@ class Button extends LitElement {
     return html`
       ${this.getStyles()}
       <button @click="${this.href ? this.handleHref : this.handleAnchor}" ?disabled="${this.disabled}">
+        <img src="${icon}" />
         <slot></slot>
       </button>
     `;

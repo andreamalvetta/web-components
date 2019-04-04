@@ -77,6 +77,19 @@ const commonConfig = merge([
             },
             { loader: 'sass-loader', options: { sourceMap: true } }
           ]
+        },
+        {
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                fallback: 'file-loader',
+                limit: 10000,
+                name: `assets/img/${ENV === 'production' ? '[name].[hash:8].[ext]' : '[name].[ext]'}`
+              }
+            }
+          ]
         }
       ]
     },
