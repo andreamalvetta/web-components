@@ -17,7 +17,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [x] Create a demo
 - [ ] More browser testing with Browserstack
 - [x] Setup CSS/SCSS handler into webpack
-- [ ] Setup images handler into webpack
+- [x] Setup images handler into webpack
 - [ ] Setup fonts handler into webpack
 - [ ] Static HTML generation
 - [ ] Unit tests
