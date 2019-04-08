@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import theme from '../styles/theme';
-import icon from '../assets/img/icon-48x48.png';
+import icon from '../assets/img/icons/icon-48x48.png';
 
 class Button extends LitElement {
   constructor() {

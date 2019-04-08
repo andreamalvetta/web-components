@@ -31,6 +31,11 @@ const helpers = [
     from: resolve(ROOT_DIR, 'src/vendor/helpers/*.js'),
     to: join(OUTPUT_PATH, 'vendor/helpers'),
     flatten: true
+  },
+  {
+    from: resolve(ROOT_DIR, 'src/vendor/images/*.js'),
+    to: join(OUTPUT_PATH, 'vendor/images'),
+    flatten: true
   }
 ];
 
