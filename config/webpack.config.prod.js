@@ -64,8 +64,8 @@ const productionConfig = merge([
       new Critters({
         preload: 'swap',
         preloadFonts: true,
-        noscriptFallback: true,
-        pruneSource: false
+        noscriptFallback: true
+        // pruneSource: false
       }),
       new CompressionPlugin({
         filename: '[path].gz[query]',
