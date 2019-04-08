@@ -18,8 +18,8 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [ ] More browser testing with Browserstack
 - [x] Setup CSS/SCSS handler into webpack
 - [x] Setup images handler into webpack
-- [ ] Setup fonts handler into webpack
-- [ ] Static HTML generation
+- [x] Setup fonts handler into webpack
+- [ ] SEO content generation (see https://github.com/GoogleChrome/rendertron)
 - [ ] Unit tests
 - [ ] Add contributions instructions (CONTRIBUTING.md)
 
