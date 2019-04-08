@@ -64,7 +64,8 @@ const productionConfig = merge([
       new Critters({
         preload: 'swap',
         preloadFonts: true,
-        noscriptFallback: true
+        noscriptFallback: true,
+        inlineFonts: true
         // pruneSource: false
       }),
       new CompressionPlugin({

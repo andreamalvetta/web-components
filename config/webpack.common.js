@@ -97,7 +97,8 @@ const commonConfig = merge([
             {
               loader: 'file-loader',
               options: {
-                name: `assets/fonts/${ENV === 'production' ? '[name].[hash:8].[ext]' : '[name].[ext]'}`
+                name: '[name].[ext]',
+                publicPath: 'assets/fonts'
               }
             }
           ]
