@@ -90,6 +90,17 @@ const commonConfig = merge([
               }
             }
           ]
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: `assets/fonts/${ENV === 'production' ? '[name].[hash:8].[ext]' : '[name].[ext]'}`
+              }
+            }
+          ]
         }
       ]
     },

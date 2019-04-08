@@ -17,7 +17,7 @@ class Button extends LitElement {
           display: inline-block;
           font-family: ${theme.fontSans};
           font-size: ${theme.baseFontSize};
-          font-weight: ${theme.fontSemibold};
+          font-weight: ${theme.fontNormal};
           line-height: 2.5;
           padding: 0 12px;
           position: relative;
