@@ -1,3 +1,6 @@
+import 'lazysizes/plugins/respimg/ls.respimg';
+import 'lazysizes';
+
 import './styles/main';
 
 WebComponents.waitFor(async () => {

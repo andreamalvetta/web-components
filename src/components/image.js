@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import 'lazysizes';
 
 class Image extends LitElement {
   constructor() {
@@ -7,26 +6,37 @@ class Image extends LitElement {
     this.src = '';
     this.alt = '';
     this.responsive = false;
-    this.lazy = false;
     this.placeholderImg =
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsq6mrBwAE8QH5A52ECwAAAABJRU5ErkJggg==';
+    this.imgRootUrl = null;
+    this.imgExt = null;
+    this.devicePixelRatio = 1;
+    this.mediaQueries = ['(min-width: 801px)', '(min-width: 481px)', '(min-width: 321px)', '(max-width: 320px)'];
+    this.sizes = [1500, 800, 480, 320];
   }
 
   firstUpdated() {
+    const shadowImg = this.shadowRoot.querySelector('.lazy');
     if (this.responsive) {
       let url = this.src.split('_');
       this.imgRootUrl = url[0];
       url = url[2].split('.');
       this.imgExt = url[1];
+      shadowImg.addEventListener('lazybeforesizes', this.setPixelRatio(shadowImg));
       this.requestUpdate();
     }
-
-    const shadowImg = this.shadowRoot.querySelector('img');
-    shadowImg.addEventListener('lazybeforeunveil', this.unveil(shadowImg));
+    shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg));
   }
 
-  unveil(e) {
+  showImage(e) {
     lazySizes.loader.unveil(e);
+  }
+
+  setPixelRatio() {
+    const dpr = window.devicePixelRatio;
+    if (dpr === 2 || dpr > 2) {
+      this.devicePixelRatio = 2;
+    }
   }
 
   getStyles() {
@@ -43,30 +53,24 @@ class Image extends LitElement {
   render() {
     return html`
       ${this.getStyles()}
+      <noscript><img src="${this.src}" alt="${this.alt}"/></noscript>
       ${this.responsive
         ? html`
             <picture>
-              <source
-                media="(min-width: 801px)"
-                data-srcset="${this.imgRootUrl}_1500w_1x.${this.imgExt} 1x, ${this.imgRootUrl}_1500w_2x.${this
-                  .imgExt} 2x"
-              />
-              <source
-                media="(min-width: 481px)"
-                data-srcset="${this.imgRootUrl}_800w_1x.${this.imgExt} 1x, ${this.imgRootUrl}_800w_2x.${this.imgExt} 2x"
-              />
-              <source
-                media="(min-width: 321px)"
-                data-srcset="${this.imgRootUrl}_480w_1x.${this.imgExt} 1x, ${this.imgRootUrl}_480w_2x.${this.imgExt} 2x"
-              />
-              <source
-                data-srcset="${this.imgRootUrl}_320w_1x.${this.imgExt} 1x, ${this.imgRootUrl}_320w_2x.${this.imgExt} 2x"
-              />
-              <img src="${this.placeholderImg}" alt="${this.alt}" />
+              ${this.mediaQueries &&
+                this.sizes.map(
+                  (size, index) => html`
+                    <source
+                      media="${this.mediaQueries[index]}"
+                      data-srcset="${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${this.imgExt}"
+                    />
+                  `
+                )}
+              <img class="lazy" src="${this.placeholderImg}" alt="${this.alt}" />
             </picture>
           `
         : html`
-            <img data-src="${this.src}" src="${this.placeholderImg}" alt="${this.alt}" />
+            <img class="lazy" data-src="${this.src}" src="${this.placeholderImg}" alt="${this.alt}" />
           `}
     `;
   }
