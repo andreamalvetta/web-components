@@ -53,7 +53,6 @@ class Image extends LitElement {
   render() {
     return html`
       ${this.getStyles()}
-      <noscript><img src="${this.src}" alt="${this.alt}"/></noscript>
       ${this.responsive
         ? html`
             <picture>
