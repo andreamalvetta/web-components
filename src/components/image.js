@@ -19,11 +19,11 @@ class Image extends LitElement {
     const shadowImg = this.shadowRoot.querySelector('.lazy');
     if (this.responsive) {
       let url = this.src.split('_');
-      this.imgRootUrl = url[0];
+      this.setImgRoot(url);
       url = url[2].split('.');
-      this.imgExt = url[1];
-      shadowImg.addEventListener('lazybeforesizes', this.setPixelRatio(shadowImg));
-      this.requestUpdate();
+      this.setImgExt(url);
+      this.setPixelRatio();
+      shadowImg.addEventListener('lazybeforesizes', this.requestUpdate());
     }
     shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg));
   }
@@ -32,11 +32,22 @@ class Image extends LitElement {
     lazySizes.loader.unveil(e);
   }
 
+  setImgRoot(url) {
+    this.imgRootUrl = url[0];
+    return this.imgRootUrl;
+  }
+
+  setImgExt(url) {
+    this.imgExt = url[1];
+    return this.imgExt;
+  }
+
   setPixelRatio() {
     const dpr = window.devicePixelRatio;
     if (dpr === 2 || dpr > 2) {
       this.devicePixelRatio = 2;
     }
+    return this.devicePixelRatio;
   }
 
   getStyles() {
