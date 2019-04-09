@@ -23,7 +23,7 @@ class Image extends LitElement {
       url = url[2].split('.');
       this.setImgExt(url);
       this.setPixelRatio();
-      shadowImg.addEventListener('lazybeforesizes', this.requestUpdate());
+      this.requestUpdate();
     }
     shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg));
   }
