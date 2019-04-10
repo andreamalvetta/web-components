@@ -14,7 +14,8 @@
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "lazysizes": "^4.1.7",
-    "lit-element": "^2.1.0"
+    "lit-element": "^2.1.0",
+    "workbox-window": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

@@ -4,6 +4,7 @@
 // caching strategies, as Workbox will auto-inject that part when you build your
 // project. This is the perfect place to implement other great SW features.
 // (e.g. Web Push, etc...)
+workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 workbox.precaching.cleanupOutdatedCaches();
 

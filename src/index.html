@@ -35,15 +35,6 @@
     <meta name="msapplication-TileImage" content="assets/img/icons/icon-144x144.png" />
     <meta name="msapplication-TileColor" content="#1576f3" />
     <meta name="msapplication-tap-highlight" content="no" />
-
-    <script>
-      // Load and register pre-caching Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('sw.js');
-        });
-      }
-    </script>
   </head>
   <body>
     <custom-button href="google.com">Default</custom-button>
@@ -54,6 +45,11 @@
     <custom-button inverted>Inverted</custom-button>
     <custom-button link>Link</custom-button>
     <custom-button disabled>Disabled</custom-button>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias maxime eligendi dolorum error soluta deserunt
+      veniam, reprehenderit illum rem quasi perspiciatis. Nam debitis magnam architecto id iste aliquam odio amet?
+    </p>
 
     <div class="container">
       <lazy-image src="assets/img/img1/img1_1500w_1x.jpg" responsive alt="Responsive image 1"></lazy-image>
