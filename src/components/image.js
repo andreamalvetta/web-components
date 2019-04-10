@@ -29,11 +29,7 @@ class Image extends LitElement {
       this.requestUpdate();
     }
     this.shadowImg.addEventListener('lazybeforeunveil', this.showImage());
-    window.addEventListener('scroll', event => {
-      if (!this.isImageLoaded) {
-        this.showImage();
-      }
-    });
+    window.addEventListener('scroll', event => this.showImage());
     window.addEventListener('resize', () => {
       this.shadowImg.style.height = 'auto';
       clearTimeout(this.resizeEnd);
@@ -49,7 +45,7 @@ class Image extends LitElement {
   }
 
   showImage() {
-    if (isInViewport(this.shadowImg)) {
+    if (isInViewport(this.shadowImg) && !this.isImageLoaded) {
       this.isImageLoaded = true;
       lazySizes.loader.unveil(this.shadowImg);
     }
