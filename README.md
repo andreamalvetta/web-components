@@ -22,6 +22,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [ ] SEO content generation (see https://github.com/GoogleChrome/rendertron)
 - [ ] Unit tests
 - [ ] Add contributions instructions (CONTRIBUTING.md)
+- [ ] Force service worker update
 
 ## Prerequisites
 
