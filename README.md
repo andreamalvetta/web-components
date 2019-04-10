@@ -23,6 +23,8 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [ ] Unit tests
 - [ ] Add contributions instructions (CONTRIBUTING.md)
 - [x] Force service worker update
+- [ ] Remove hover state on devices with touch
+- [ ] Remove iOS 300ms click/tap delay
 
 ## Prerequisites
 
