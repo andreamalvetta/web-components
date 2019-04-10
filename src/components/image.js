@@ -1,4 +1,5 @@
 import { LitElement, html } from 'lit-element';
+import isInViewport from '../utils/isInViewport';
 
 class Image extends LitElement {
   constructor() {
@@ -6,30 +7,56 @@ class Image extends LitElement {
     this.src = '';
     this.alt = '';
     this.responsive = false;
-    this.placeholderImg =
-      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsq6mrBwAE8QH5A52ECwAAAABJRU5ErkJggg==';
+    this.placeholderImg = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"%3E%3C/svg%3E`;
     this.imgRootUrl = null;
     this.imgExt = null;
     this.devicePixelRatio = 1;
     this.mediaQueries = ['(min-width: 801px)', '(min-width: 481px)', '(min-width: 321px)', '(max-width: 320px)'];
     this.sizes = [1500, 800, 480, 320];
+    this.isImageLoaded = false;
+    this.resizeEnd = null;
   }
 
   firstUpdated() {
-    const shadowImg = this.shadowRoot.querySelector('.lazy');
+    this.shadowImg = this.shadowRoot.querySelector('img');
     if (this.responsive) {
       let url = this.src.split('_');
       this.setImgRoot(url);
       url = url[2].split('.');
       this.setImgExt(url);
       this.setPixelRatio();
+      this.setImgHeight();
       this.requestUpdate();
     }
-    shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg));
+    this.shadowImg.addEventListener('lazybeforeunveil', this.showImage());
+    window.addEventListener('scroll', event => {
+      if (!this.isImageLoaded) {
+        this.showImage();
+      }
+    });
+    window.addEventListener('resize', () => {
+      this.shadowImg.style.height = 'auto';
+      clearTimeout(this.resizeEnd);
+      this.resizeEnd = setTimeout(() => {
+        const evt = new Event('resizeend');
+        window.dispatchEvent(evt);
+      }, 100);
+    });
+    window.addEventListener('resizeend', () => {
+      this.setImgHeight();
+      this.showImage();
+    });
   }
 
-  showImage(e) {
-    lazySizes.loader.unveil(e);
+  showImage() {
+    if (isInViewport(this.shadowImg)) {
+      this.isImageLoaded = true;
+      lazySizes.loader.unveil(this.shadowImg);
+    }
+  }
+
+  setImgHeight() {
+    this.shadowImg.style.height = parseInt((this.shadowImg.width / 3) * 2) + 'px';
   }
 
   setImgRoot(url) {
@@ -76,11 +103,11 @@ class Image extends LitElement {
                     />
                   `
                 )}
-              <img class="lazy" src="${this.placeholderImg}" alt="${this.alt}" />
+              <img src="${this.placeholderImg}" alt="${this.alt}" />
             </picture>
           `
         : html`
-            <img class="lazy" data-src="${this.src}" src="${this.placeholderImg}" alt="${this.alt}" />
+            <img data-src="${this.src}" src="${this.placeholderImg}" alt="${this.alt}" />
           `}
     `;
   }
