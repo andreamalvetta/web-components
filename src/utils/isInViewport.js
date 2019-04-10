@@ -1,15 +1,15 @@
-const isInViewport = function(el) {
+const isInViewport = function(el, multiplier = 1) {
   const scroll = window.scrollY || window.pageYOffset;
   const boundsTop = el.getBoundingClientRect().top + scroll;
 
   const viewport = {
     top: scroll,
-    bottom: scroll + window.innerHeight
+    bottom: scroll + window.innerHeight * multiplier
   };
 
   const bounds = {
     top: boundsTop,
-    bottom: boundsTop + el.clientHeight
+    bottom: boundsTop + el.clientHeight * multiplier
   };
 
   return (

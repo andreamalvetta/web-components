@@ -1,4 +1,6 @@
 import { LitElement, html } from 'lit-element';
+import 'lazysizes/plugins/respimg/ls.respimg';
+import 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
 class Image extends LitElement {
@@ -7,14 +9,13 @@ class Image extends LitElement {
     this.src = '';
     this.alt = '';
     this.responsive = false;
-    this.placeholderImg = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"%3E%3C/svg%3E`;
+    this.placeholderImg = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
     this.imgRootUrl = null;
     this.imgExt = null;
     this.devicePixelRatio = 1;
     this.mediaQueries = ['(min-width: 801px)', '(min-width: 481px)', '(min-width: 321px)', '(max-width: 320px)'];
     this.sizes = [1500, 800, 480, 320];
     this.isImageLoaded = false;
-    this.resizeEnd = null;
   }
 
   firstUpdated() {
@@ -25,34 +26,18 @@ class Image extends LitElement {
       url = url[2].split('.');
       this.setImgExt(url);
       this.setPixelRatio();
-      this.setImgHeight();
       this.requestUpdate();
     }
     this.shadowImg.addEventListener('lazybeforeunveil', this.showImage());
-    window.addEventListener('scroll', event => this.showImage());
-    window.addEventListener('resize', () => {
-      this.shadowImg.style.height = 'auto';
-      clearTimeout(this.resizeEnd);
-      this.resizeEnd = setTimeout(() => {
-        const evt = new Event('resizeend');
-        window.dispatchEvent(evt);
-      }, 100);
-    });
-    window.addEventListener('resizeend', () => {
-      this.setImgHeight();
-      this.showImage();
-    });
+    window.addEventListener('scroll', () => this.showImage());
+    window.addEventListener('resize', () => this.showImage());
   }
 
   showImage() {
-    if (isInViewport(this.shadowImg) && !this.isImageLoaded) {
+    if (isInViewport(this.shadowImg, 1.5) && !this.isImageLoaded) {
       this.isImageLoaded = true;
       lazySizes.loader.unveil(this.shadowImg);
     }
-  }
-
-  setImgHeight() {
-    this.shadowImg.style.height = parseInt((this.shadowImg.width / 3) * 2) + 'px';
   }
 
   setImgRoot(url) {
@@ -67,7 +52,7 @@ class Image extends LitElement {
 
   setPixelRatio() {
     const dpr = window.devicePixelRatio;
-    if (dpr === 2 || dpr > 2) {
+    if (dpr >= 2) {
       this.devicePixelRatio = 2;
     }
     return this.devicePixelRatio;
@@ -76,9 +61,29 @@ class Image extends LitElement {
   getStyles() {
     return html`
       <style>
+        :host picture {
+          position: relative;
+          display: block;
+          margin-bottom: 5px;
+        }
+        :host picture:after {
+          content: '';
+          display: block;
+          height: 0;
+          width: 100%;
+          /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+          padding-bottom: 66.66%;
+        }
+        :host picture > img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
         :host img {
           width: 100%;
-          height: auto;
         }
       </style>
     `;

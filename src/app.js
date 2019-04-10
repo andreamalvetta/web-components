@@ -1,5 +1,3 @@
-import 'lazysizes/plugins/respimg/ls.respimg';
-import 'lazysizes';
 import { Workbox } from 'workbox-window';
 
 import './styles/main';
