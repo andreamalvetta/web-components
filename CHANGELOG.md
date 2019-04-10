@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.0.3](https://github.com/andreamalvetta/web-components/releases/tag/1.0.3) (2019-04-10)
+
+- Add font handler
+- Add font-display:swap to font-face
+- Add lazy/responsive images
+- Implement progressive JPGs
+- Add service worker notification on update
+- Fix lazy images on safari
+- Fix .DS_Store copy into dist
+
 ## [v1.0.2](https://github.com/andreamalvetta/web-components/releases/tag/1.0.2) (2019-04-04)
 
 - Change Webpack compress plugin configuration
