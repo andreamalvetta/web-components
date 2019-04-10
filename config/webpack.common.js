@@ -17,12 +17,14 @@ const polyfills = [
   {
     from: resolve(ROOT_DIR, `${webcomponentsjs}/webcomponents-*.{js,map}`),
     to: join(OUTPUT_PATH, 'vendor/webcomponents'),
-    flatten: true
+    flatten: true,
+    ignore: ['.DS_Store']
   },
   {
     from: resolve(ROOT_DIR, `${webcomponentsjs}/bundles/*.{js,map}`),
     to: join(OUTPUT_PATH, 'vendor/webcomponents', 'bundles'),
-    flatten: true
+    flatten: true,
+    ignore: ['.DS_Store']
   }
 ];
 
@@ -30,14 +32,16 @@ const helpers = [
   {
     from: resolve(ROOT_DIR, 'src/vendor/helpers/*.js'),
     to: join(OUTPUT_PATH, 'vendor/helpers'),
-    flatten: true
+    flatten: true,
+    ignore: ['.DS_Store']
   }
 ];
 
 const assets = [
   {
     from: resolve(ROOT_DIR, 'src/assets'),
-    to: join(OUTPUT_PATH, 'assets')
+    to: join(OUTPUT_PATH, 'assets'),
+    ignore: ['.DS_Store']
   },
   {
     from: resolve(ROOT_DIR, 'src/favicon.ico'),
