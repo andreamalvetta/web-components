@@ -8,7 +8,8 @@ class ScrollIndicator extends LitElement {
   }
 
   firstUpdated() {
-    window.addEventListener('scroll', () => this.scrollFunction());
+    window.addEventListener('load', () => this.scrollFunction());
+    window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
   }
 
   scrollFunction() {
@@ -21,7 +22,7 @@ class ScrollIndicator extends LitElement {
   }
 
   getScrollHeight() {
-    return document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    return document.documentElement.scrollHeight - window.outerHeight;
   }
 
   getStyles() {
