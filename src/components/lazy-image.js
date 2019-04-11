@@ -3,7 +3,7 @@ import 'lazysizes/plugins/respimg/ls.respimg';
 import 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
-class Image extends LitElement {
+class LazyImage extends LitElement {
   constructor() {
     super();
     this.src = '';
@@ -72,7 +72,7 @@ class Image extends LitElement {
           height: 0;
           width: 100%;
           /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
-          padding-bottom: 66.66%;
+          padding-bottom: ${!isNaN(this.height / this.width) ? ((this.height / this.width) * 100).toFixed(2) : 56.25}%;
         }
         :host picture > img {
           position: absolute;
@@ -84,6 +84,11 @@ class Image extends LitElement {
         }
         :host img {
           width: 100%;
+          opacity: 0;
+        }
+        :host img.lazyloaded {
+          opacity: 1;
+          transition: opacity 300ms;
         }
       </style>
     `;
@@ -117,9 +122,11 @@ class Image extends LitElement {
     return {
       src: { type: String },
       responsive: { type: Boolean },
-      alt: { type: String }
+      alt: { type: String },
+      width: { type: String },
+      height: { type: String }
     };
   }
 }
 
-customElements.define('lazy-image', Image);
+customElements.define('lazy-image', LazyImage);
