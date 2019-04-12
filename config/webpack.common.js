@@ -70,7 +70,12 @@ const commonConfig = merge([
         {
           test: /\.(sa|sc|c)ss$/,
           use: [
-            ENV === 'production' ? { loader: MiniCssExtractPlugin.loader } : { loader: 'style-loader' },
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: ENV === 'development'
+              }
+            },
             { loader: 'css-loader', options: { sourceMap: true } },
             {
               loader: 'postcss-loader',
@@ -183,8 +188,8 @@ const commonConfig = merge([
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
-        filename: `assets/css/${ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css'}`,
-        chunkFilename: `assets/css/${ENV === 'production' ? '[id].[chunkhash:8].css' : '[id].css'}`
+        filename: `${ENV === 'production' ? 'assets/css/[name].[chunkhash:8].css' : '[name].css'}`,
+        chunkFilename: `${ENV === 'production' ? 'assets/css/[id].[chunkhash:8].css' : '[id].css'}`
       })
     ],
     resolve: {

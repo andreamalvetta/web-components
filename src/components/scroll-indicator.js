@@ -3,11 +3,20 @@ import { LitElement, html } from 'lit-element';
 class ScrollIndicator extends LitElement {
   constructor() {
     super();
-    this.height = 5;
+    this.height = 3;
     this.width = 0;
   }
 
   firstUpdated() {
+    if (
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1) ||
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('SamsungBrowser') !== -1)
+    ) {
+      this.innerHeight = window.innerHeight + 56;
+      this.hasMovableBar = true;
+    }
+
     window.addEventListener('load', () => this.scrollFunction());
     window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
   }
@@ -22,7 +31,7 @@ class ScrollIndicator extends LitElement {
   }
 
   getScrollHeight() {
-    return document.documentElement.scrollHeight - window.outerHeight;
+    return document.documentElement.scrollHeight - (this.hasMovableBar ? this.innerHeight : window.innerHeight);
   }
 
   getStyles() {
