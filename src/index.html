@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-fouc">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,9 +35,16 @@
     <meta name="msapplication-TileImage" content="assets/img/icons/icon-144x144.png" />
     <meta name="msapplication-TileColor" content="#1576f3" />
     <meta name="msapplication-tap-highlight" content="no" />
-
+    <style>
+      html {
+        opacity: 1;
+        transition: opacity 300ms ease-in;
+      }
+      html.no-fouc {
+        opacity: 0;
+      }
+    </style>
     <script type="text/javascript" defer>
-      document.documentElement.className = 'no-fouc';
       window.addEventListener('load', function() {
         document.querySelector('.no-fouc').classList.remove('no-fouc');
       });
