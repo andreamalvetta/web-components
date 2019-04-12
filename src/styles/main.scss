@@ -1,5 +1,14 @@
 @import './partials/fonts';
 
+html {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+
+  &.no-fouc {
+    opacity: 0;
+  }
+}
+
 body {
   font-size: 15px;
   color: black;

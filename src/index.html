@@ -35,6 +35,13 @@
     <meta name="msapplication-TileImage" content="assets/img/icons/icon-144x144.png" />
     <meta name="msapplication-TileColor" content="#1576f3" />
     <meta name="msapplication-tap-highlight" content="no" />
+
+    <script type="text/javascript" defer>
+      document.documentElement.className = 'no-fouc';
+      window.addEventListener('load', function() {
+        document.querySelector('.no-fouc').classList.remove('no-fouc');
+      });
+    </script>
   </head>
   <body>
     <scroll-indicator></scroll-indicator>
