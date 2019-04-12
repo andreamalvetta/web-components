@@ -6,6 +6,7 @@ WebComponents.waitFor(async () => {
   return Promise.all([
     import('./components/button'),
     import('./components/lazy-image'),
+    import('./components/lazy-background'),
     import('./components/scroll-indicator')
   ]);
 });

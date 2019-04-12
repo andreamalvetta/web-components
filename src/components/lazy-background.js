@@ -1,15 +1,16 @@
 import { LitElement, html } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
+import 'lazysizes/plugins/bgset/ls.bgset';
 import 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
-class LazyImage extends LitElement {
+class LazyBackground extends LitElement {
   constructor() {
     super();
-    this.src = '';
-    this.alt = '';
+    this.bg = '';
+    this.position = 'center center';
+    this.color = '#ccc';
     this.responsive = false;
-    this.placeholderImg = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
     this.imgRootUrl = null;
     this.imgExt = null;
     this.devicePixelRatio = 1;
@@ -19,9 +20,9 @@ class LazyImage extends LitElement {
   }
 
   firstUpdated() {
-    this.shadowImg = this.shadowRoot.querySelector('img');
+    this.shadowImg = this.shadowRoot.querySelector('.bg');
     if (this.responsive) {
-      let url = this.src.split('_');
+      let url = this.bg.split('_');
       this.setImgRoot(url);
       url = url[2].split('.');
       this.setImgExt(url);
@@ -38,6 +39,18 @@ class LazyImage extends LitElement {
     if (isInViewport(this.shadowImg, 1.3) && !this.isImageLoaded) {
       this.isImageLoaded = true;
       lazySizes.loader.unveil(this.shadowImg);
+
+      let bg = '';
+
+      if (this.responsive) {
+        // Get loaded image
+      } else {
+        bg = this.shadowImg.getAttribute('data-bg');
+      }
+
+      if (bg) {
+        this.shadowImg.style.backgroundImage = `url(${bg})`;
+      }
     }
   }
 
@@ -62,34 +75,31 @@ class LazyImage extends LitElement {
   getStyles() {
     return html`
       <style>
-        :host picture {
+        :host .bg-container {
           position: relative;
           display: block;
           margin-bottom: 5px;
         }
-        :host picture:after {
-          content: '';
-          display: block;
-          height: 0;
-          width: 100%;
-          /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
-          padding-bottom: ${!isNaN(this.height / this.width) ? ((this.height / this.width) * 100).toFixed(2) : 56.25}%;
-        }
-        :host picture > img {
+        :host .bg-container > .bg {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
           display: block;
+          background-color: ${this.color};
+          background-position: ${this.position};
+          background-size: cover;
+          background-repeat: no-repeat;
+          z-index: 1;
         }
-        :host img {
-          width: 100%;
-          opacity: 0;
-        }
-        :host img.lazyloaded {
+        :host .bg-container .bg.lazyloaded {
           opacity: 1;
           transition: opacity 300ms;
+        }
+        :host .bg-container .bg-content {
+          position: relative;
+          z-index: 2;
         }
       </style>
     `;
@@ -100,34 +110,42 @@ class LazyImage extends LitElement {
       ${this.getStyles()}
       ${this.responsive
         ? html`
-            <picture>
-              ${this.mediaQueries &&
-                this.sizes.map(
-                  (size, index) => html`
-                    <source
-                      media="${this.mediaQueries[index]}"
-                      data-srcset="${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${this.imgExt}"
-                    />
-                  `
-                )}
-              <img src="${this.placeholderImg}" alt="${this.alt}" />
-            </picture>
+            <div class="bg-container">
+              <div
+                class="bg"
+                data-sizes="auto"
+                data-bgset="${this.mediaQueries &&
+                  this.sizes.map(
+                    (size, index) =>
+                      `${index > 0 ? ' | ' : ''}${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${this.imgExt} [${
+                        this.mediaQueries[index]
+                      }]`
+                  )}"
+              ></div>
+              <div class="bg-content">
+                <slot></slot>
+              </div>
+            </div>
           `
         : html`
-            <img data-src="${this.src}" src="${this.placeholderImg}" alt="${this.alt}" />
+            <div class="bg-container">
+              <div class="bg" data-bg="${this.bg}"></div>
+              <div class="bg-content">
+                <slot></slot>
+              </div>
+            </div>
           `}
     `;
   }
 
   static get properties() {
     return {
-      src: { type: String },
+      bg: { type: String },
       responsive: { type: Boolean },
-      alt: { type: String },
-      width: { type: String },
-      height: { type: String }
+      position: { type: String },
+      color: { type: String }
     };
   }
 }
 
-customElements.define('lazy-image', LazyImage);
+customElements.define('lazy-background', LazyBackground);
