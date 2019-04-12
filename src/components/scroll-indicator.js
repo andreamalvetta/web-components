@@ -8,19 +8,17 @@ class ScrollIndicator extends LitElement {
   }
 
   firstUpdated() {
-    if (typeof window.orientation !== 'undefined') {
-      let offset = 56;
+    if (
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1)
+    ) {
       this.hasMovableBar = true;
+      this.innerHeight = window.innerHeight + 56;
+    }
 
-      if (navigator.userAgent.indexOf('Safari') !== -1) {
-        offset = 0;
-      }
-
-      if (navigator.userAgent.indexOf('SamsungBrowser') !== -1) {
-        offset = 112;
-      }
-
-      this.innerHeight = window.innerHeight + offset;
+    if (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('SamsungBrowser') !== -1) {
+      this.hasMovableBar = true;
+      this.innerHeight = window.innerHeight + 112;
     }
 
     window.addEventListener('load', () => this.scrollFunction());
