@@ -10,7 +10,8 @@ class ScrollIndicator extends LitElement {
   firstUpdated() {
     if (
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
-      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1)
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1) ||
+      (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Edg') !== -1)
     ) {
       this.hasMovableBar = true;
       this.innerHeight = window.innerHeight + 56;
