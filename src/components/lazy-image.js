@@ -35,7 +35,7 @@ class LazyImage extends LitElement {
   }
 
   showImage() {
-    if (isInViewport(this.shadowImg, 1.3) && !this.isImageLoaded) {
+    if (isInViewport(this.shadowImg) && !this.isImageLoaded) {
       this.isImageLoaded = true;
       lazySizes.loader.unveil(this.shadowImg);
     }
