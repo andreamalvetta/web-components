@@ -106,6 +106,11 @@ class LazyBackground extends LitElement {
           object-position: ${this.position};
           object-fit: ${this.fit};
           font-family: 'object-fit: ${this.fit}';
+          opacity: 0;
+        }
+        :host .bg-img.lazyloaded {
+          opacity: 1;
+          transition: opacity 300ms;
         }
       </style>
     `;
