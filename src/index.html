@@ -36,19 +36,10 @@
     <meta name="msapplication-TileColor" content="#1576f3" />
     <meta name="msapplication-tap-highlight" content="no" />
     <style>
-      html {
-        opacity: 1;
-        transition: opacity 300ms ease-in;
-      }
       html.no-fouc {
-        opacity: 0;
+        display: none;
       }
     </style>
-    <script type="text/javascript" defer>
-      window.addEventListener('load', function() {
-        document.querySelector('.no-fouc').classList.remove('no-fouc');
-      });
-    </script>
   </head>
   <body>
     <scroll-indicator></scroll-indicator>
