@@ -40,8 +40,8 @@ class LazyBackground extends LitElement {
       true
     );
     document.addEventListener('load', () => this.showImage(), true);
-    document.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
-    document.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
+    window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
+    window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
   }
 
   styleContentWrap() {
