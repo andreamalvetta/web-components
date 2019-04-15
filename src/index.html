@@ -40,6 +40,13 @@
         visibility: hidden;
       }
     </style>
+
+    <script src="vendor/helpers/babel-helpers-modern.min.js" defer></script>
+    <!-- Load the external helpers to run the code transpiled to ES5 -->
+    <script nomodule src="vendor/helpers/babel-helpers.min.js" defer></script>
+    <script nomodule src="vendor/helpers/regenerator-runtime.min.js" defer></script>
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="vendor/webcomponents/webcomponents-loader.js" defer></script>
   </head>
   <body>
     <scroll-indicator></scroll-indicator>
@@ -118,12 +125,5 @@
         height="1000"
       ></lazy-image>
     </div>
-
-    <script src="vendor/helpers/babel-helpers-modern.min.js" defer></script>
-    <!-- Load the external helpers to run the code transpiled to ES5 -->
-    <script nomodule src="vendor/helpers/babel-helpers.min.js" defer></script>
-    <script nomodule src="vendor/helpers/regenerator-runtime.min.js" defer></script>
-    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-    <script src="vendor/webcomponents/webcomponents-loader.js" defer></script>
   </body>
 </html>

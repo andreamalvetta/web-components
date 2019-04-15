@@ -46,6 +46,7 @@ const productionConfig = merge([
       new HtmlWebpackPlugin({
         template: INDEX_TEMPLATE,
         filename: resolve(OUTPUT_PATH, 'index.html'),
+        inject: 'head',
         minify: {
           collapseWhitespace: true,
           removeComments: true,

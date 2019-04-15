@@ -3,22 +3,12 @@ import { Workbox } from 'workbox-window';
 import './styles/main';
 
 WebComponents.waitFor(async () => {
-  import('./components/button').then(() => {
-    document.querySelectorAll('custom-button').forEach(item => item.classList.remove('no-fouc'));
-  });
-});
-WebComponents.waitFor(async () => {
-  import('./components/lazy-image').then(() => {
-    document.querySelectorAll('lazy-image').forEach(item => item.classList.remove('no-fouc'));
-  });
-});
-WebComponents.waitFor(async () => {
-  import('./components/lazy-background').then(() => {
-    document.querySelectorAll('lazy-background').forEach(item => item.classList.remove('no-fouc'));
-  });
-});
-WebComponents.waitFor(async () => {
-  import('./components/scroll-indicator');
+  return Promise.all([
+    import('./components/button'),
+    import('./components/lazy-image'),
+    import('./components/lazy-background'),
+    import('./components/scroll-indicator')
+  ]).then(() => document.querySelectorAll('.no-fouc').forEach(item => item.classList.remove('no-fouc')));
 });
 
 if ('serviceWorker' in navigator) {

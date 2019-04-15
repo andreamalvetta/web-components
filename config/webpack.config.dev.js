@@ -12,7 +12,8 @@ const developmentConfig = merge([
       new CopyWebpackPlugin(polyfills),
       new HtmlWebpackPlugin({
         template: INDEX_TEMPLATE,
-        filename: resolve(OUTPUT_PATH, 'index.html')
+        filename: resolve(OUTPUT_PATH, 'index.html'),
+        inject: 'head'
       }),
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'defer'
