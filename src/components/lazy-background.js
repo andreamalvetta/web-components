@@ -10,7 +10,7 @@ class LazyBackground extends LitElement {
     super();
     this.bg = '';
     this.position = 'center center';
-    this.color = '#ccc';
+    this['bg-color'] = '#ccc';
     this.responsive = false;
     this.imgRootUrl = null;
     this.imgExt = null;
@@ -90,7 +90,7 @@ class LazyBackground extends LitElement {
           width: 100%;
           height: 100%;
           display: block;
-          background-color: ${this.color};
+          background-color: ${this['bg-color']};
           background-position: ${this.position};
           background-size: cover;
           background-repeat: no-repeat;
@@ -154,7 +154,7 @@ class LazyBackground extends LitElement {
       responsive: { type: Boolean },
       position: { type: String },
       fit: { type: String },
-      color: { type: String }
+      'bg-color': { type: String }
     };
   }
 }

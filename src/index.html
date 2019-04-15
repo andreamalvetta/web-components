@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-fouc">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -36,25 +36,25 @@
     <meta name="msapplication-TileColor" content="#1576f3" />
     <meta name="msapplication-tap-highlight" content="no" />
     <style>
-      html.no-fouc {
-        display: none;
+      .no-fouc {
+        visibility: hidden;
       }
     </style>
   </head>
   <body>
     <scroll-indicator></scroll-indicator>
 
-    <custom-button href="google.com">Default</custom-button>
-    <custom-button primary anchor="#test">Primary</custom-button>
-    <custom-button danger>Danger</custom-button>
-    <custom-button small>Small</custom-button>
-    <custom-button large>Large</custom-button>
-    <custom-button inverted>Inverted</custom-button>
-    <custom-button link>Link</custom-button>
-    <custom-button disabled>Disabled</custom-button>
+    <custom-button class="no-fouc" href="google.com">Default</custom-button>
+    <custom-button class="no-fouc" primary anchor="#test">Primary</custom-button>
+    <custom-button class="no-fouc" danger>Danger</custom-button>
+    <custom-button class="no-fouc" small>Small</custom-button>
+    <custom-button class="no-fouc" large>Large</custom-button>
+    <custom-button class="no-fouc" inverted>Inverted</custom-button>
+    <custom-button class="no-fouc" link>Link</custom-button>
+    <custom-button class="no-fouc" disabled>Disabled</custom-button>
 
     <div class="container">
-      <lazy-background class="white" bg="assets/img/bg/bg_1500w_1x.jpg" responsive>
+      <lazy-background class="white no-fouc" bg="assets/img/bg/bg_1500w_1x.jpg" responsive bg-color="#666">
         <h1>Custom title</h1>
         <h3>Custom subtitle</h3>
         <p>
@@ -75,6 +75,7 @@
         <custom-button anchor="#image5">Scroll down</custom-button>
       </lazy-background>
       <lazy-image
+        class="no-fouc"
         src="assets/img/img1/img1_1500w_1x.jpg"
         responsive
         alt="Responsive image 1"
@@ -82,6 +83,7 @@
         height="1000"
       ></lazy-image>
       <lazy-image
+        class="no-fouc"
         src="assets/img/img2/img2_1500w_1x.jpg"
         responsive
         alt="Responsive image 2"
@@ -89,6 +91,7 @@
         height="1000"
       ></lazy-image>
       <lazy-image
+        class="no-fouc"
         src="assets/img/img3/img3_1500w_1x.jpg"
         responsive
         alt="Responsive image 3"
@@ -96,6 +99,7 @@
         height="1000"
       ></lazy-image>
       <lazy-image
+        class="no-fouc"
         src="assets/img/img4/img4_1500w_1x.jpg"
         responsive
         alt="Responsive image 4"
@@ -103,6 +107,7 @@
         height="1000"
       ></lazy-image>
       <lazy-image
+        class="no-fouc"
         id="image5"
         src="assets/img/img5/img5_1500w_1x.jpg"
         responsive

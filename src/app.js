@@ -3,12 +3,16 @@ import { Workbox } from 'workbox-window';
 import './styles/main';
 
 WebComponents.waitFor(async () => {
-  return Promise.all([
-    import('./components/button'),
-    import('./components/lazy-image'),
-    import('./components/lazy-background'),
-    import('./components/scroll-indicator')
-  ]).then(() => document.querySelector('.no-fouc').classList.remove('no-fouc'));
+  import('./components/button').then(() => {
+    document.querySelectorAll('custom-button').forEach(item => item.classList.remove('no-fouc'));
+  });
+  import('./components/lazy-image').then(() => {
+    document.querySelectorAll('lazy-image').forEach(item => item.classList.remove('no-fouc'));
+  });
+  import('./components/lazy-background').then(() => {
+    document.querySelectorAll('lazy-background').forEach(item => item.classList.remove('no-fouc'));
+  });
+  import('./components/scroll-indicator');
 });
 
 if ('serviceWorker' in navigator) {
