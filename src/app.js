@@ -8,7 +8,7 @@ WebComponents.waitFor(async () => {
     import('./components/lazy-image'),
     import('./components/lazy-background'),
     import('./components/scroll-indicator')
-  ]).then(() => document.querySelectorAll('.no-fouc').forEach(item => item.classList.remove('no-fouc')));
+  ]).then(() => document.querySelector('.no-fouc').classList.remove('no-fouc'));
 });
 
 if ('serviceWorker' in navigator) {

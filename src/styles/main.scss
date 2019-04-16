@@ -1,5 +1,11 @@
 @import './partials/fonts';
 
+html {
+  &.no-fouc {
+    visibility: hidden;
+  }
+}
+
 body {
   font-size: 15px;
   color: black;
