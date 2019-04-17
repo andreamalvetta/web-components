@@ -4,7 +4,6 @@
 // caching strategies, as Workbox will auto-inject that part when you build your
 // project. This is the perfect place to implement other great SW features.
 // (e.g. Web Push, etc...)
-workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 workbox.precaching.cleanupOutdatedCaches();
 
@@ -19,6 +18,12 @@ workbox.routing.registerRoute(
   new workbox.strategies.StaleWhileRevalidate(),
   'GET'
 );
+
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 // Uncomment next line to enable offline Google Analytics
 // workbox.googleAnalytics.initialize();

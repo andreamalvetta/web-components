@@ -14,13 +14,13 @@ WebComponents.waitFor(async () => {
 if ('serviceWorker' in navigator) {
   const wb = new Workbox('sw.js');
 
-  wb.addEventListener('installed', event => {
-    if (event.isUpdate) {
-      if (confirm(`New content is available!. Click OK to refresh`)) {
+  wb.addEventListener('waiting', event => {
+    if (confirm('New content is available! Click OK to refresh')) {
+      wb.addEventListener('controlling', event => {
         window.location.reload();
-      }
+      });
+      wb.messageSW({ type: 'SKIP_WAITING' });
     }
   });
-
   wb.register();
 }
