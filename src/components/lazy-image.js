@@ -29,7 +29,7 @@ class LazyImage extends LitElement {
       this.requestUpdate();
     }
     this.shadowImg.addEventListener('lazybeforeunveil', this.showImage());
-    document.addEventListener('load', () => this.showImage());
+    window.addEventListener('load', () => this.showImage());
     window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)));
     window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)));
   }

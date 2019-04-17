@@ -34,12 +34,13 @@ class LazyBackground extends LitElement {
     this.shadowImg.addEventListener(
       'load',
       e => {
-        const lazyBg = this.shadowRoot.querySelector('.lazy-background');
+        const lazyBg = this.shadowRoot.querySelector('.lazy-background-container .lazy-background');
         lazyBg.style.backgroundImage = `url(${e.target.currentSrc || e.target.src})`;
+        lazyBg.classList.add('loaded');
       },
       true
     );
-    document.addEventListener('load', () => this.showImage(), true);
+    window.addEventListener('load', () => this.showImage(), true);
     window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
     window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
   }
@@ -82,15 +83,31 @@ class LazyBackground extends LitElement {
     return html`
       <style>
         :host {
+          margin-bottom: 5px;
+          display: block;
+          position: relative;
+        }
+        :host .lazy-background-container {
           position: relative;
           display: block;
-          margin-bottom: 5px;
-        }
-        :host .lazy-background {
           background-color: ${this.color};
+          width: 100%;
+        }
+        :host .lazy-background-container .lazy-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
           background-size: ${this.size};
           background-position: ${this.position};
           background-repeat: no-repeat;
+          opacity: 0;
+          z-index: 1;
+        }
+        :host .lazy-background-container .lazy-background.loaded {
+          opacity: 1;
+          transition: opacity 300ms;
         }
         :host .bg-img {
           display: none;
@@ -104,23 +121,27 @@ class LazyBackground extends LitElement {
       ${this.getStyles()}
       ${this.responsive
         ? html`
-            <div class="lazy-background">
-              <img
-                class="bg-img"
-                data-sizes="auto"
-                data-srcset="${this.sizes.map(
-                  (size, index) =>
-                    `${index > 0 ? ', ' : ''}${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${
-                      this.imgExt
-                    } ${size * this.devicePixelRatio}w`
-                )}"
-              />
+            <div class="lazy-background-container">
+              <div class="lazy-background">
+                <img
+                  class="bg-img"
+                  data-sizes="auto"
+                  data-srcset="${this.sizes.map(
+                    (size, index) =>
+                      `${index > 0 ? ', ' : ''}${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${
+                        this.imgExt
+                      } ${size * this.devicePixelRatio}w`
+                  )}"
+                />
+              </div>
               <slot></slot>
             </div>
           `
         : html`
-            <div class="lazy-background">
-              <img class="bg-img" data-src="${this.bg}" />
+            <div class="lazy-background-container">
+              <div class="lazy-background">
+                <img class="bg-img" data-src="${this.bg}" />
+              </div>
               <slot></slot>
             </div>
           `}
