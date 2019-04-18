@@ -6,6 +6,7 @@ This project has been created using the following repo as reference:<br>
 https://github.com/web-padawan/polymer3-webpack-starter
 
 ## Demos
+
 - Github Pages - https://andreamalvetta.github.io/web-components<br>
 - Heroku (with Express server) - https://web-components-lit-element.herokuapp.com/
 
@@ -24,7 +25,6 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [ ] Add contributions instructions (CONTRIBUTING.md)
 - [x] Force service worker update
 - [ ] Remove hover state on devices with touch
-- [ ] Remove iOS 300ms click/tap delay
 
 ## Prerequisites
 
