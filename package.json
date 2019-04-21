@@ -12,7 +12,7 @@
     "url": "https://github.com/andreamalvetta/web-components.git"
   },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.9",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
     "lazysizes": "^4.1.7",
     "lit-element": "^2.1.0",
     "workbox-window": "^4.3.0"
