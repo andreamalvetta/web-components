@@ -106,8 +106,7 @@ const commonConfig = merge([
             {
               loader: 'file-loader',
               options: {
-                name: '[name].[ext]',
-                publicPath: 'assets/fonts'
+                name: 'assets/fonts/[name].[ext]'
               }
             }
           ]

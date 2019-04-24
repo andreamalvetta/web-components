@@ -67,7 +67,6 @@ const productionConfig = merge([
         preloadFonts: true,
         noscriptFallback: true,
         inlineFonts: true
-        // pruneSource: false
       }),
       new CompressionPlugin({
         filename: '[path].gz[query]',
