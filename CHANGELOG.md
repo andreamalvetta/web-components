@@ -2,7 +2,7 @@
 
 ## [v1.0.4](https://github.com/andreamalvetta/web-components/releases/tag/1.0.4) (2019-04-24)
 
-- Add dynamic aspect ratio
+- Add dynamic aspect ratio on image component
 - Create a scroll indicator component
 - Add lazy and responsive background image component
 - Prevent FUOC (Flash of Unstyled Content) on page load
