@@ -3,10 +3,6 @@ import theme from '../styles/theme';
 import icon from '../assets/img/icons/icon-48x48.png';
 
 class Button extends LitElement {
-  constructor() {
-    super();
-  }
-
   getStyles() {
     return html`
       <style>

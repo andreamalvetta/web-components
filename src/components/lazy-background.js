@@ -1,6 +1,5 @@
 import { LitElement, html } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
-import 'lazysizes/plugins/bgset/ls.bgset';
 import 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
@@ -19,7 +18,19 @@ class LazyBackground extends LitElement {
     this.isImageLoaded = false;
   }
 
-  firstUpdated() {
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('readystatechange', () => this.init(), true);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('readystatechange', () => console.log('removed'), true);
+    window.removeEventListener('scroll', () => console.log('removed'), true);
+    window.removeEventListener('resize', () => console.log('removed'), true);
+    super.disconnectedCallback();
+  }
+
+  init() {
     this.shadowImg = this.shadowRoot.querySelector('.bg-img');
     this.styleContentWrap();
     if (this.responsive) {
@@ -40,7 +51,6 @@ class LazyBackground extends LitElement {
       },
       true
     );
-    window.addEventListener('load', () => this.showImage(), true);
     window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
     window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
   }

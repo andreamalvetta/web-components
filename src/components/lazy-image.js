@@ -18,7 +18,19 @@ class LazyImage extends LitElement {
     this.isImageLoaded = false;
   }
 
-  firstUpdated() {
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('readystatechange', () => this.init(), true);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('readystatechange', () => console.log('removed'), true);
+    window.removeEventListener('scroll', () => console.log('removed'), true);
+    window.removeEventListener('resize', () => console.log('removed'), true);
+    super.disconnectedCallback();
+  }
+
+  init() {
     this.shadowImg = this.shadowRoot.querySelector('img');
     if (this.responsive) {
       let url = this.src.split('_');
@@ -28,10 +40,9 @@ class LazyImage extends LitElement {
       this.setPixelRatio();
       this.requestUpdate();
     }
-    this.shadowImg.addEventListener('lazybeforeunveil', this.showImage());
-    window.addEventListener('load', () => this.showImage());
-    window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)));
-    window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)));
+    this.shadowImg.addEventListener('lazybeforeunveil', this.showImage(), true);
+    window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
+    window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
   }
 
   showImage() {

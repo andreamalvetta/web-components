@@ -7,7 +7,19 @@ class ScrollIndicator extends LitElement {
     this.width = 0;
   }
 
-  firstUpdated() {
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('readystatechange', () => this.init(), true);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('readystatechange', () => console.log('removed'), true);
+    window.removeEventListener('load', () => console.log('removed'), true);
+    window.removeEventListener('scroll', () => console.log('removed'), true);
+    super.disconnectedCallback();
+  }
+
+  init() {
     if (
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1)
