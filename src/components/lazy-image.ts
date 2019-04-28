@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
-import 'lazysizes';
+import lazySizes from 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
 class LazyImage extends LitElement {
@@ -52,12 +52,12 @@ class LazyImage extends LitElement {
     }
   }
 
-  setImgRoot(url) {
+  setImgRoot(url: string) {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
-  setImgExt(url) {
+  setImgExt(url: string) {
     this.imgExt = url[1];
     return this.imgExt;
   }
@@ -114,7 +114,7 @@ class LazyImage extends LitElement {
             <picture>
               ${this.mediaQueries &&
                 this.sizes.map(
-                  (size, index) => html`
+                  (size: string, index: number) => html`
                     <source
                       media="${this.mediaQueries[index]}"
                       data-srcset="${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${this.imgExt}"

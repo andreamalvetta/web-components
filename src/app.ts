@@ -14,9 +14,9 @@ WebComponents.waitFor(async () => {
 if ('serviceWorker' in navigator) {
   const wb = new Workbox('sw.js');
 
-  wb.addEventListener('waiting', event => {
+  wb.addEventListener('waiting', () => {
     if (confirm('New content is available! Click OK to refresh')) {
-      wb.addEventListener('controlling', event => {
+      wb.addEventListener('controlling', () => {
         window.location.reload();
       });
       wb.messageSW({ type: 'SKIP_WAITING' });

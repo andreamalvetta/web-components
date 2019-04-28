@@ -7,7 +7,6 @@ const helperWhitelistModern = require('../src/utils/helper-whitelist-modern');
 
 const ROOT_DIR = resolve(__dirname, '../');
 const ENV = process.argv.find(arg => arg.includes('production')) ? 'production' : 'development';
-const ANALYZE = process.argv.find(arg => arg.includes('--analyze'));
 const OUTPUT_PATH = ENV === 'production' ? resolve(ROOT_DIR, 'dist') : resolve(ROOT_DIR, 'src');
 const INDEX_TEMPLATE = resolve(ROOT_DIR, 'src/index.html');
 
@@ -60,12 +59,16 @@ const commonConfig = merge([
       filename: `assets/js/${ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js'}`,
       chunkFilename: `assets/js/${ENV === 'production' ? '[id].[chunkhash:8].js' : '[id].js'}`
     },
-    entry: resolve(ROOT_DIR, 'src/app.js'),
+    entry: resolve(ROOT_DIR, 'src/app'),
     module: {
       rules: [
         {
           test: /\.js$/,
           use: [BabelMultiTargetPlugin.loader()]
+        },
+        {
+          test: /\.ts$/,
+          use: [BabelMultiTargetPlugin.loader(), 'ts-loader']
         },
         {
           test: /\.(sa|sc|c)ss$/,
@@ -192,7 +195,7 @@ const commonConfig = merge([
       })
     ],
     resolve: {
-      extensions: ['.js', '.json', '.css', '.scss', '.sass'],
+      extensions: ['.ts', '.js', '.json', '.css', '.scss', '.sass'],
       modules: [resolve(ROOT_DIR, 'node_modules'), resolve(ROOT_DIR, 'src')]
     }
   }
@@ -204,7 +207,6 @@ module.exports = {
   helpers,
   assets,
   ROOT_DIR,
-  ANALYZE,
   OUTPUT_PATH,
   INDEX_TEMPLATE
 };

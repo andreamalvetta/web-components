@@ -1,13 +1,4 @@
-const {
-  commonConfig,
-  polyfills,
-  helpers,
-  assets,
-  ROOT_DIR,
-  INDEX_TEMPLATE,
-  OUTPUT_PATH,
-  ANALYZE
-} = require('./webpack.common');
+const { commonConfig, polyfills, helpers, assets, ROOT_DIR, INDEX_TEMPLATE, OUTPUT_PATH } = require('./webpack.common');
 const { resolve } = require('path');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -15,13 +6,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const Critters = require('critters-webpack-plugin');
-
-const analyzeConfig = ANALYZE ? [new BundleAnalyzerPlugin()] : [];
 
 const productionConfig = merge([
   {
@@ -83,8 +71,7 @@ const productionConfig = merge([
         threshold: 20,
         minRatio: 0.8,
         deleteOriginalAssets: false
-      }),
-      ...analyzeConfig
+      })
     ]
   }
 ]);

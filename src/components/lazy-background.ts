@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
-import 'lazysizes';
+import lazySizes from 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
 class LazyBackground extends LitElement {
@@ -44,7 +44,7 @@ class LazyBackground extends LitElement {
     this.shadowImg.addEventListener('lazybeforeunveil', this.showImage(), true);
     this.shadowImg.addEventListener(
       'load',
-      e => {
+      (e: { target: { currentSrc: string; src: string } }) => {
         const lazyBg = this.shadowRoot.querySelector('.lazy-background-container .lazy-background');
         lazyBg.style.backgroundImage = `url(${e.target.currentSrc || e.target.src})`;
         lazyBg.classList.add('loaded');
@@ -71,12 +71,12 @@ class LazyBackground extends LitElement {
     }
   }
 
-  setImgRoot(url) {
+  setImgRoot(url: string) {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
-  setImgExt(url) {
+  setImgExt(url: string) {
     this.imgExt = url[1];
     return this.imgExt;
   }
@@ -137,7 +137,7 @@ class LazyBackground extends LitElement {
                   class="bg-img"
                   data-sizes="auto"
                   data-srcset="${this.sizes.map(
-                    (size, index) =>
+                    (size: number, index: number) =>
                       `${index > 0 ? ', ' : ''}${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${
                         this.imgExt
                       } ${size * this.devicePixelRatio}w`

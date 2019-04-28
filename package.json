@@ -18,13 +18,13 @@
     "workbox-window": "^4.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.4.4",
     "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -43,7 +43,7 @@
     "husky": "^2.1.0",
     "lint-staged": "^8.1.5",
     "mini-css-extract-plugin": "^0.6.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.0",
@@ -53,10 +53,12 @@
     "stylelint": "^10.0.1",
     "stylelint-config-rational-order": "^0.1.2",
     "terser-webpack-plugin": "^1.2.3",
+    "ts-loader": "^5.4.4",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5",
     "url-loader": "^1.1.2",
     "webpack": "^4.30.0",
     "webpack-babel-multi-target-plugin": "^2.3.0-alpha.1",
-    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1",
@@ -70,6 +72,11 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint --fix",
       "prettier --write",
       "git add"
     ],
