@@ -2,6 +2,7 @@ import { LitElement, html, customElement, property } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import lazySizes from 'lazysizes';
 import isInViewport from '../utils/isInViewport';
+import theme from '../styles/theme';
 
 @customElement('lazy-background')
 export class LazyBackground extends LitElement {
@@ -10,15 +11,6 @@ export class LazyBackground extends LitElement {
   @property({ type: String }) position = 'center center';
   @property({ type: String }) size = 'cover';
   @property({ type: String }) color = '#ccc';
-
-  constructor() {
-    super();
-    this.imgRootUrl = null;
-    this.imgExt = null;
-    this.devicePixelRatio = 1;
-    this.sizes = [1500, 800, 480, 320];
-    this.isImageLoaded = false;
-  }
 
   connectedCallback() {
     super.connectedCallback();
@@ -84,10 +76,7 @@ export class LazyBackground extends LitElement {
   }
 
   setPixelRatio() {
-    const dpr = window.devicePixelRatio;
-    if (dpr >= 2) {
-      this.devicePixelRatio = 2;
-    }
+    this.devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
     return this.devicePixelRatio;
   }
 
@@ -138,7 +127,7 @@ export class LazyBackground extends LitElement {
                 <img
                   class="bg-img"
                   data-sizes="auto"
-                  data-srcset="${this.sizes.map(
+                  data-srcset="${theme.imageSizes.map(
                     (size: number, index: number) =>
                       `${index > 0 ? ', ' : ''}${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${
                         this.imgExt

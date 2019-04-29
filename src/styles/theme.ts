@@ -20,5 +20,8 @@ export default {
   headings: '6 5 4 3 2 1',
   baseBorder: '1px solid rgb(84, 106, 120)',
   baseRadius: '0.25rem',
-  baseBoxShadow: 'rgba(42, 53, 60, 0.2) 0 0 5px'
+  baseBoxShadow: 'rgba(42, 53, 60, 0.2) 0 0 5px',
+  placeholderImg: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+  imageSizes: [1500, 800, 480, 320],
+  mediaQueries: ['(min-width: 801px)', '(min-width: 481px)', '(min-width: 321px)', '(max-width: 320px)']
 };

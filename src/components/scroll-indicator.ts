@@ -2,11 +2,7 @@ import { LitElement, html, customElement, property } from 'lit-element';
 
 @customElement('scroll-indicator')
 export class ScrollIndicator extends LitElement {
-  constructor() {
-    super();
-    this.height = 3;
-    this.width = 0;
-  }
+  @property({ type: Number }) height = 3;
 
   connectedCallback() {
     super.connectedCallback();
@@ -68,7 +64,7 @@ export class ScrollIndicator extends LitElement {
         :host .progress-bar {
           height: ${this.height}px;
           background: #4caf50;
-          width: ${this.width}%;
+          width: ${this.width || 0}%;
         }
       </style>
     `;
