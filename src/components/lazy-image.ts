@@ -1,14 +1,18 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, customElement, property } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import lazySizes from 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
-class LazyImage extends LitElement {
+@customElement('lazy-image')
+export class LazyImage extends LitElement {
+  @property({ type: String }) src = '';
+  @property({ type: Boolean }) responsive = false;
+  @property({ type: String }) alt = '';
+  @property({ type: String }) width = '';
+  @property({ type: String }) height = '';
+
   constructor() {
     super();
-    this.src = '';
-    this.alt = '';
-    this.responsive = false;
     this.placeholderImg = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
     this.imgRootUrl = null;
     this.imgExt = null;
@@ -52,12 +56,12 @@ class LazyImage extends LitElement {
     }
   }
 
-  setImgRoot(url: string) {
+  setImgRoot(url: string[]) {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
-  setImgExt(url: string) {
+  setImgExt(url: string[]) {
     this.imgExt = url[1];
     return this.imgExt;
   }
@@ -84,7 +88,9 @@ class LazyImage extends LitElement {
           height: 0;
           width: 100%;
           /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
-          padding-bottom: ${!isNaN(this.height / this.width) ? ((this.height / this.width) * 100).toFixed(2) : 56.25}%;
+          padding-bottom: ${!isNaN(parseInt(this.height, 10) / parseInt(this.width, 10))
+            ? ((parseInt(this.height, 10) / parseInt(this.width, 10)) * 100).toFixed(2)
+            : 56.25}%;
         }
         :host picture > img {
           position: absolute;
@@ -129,16 +135,4 @@ class LazyImage extends LitElement {
           `}
     `;
   }
-
-  static get properties() {
-    return {
-      src: { type: String },
-      responsive: { type: Boolean },
-      alt: { type: String },
-      width: { type: String },
-      height: { type: String }
-    };
-  }
 }
-
-customElements.define('lazy-image', LazyImage);

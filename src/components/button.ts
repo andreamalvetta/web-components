@@ -1,8 +1,19 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, customElement, property } from 'lit-element';
 import theme from '../styles/theme';
 import icon from '../assets/img/icons/icon-48x48.png';
 
-class Button extends LitElement {
+@customElement('custom-button')
+export class Button extends LitElement {
+  @property({ type: Boolean }) primary = false;
+  @property({ type: Boolean }) danger = false;
+  @property({ type: Boolean }) small = false;
+  @property({ type: Boolean }) large = false;
+  @property({ type: Boolean }) inverted = false;
+  @property({ type: Boolean }) link = false;
+  @property({ type: Boolean }) disabled = false;
+  @property({ type: String }) href = '';
+  @property({ type: String }) anchor = '';
+
   getStyles() {
     return html`
       <style>
@@ -104,20 +115,4 @@ class Button extends LitElement {
       </button>
     `;
   }
-
-  static get properties() {
-    return {
-      primary: { type: Boolean },
-      danger: { type: Boolean },
-      small: { type: Boolean },
-      large: { type: Boolean },
-      inverted: { type: Boolean },
-      link: { type: Boolean },
-      disabled: { type: Boolean },
-      href: { type: String },
-      anchor: { type: String }
-    };
-  }
 }
-
-customElements.define('custom-button', Button);

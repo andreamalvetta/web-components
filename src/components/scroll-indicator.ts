@@ -1,6 +1,7 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, customElement, property } from 'lit-element';
 
-class ScrollIndicator extends LitElement {
+@customElement('scroll-indicator')
+export class ScrollIndicator extends LitElement {
   constructor() {
     super();
     this.height = 3;
@@ -82,5 +83,3 @@ class ScrollIndicator extends LitElement {
     `;
   }
 }
-
-customElements.define('scroll-indicator', ScrollIndicator);

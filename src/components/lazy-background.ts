@@ -1,16 +1,18 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, customElement, property } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import lazySizes from 'lazysizes';
 import isInViewport from '../utils/isInViewport';
 
-class LazyBackground extends LitElement {
+@customElement('lazy-background')
+export class LazyBackground extends LitElement {
+  @property({ type: String }) bg = '';
+  @property({ type: Boolean }) responsive = false;
+  @property({ type: String }) position = 'center center';
+  @property({ type: String }) size = 'cover';
+  @property({ type: String }) color = '#ccc';
+
   constructor() {
     super();
-    this.bg = '';
-    this.position = 'center center';
-    this.color = '#ccc';
-    this.size = 'cover';
-    this.responsive = false;
     this.imgRootUrl = null;
     this.imgExt = null;
     this.devicePixelRatio = 1;
@@ -71,12 +73,12 @@ class LazyBackground extends LitElement {
     }
   }
 
-  setImgRoot(url: string) {
+  setImgRoot(url: string[]) {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
-  setImgExt(url: string) {
+  setImgExt(url: string[]) {
     this.imgExt = url[1];
     return this.imgExt;
   }
@@ -157,16 +159,4 @@ class LazyBackground extends LitElement {
           `}
     `;
   }
-
-  static get properties() {
-    return {
-      bg: { type: String },
-      responsive: { type: Boolean },
-      position: { type: String },
-      size: { type: String },
-      color: { type: String }
-    };
-  }
 }
-
-customElements.define('lazy-background', LazyBackground);
