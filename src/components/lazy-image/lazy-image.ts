@@ -1,8 +1,8 @@
 import { LitElement, html, customElement, property } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import lazySizes from 'lazysizes';
-import isInViewport from '../utils/isInViewport';
-import theme from '../styles/theme';
+import isInViewport from '../../utils/isInViewport';
+import theme from '../../styles/theme';
 
 @customElement('lazy-image')
 export class LazyImage extends LitElement {

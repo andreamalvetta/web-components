@@ -19,6 +19,12 @@ declare module 'lazysizes' {
   export default content;
 }
 
+declare module '@open-wc/testing' {
+  export const html: any;
+  export const fixture: any;
+  export const expect: any;
+}
+
 declare namespace WebComponents {
   export const ready: boolean;
   export const waitFor: (callback: () => Promise<any>) => void;

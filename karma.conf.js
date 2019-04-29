@@ -5,45 +5,29 @@ const merge = require('webpack-merge');
 module.exports = config => {
   config.set(
     merge(createDefaultConfig(config), {
-      frameworks: ['mocha', 'karma-typescript'],
-      files: [
-        // runs all files ending with .test in the test folder,
-        // can be overwritten by passing a --grep flag. examples:
-        //
-        // npm run test -- --grep test/foo/bar.test.js
-        // npm run test -- --grep test/bar/*
-        './src/components/**/*.ts',
-        config.grep ? config.grep : 'test/**/*.test.js'
-      ],
-
-      // you can overwrite/extend the config further
-      exclude: ['./src/components/**/*.d.ts'],
+      files: [config.grep ? config.grep : 'src/components/**/*.spec.ts'],
+      exclude: ['src/**/*.d.ts'],
       preprocessors: {
-        './src/components/**/*.ts': ['karma-typescript']
+        '**/*.ts': ['webpack']
       },
-      reporters: ['karma-typescript'],
-      karmaTypescriptConfig: {
-        compilerOptions: {
-          emitDecoratorMetadata: true,
-          experimentalDecorators: true,
-          module: 'commonjs',
-          sourceMap: true,
-          target: 'ES5'
+      webpack: {
+        mode: 'development',
+        resolve: {
+          extensions: ['.js', '.ts', '.tsx']
         },
-        bundlerOptions: {
-          transforms: [
-            require('karma-typescript-es6-transform')({
-              presets: ['env']
-            })
+        module: {
+          rules: [
+            {
+              test: /\.ts$/,
+              use: ['ts-loader']
+            },
+            {
+              test: /\.(gif|png|jpe?g|svg)$/i,
+              use: ['url-loader']
+            }
           ]
-        },
-        exclude: ['node_modules'],
-        // tsconfig: './tsconfig.json',
-        transformPath: function(path) {
-          return path.replace(/\.ts$/, '.js');
         }
-      },
-      browsers: ['ChromeHeadless']
+      }
     })
   );
   return config;

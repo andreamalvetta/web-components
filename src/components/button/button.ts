@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, property } from 'lit-element';
-import theme from '../styles/theme';
-import icon from '../assets/img/icons/icon-48x48.png';
+import theme from '../../styles/theme';
+import icon from '../../assets/img/icons/icon-48x48.png';
 
 @customElement('custom-button')
 export class Button extends LitElement {

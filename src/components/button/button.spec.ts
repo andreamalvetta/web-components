@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../src/components/button.ts';
+import './button';
 
 describe('Button component', () => {
   it('is false by default', async () => {

@@ -6,6 +6,7 @@
     "no-console": { "severity": "warning" },
     "object-literal-sort-keys": false,
     "no-submodule-imports": false,
-    "no-namespace": false
+    "no-namespace": false,
+    "no-implicit-dependencies": { "severity": "warning" }
   }
 }
