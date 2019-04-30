@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.0.5](https://github.com/andreamalvetta/web-components/releases/tag/1.0.5) (2019-04-30)
+
+- Update to latest dependencies
+- Add typescript
+- Add tslint
+- Components rewritten using typescript decorators
+- Optimisations
+- Set up unit testing with Karma
+- Add coverage and snapshots features to TDD
+
 ## [v1.0.4](https://github.com/andreamalvetta/web-components/releases/tag/1.0.4) (2019-04-24)
 
 - Add dynamic aspect ratio on image component
