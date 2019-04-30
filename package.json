@@ -1,6 +1,6 @@
 {
   "name": "web-components",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "LitElement starter built with webpack and modern tools",
   "main": "src/app.js",
   "author": "Andrea Malvetta",
@@ -25,6 +25,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "@open-wc/semantic-dom-diff": "^0.10.5",
     "@open-wc/testing": "^0.11.5",
     "@open-wc/testing-karma": "^1.1.1",
     "autoprefixer": "^9.5.1",
@@ -44,6 +45,8 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.1.0",
     "karma": "^4.1.0",
+    "karma-mocha-snapshot": "^0.2.1",
+    "karma-snapshot": "^0.6.0",
     "karma-webpack": "^4.0.0-rc.6",
     "lint-staged": "^8.1.5",
     "mini-css-extract-plugin": "^0.6.0",
@@ -97,6 +100,7 @@
     "start": "node src/utils/generate-helpers.js && webpack-dev-server --env development --config config/webpack.config.dev.js",
     "deploy": "gh-pages -d dist",
     "test": "karma start --legacy --coverage",
-    "test:watch": "karma start --legacy --auto-watch=true --single-run=false"
+    "test:watch": "karma start --legacy --auto-watch=true --single-run=false",
+    "test:update": "karma start --update-snapshots --prune-snapshots"
   }
 }
