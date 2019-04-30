@@ -21,7 +21,7 @@ https://github.com/web-padawan/polymer3-webpack-starter
 - [x] Setup images handler into webpack
 - [x] Setup fonts handler into webpack
 - [ ] SEO content generation (see https://github.com/GoogleChrome/rendertron)
-- [ ] Unit tests - (see https://blogs.msdn.microsoft.com/wael-kdouh/2017/06/27/unit-testing-using-typescript-mocha-chai-sinon-and-karma/)
+- [x] Unit tests
 - [ ] Add contributions instructions (CONTRIBUTING.md)
 - [x] Force service worker update
 - [ ] Remove hover state on devices with touch
