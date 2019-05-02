@@ -31,6 +31,7 @@ declare module '@storybook/polymer' {
 
 declare module '@storybook/addon-actions' {
   export const action: any;
+  export const configureActions: any;
 }
 
 declare namespace WebComponents {
