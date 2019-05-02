@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.10",
-    "lazysizes": "^4.1.8",
+    "lazysizes": "^5.0.0-beta1",
     "lit-element": "^2.1.0",
-    "workbox-window": "^4.3.0"
+    "workbox-window": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -43,7 +43,7 @@
     "file-loader": "^3.0.1",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^2.1.0",
+    "husky": "^2.2.0",
     "karma": "^4.1.0",
     "karma-mocha-snapshot": "^0.2.1",
     "karma-snapshot": "^0.6.0",
@@ -60,7 +60,7 @@
     "stylelint": "^10.0.1",
     "stylelint-config-rational-order": "^0.1.2",
     "terser-webpack-plugin": "^1.2.3",
-    "ts-loader": "^5.4.4",
+    "ts-loader": "^5.4.5",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
@@ -71,7 +71,7 @@
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1",
-    "workbox-webpack-plugin": "^4.3.0"
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "husky": {
     "hooks": {
