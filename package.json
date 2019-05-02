@@ -100,7 +100,7 @@
   },
   "scripts": {
     "build": "node src/utils/generate-helpers.js && webpack --env production --config config/webpack.config.prod.js",
-    "start": "node src/utils/generate-helpers.js && webpack-dev-server --env development --config config/webpack.config.dev.js",
+    "start": "node src/utils/generate-helpers.js && webpack-dev-server --env development --config config/webpack.config.dev.js --open",
     "deploy": "gh-pages -d dist",
     "test": "karma start --legacy --coverage",
     "test:watch": "karma start --legacy --auto-watch=true --single-run=false",
