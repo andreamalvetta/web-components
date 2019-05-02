@@ -25,6 +25,14 @@ declare module '@open-wc/testing' {
   export const expect: any;
 }
 
+declare module '@storybook/polymer' {
+  export const storiesOf: any;
+}
+
+declare module '@storybook/addon-actions' {
+  export const action: any;
+}
+
 declare namespace WebComponents {
   export const ready: boolean;
   export const waitFor: (callback: () => Promise<any>) => void;
