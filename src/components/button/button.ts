@@ -2,18 +2,63 @@ import { LitElement, html, customElement, property } from 'lit-element';
 import theme from '../../styles/theme';
 import icon from '../../assets/img/icons/icon-48x48.png';
 
+/**
+ * How to declare:
+ *
+ * ```
+ * <lazy-image src="assets/img/img1.jpg" responsive alt="Responsive image" width="1500" height="1000"></lazy-image>
+ * ```
+ */
 @customElement('custom-button')
 export class Button extends LitElement {
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) primary = false;
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) danger = false;
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) small = false;
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) large = false;
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) inverted = false;
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) link = false;
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) disabled = false;
+
+  /**
+   * TODO
+   */
   @property({ type: String }) href = '';
+
+  /**
+   * TODO
+   */
   @property({ type: String }) anchor = '';
 
+  /**
+   * TODO
+   */
   getStyles() {
     return html`
       <style>
@@ -98,14 +143,23 @@ export class Button extends LitElement {
     `;
   }
 
+  /**
+   * TODO
+   */
   handleHref() {
     console.log(this.href);
   }
 
+  /**
+   * TODO
+   */
   handleAnchor() {
     console.log(this.anchor);
   }
 
+  /**
+   * TODO
+   */
   render() {
     return html`
       ${this.getStyles()}

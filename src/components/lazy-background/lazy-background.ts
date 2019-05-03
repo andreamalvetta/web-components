@@ -4,19 +4,51 @@ import lazySizes from 'lazysizes';
 import isInViewport from '../../utils/isInViewport';
 import theme from '../../styles/theme';
 
+/**
+ * How to declare:
+ *
+ * ```
+ * <lazy-background class="white" bg="assets/img/bg/bg_1500w_1x.jpg" responsive color="#666"></lazy-background>
+ * ```
+ */
 @customElement('lazy-background')
 export class LazyBackground extends LitElement {
+  /**
+   * TODO
+   */
   @property({ type: String }) bg = '';
+
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) responsive = false;
+
+  /**
+   * TODO
+   */
   @property({ type: String }) position = 'center center';
+
+  /**
+   * TODO
+   */
   @property({ type: String }) size = 'cover';
+
+  /**
+   * TODO
+   */
   @property({ type: String }) color = '#ccc';
 
+  /**
+   * TODO
+   */
   connectedCallback() {
     super.connectedCallback();
     document.addEventListener('readystatechange', () => this.init(), true);
   }
 
+  /**
+   * TODO
+   */
   disconnectedCallback() {
     document.removeEventListener('readystatechange', () => console.log('removed'), true);
     window.removeEventListener('scroll', () => console.log('removed'), true);
@@ -24,6 +56,9 @@ export class LazyBackground extends LitElement {
     super.disconnectedCallback();
   }
 
+  /**
+   * TODO
+   */
   init() {
     this.shadowImg = this.shadowRoot.querySelector('.bg-img');
     this.styleContentWrap();
@@ -36,8 +71,10 @@ export class LazyBackground extends LitElement {
       this.requestUpdate();
     }
     this.shadowImg.addEventListener('lazybeforeunveil', this.showImage(), true);
+
     this.shadowImg.addEventListener(
       'load',
+      // tslint:disable-next-line: completed-docs
       (e: { target: { currentSrc: string; src: string } }) => {
         const lazyBg = this.shadowRoot.querySelector('.lazy-background-container .lazy-background');
         lazyBg.style.backgroundImage = `url(${e.target.currentSrc || e.target.src})`;
@@ -49,6 +86,9 @@ export class LazyBackground extends LitElement {
     window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
   }
 
+  /**
+   * TODO
+   */
   styleContentWrap() {
     const contentWrapper = this.querySelector('.content');
     if (contentWrapper) {
@@ -58,6 +98,9 @@ export class LazyBackground extends LitElement {
     }
   }
 
+  /**
+   * TODO
+   */
   showImage() {
     if (isInViewport(this.shadowImg, 1.5) && !this.isImageLoaded) {
       this.isImageLoaded = true;
@@ -65,21 +108,33 @@ export class LazyBackground extends LitElement {
     }
   }
 
+  /**
+   * TODO
+   */
   setImgRoot(url: string[]) {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
+  /**
+   * TODO
+   */
   setImgExt(url: string[]) {
     this.imgExt = url[1];
     return this.imgExt;
   }
 
+  /**
+   * TODO
+   */
   setPixelRatio() {
     this.devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
     return this.devicePixelRatio;
   }
 
+  /**
+   * TODO
+   */
   getStyles() {
     return html`
       <style>
@@ -117,6 +172,9 @@ export class LazyBackground extends LitElement {
     `;
   }
 
+  /**
+   * TODO
+   */
   render() {
     return html`
       ${this.getStyles()}

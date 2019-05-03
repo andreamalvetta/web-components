@@ -7,6 +7,7 @@
     "object-literal-sort-keys": false,
     "no-submodule-imports": false,
     "no-namespace": false,
-    "no-implicit-dependencies": { "severity": "warning" }
+    "no-implicit-dependencies": { "severity": "warning" },
+    "completed-docs": true
   }
 }

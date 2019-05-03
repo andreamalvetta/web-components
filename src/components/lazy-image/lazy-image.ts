@@ -8,22 +8,43 @@ import theme from '../../styles/theme';
  * How to declare:
  *
  * ```
- * <lazy-image src="assets/img/img1.jpg" responsive alt="Responsive image" width="1500" height="1000"></lazy-image>
+ * <custom-button>Default</custom-button>
  * ```
  */
 @customElement('lazy-image')
 export class LazyImage extends LitElement {
+  /**
+   * TODO
+   */
   @property({ type: String }) src = '';
+  /**
+   * TODO
+   */
   @property({ type: Boolean }) responsive = false;
+  /**
+   * TODO
+   */
   @property({ type: String }) alt = '';
+  /**
+   * TODO
+   */
   @property({ type: Number }) width = 0;
+  /**
+   * TODO
+   */
   @property({ type: Number }) height = 0;
 
+  /**
+   * TODO
+   */
   connectedCallback() {
     super.connectedCallback();
     document.addEventListener('readystatechange', () => this.init(), true);
   }
 
+  /**
+   * TODO
+   */
   disconnectedCallback() {
     document.removeEventListener('readystatechange', () => console.log('removed'), true);
     window.removeEventListener('scroll', () => console.log('removed'), true);
@@ -31,6 +52,9 @@ export class LazyImage extends LitElement {
     super.disconnectedCallback();
   }
 
+  /**
+   * TODO
+   */
   init() {
     this.shadowImg = this.shadowRoot.querySelector('img');
     if (this.responsive) {
@@ -46,6 +70,9 @@ export class LazyImage extends LitElement {
     window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
   }
 
+  /**
+   * TODO
+   */
   showImage() {
     if (isInViewport(this.shadowImg, 1.5) && !this.isImageLoaded) {
       this.isImageLoaded = true;
@@ -54,6 +81,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
+   * TODO
    * @param url Array of string containing image informations
    * @returns Image root url
    */
@@ -63,6 +91,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
+   * TODO
    * @param url Array of string containing image informations
    * @returns Image extension
    */
@@ -72,6 +101,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
+   * TODO
    * @returns Device pixel ratio value
    */
   setPixelRatio(): number {
@@ -79,6 +109,9 @@ export class LazyImage extends LitElement {
     return this.devicePixelRatio;
   }
 
+  /**
+   * TODO
+   */
   getStyles() {
     return html`
       <style>
@@ -115,6 +148,9 @@ export class LazyImage extends LitElement {
     `;
   }
 
+  /**
+   * TODO
+   */
   render() {
     return html`
       ${this.getStyles()}

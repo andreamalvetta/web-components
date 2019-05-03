@@ -1,14 +1,30 @@
 import { LitElement, html, customElement, property } from 'lit-element';
 
+/**
+ * How to declare:
+ *
+ * ```
+ * <scroll-indicator></scroll-indicator>
+ * ```
+ */
 @customElement('scroll-indicator')
 export class ScrollIndicator extends LitElement {
+  /**
+   * TODO
+   */
   @property({ type: Number }) height = 3;
 
+  /**
+   * TODO
+   */
   connectedCallback() {
     super.connectedCallback();
     document.addEventListener('readystatechange', () => this.init(), true);
   }
 
+  /**
+   * TODO
+   */
   disconnectedCallback() {
     document.removeEventListener('readystatechange', () => console.log('removed'), true);
     window.removeEventListener('load', () => console.log('removed'), true);
@@ -16,6 +32,9 @@ export class ScrollIndicator extends LitElement {
     super.disconnectedCallback();
   }
 
+  /**
+   * TODO
+   */
   init() {
     if (
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
@@ -37,19 +56,31 @@ export class ScrollIndicator extends LitElement {
     window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
   }
 
+  /**
+   * TODO
+   */
   scrollFunction() {
     this.width = ((this.getWindowScroll() / this.getScrollHeight()) * 100).toFixed(2);
     this.requestUpdate();
   }
 
+  /**
+   * TODO
+   */
   getWindowScroll() {
     return document.body.scrollTop || document.documentElement.scrollTop;
   }
 
+  /**
+   * TODO
+   */
   getScrollHeight() {
     return document.documentElement.scrollHeight - (this.hasMovableBar ? this.innerHeight : window.innerHeight);
   }
 
+  /**
+   * TODO
+   */
   getStyles() {
     return html`
       <style>
@@ -70,6 +101,9 @@ export class ScrollIndicator extends LitElement {
     `;
   }
 
+  /**
+   * TODO
+   */
   render() {
     return html`
       ${this.getStyles()}
