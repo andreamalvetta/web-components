@@ -5,10 +5,12 @@ LitElement starter built with webpack and modern tools
 This project has been created using the following repo as reference:<br>
 https://github.com/web-padawan/polymer3-webpack-starter
 
-## Demos
+## Demo
+https://web-components-lit-element.herokuapp.com/
 
-- Github Pages - https://andreamalvetta.github.io/web-components<br>
-- Heroku (with Express server) - https://web-components-lit-element.herokuapp.com/
+## Documentation
+https://andreamalvetta.github.io/web-components
+
 
 ## To-Do List
 
