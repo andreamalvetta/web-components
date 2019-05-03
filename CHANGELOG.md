@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.6](https://github.com/andreamalvetta/web-components/releases/tag/1.0.6) (2019-05-03)
+
+- Integrate storybook into the project
+- Add actions to storybook stories
+- Add documentation generator
+
 ## [v1.0.5](https://github.com/andreamalvetta/web-components/releases/tag/1.0.5) (2019-04-30)
 
 - Update to latest dependencies
