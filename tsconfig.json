@@ -16,7 +16,7 @@
     "mode": "modules",
     "includeDeclarations": true,
     "disableOutputCheck": true,
-    "exclude": "src/app*,src/styles/*,*,src/components/**/index*,src/**/*spec*,src/**/*stories*",
+    "exclude": "src/app*,src/styles/*,src/components/**/index*,src/**/*spec*,src/**/*stories*",
     "excludeExternals": true,
     "out": "docs"
   }
