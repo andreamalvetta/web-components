@@ -67,6 +67,7 @@
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.4.5",
     "url-loader": "^1.1.2",
     "webpack": "^4.30.0",
@@ -96,6 +97,9 @@
       "stylelint --fix",
       "prettier --write",
       "git add"
+    ],
+    "ignore": [
+      "docs/*"
     ]
   },
   "scripts": {
@@ -105,6 +109,8 @@
     "test": "karma start --legacy --coverage",
     "test:watch": "karma start --legacy --auto-watch=true --single-run=false",
     "test:update": "karma start --update-snapshots --prune-snapshots",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 9001",
+    "storybook:build": "build-storybook -o _site -s storybook-static",
+    "docs": "typedoc src"
   }
 }

@@ -4,6 +4,13 @@ import lazySizes from 'lazysizes';
 import isInViewport from '../../utils/isInViewport';
 import theme from '../../styles/theme';
 
+/**
+ * How to declare:
+ *
+ * ```
+ * <lazy-image src="assets/img/img1.jpg" responsive alt="Responsive image" width="1500" height="1000"></lazy-image>
+ * ```
+ */
 @customElement('lazy-image')
 export class LazyImage extends LitElement {
   @property({ type: String }) src = '';
@@ -46,17 +53,28 @@ export class LazyImage extends LitElement {
     }
   }
 
-  setImgRoot(url: string[]) {
+  /**
+   * @param url Array of string containing image informations
+   * @returns Image root url
+   */
+  setImgRoot(url: string[]): string {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
-  setImgExt(url: string[]) {
+  /**
+   * @param url Array of string containing image informations
+   * @returns Image extension
+   */
+  setImgExt(url: string[]): string {
     this.imgExt = url[1];
     return this.imgExt;
   }
 
-  setPixelRatio() {
+  /**
+   * @returns Device pixel ratio value
+   */
+  setPixelRatio(): number {
     this.devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
     return this.devicePixelRatio;
   }

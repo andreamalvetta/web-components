@@ -3,6 +3,7 @@ node_modules/
 src/vendor/
 coverage/
 __snapshots__/
+_site/
 
 .DS_Store
 
