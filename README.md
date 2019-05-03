@@ -27,6 +27,7 @@ https://andreamalvetta.github.io/web-components
 - [ ] Add contributions instructions (CONTRIBUTING.md)
 - [x] Force service worker update
 - [ ] Remove hover state on devices with touch
+- [x] Documentation generator (see https://typedoc.org/)
 
 ## Prerequisites
 
