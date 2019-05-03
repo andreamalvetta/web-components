@@ -14,28 +14,28 @@ import theme from '../../styles/theme';
 @customElement('lazy-image')
 export class LazyImage extends LitElement {
   /**
-   * TODO
+   * Property that allows to set up image src
    */
   @property({ type: String }) src = '';
   /**
-   * TODO
+   * Property that allows to declare if the background is responsive or not
    */
   @property({ type: Boolean }) responsive = false;
   /**
-   * TODO
+   * Property that allows to set up image alt description
    */
   @property({ type: String }) alt = '';
   /**
-   * TODO
+   * Property that allows to set up image width
    */
   @property({ type: Number }) width = 0;
   /**
-   * TODO
+   * Property that allows to set up image height
    */
   @property({ type: Number }) height = 0;
 
   /**
-   * TODO
+   * Method to add all the available event listeners
    */
   connectedCallback() {
     super.connectedCallback();
@@ -43,7 +43,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to remove all the available event listeners
    */
   disconnectedCallback() {
     document.removeEventListener('readystatechange', () => console.log('removed'), true);
@@ -53,7 +53,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Main init method (called after the component has been added into the DOM)
    */
   init() {
     this.shadowImg = this.shadowRoot.querySelector('img');
@@ -81,9 +81,9 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to set up the image root URL
    * @param url Array of string containing image informations
-   * @returns Image root url
+   * @returns Image root URL
    */
   setImgRoot(url: string[]): string {
     this.imgRootUrl = url[0];
@@ -91,7 +91,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to set up the image extension
    * @param url Array of string containing image informations
    * @returns Image extension
    */
@@ -101,7 +101,7 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to device pixel ratio
    * @returns Device pixel ratio value
    */
   setPixelRatio(): number {
@@ -110,9 +110,9 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to attach shadow CSS to the component
    */
-  getStyles() {
+  getStyles(): string {
     return html`
       <style>
         :host picture {
@@ -149,9 +149,9 @@ export class LazyImage extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to render the component into the DOM
    */
-  render() {
+  render(): string {
     return html`
       ${this.getStyles()}
       ${this.responsive

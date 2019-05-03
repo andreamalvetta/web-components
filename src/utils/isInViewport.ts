@@ -1,4 +1,4 @@
-const isInViewport = (el: HTMLElement, multiplier = 1) => {
+const isInViewport = (el: HTMLElement, multiplier: number = 1): boolean => {
   const scroll = window.scrollY || window.pageYOffset;
   const boundsTop = el.getBoundingClientRect().top + scroll;
 

@@ -14,32 +14,32 @@ import theme from '../../styles/theme';
 @customElement('lazy-background')
 export class LazyBackground extends LitElement {
   /**
-   * TODO
+   * Property that allows to set up background url
    */
   @property({ type: String }) bg = '';
 
   /**
-   * TODO
+   * Property that allows to declare if the background is responsive or not
    */
   @property({ type: Boolean }) responsive = false;
 
   /**
-   * TODO
+   * Property that allows to set up the position of the background image
    */
   @property({ type: String }) position = 'center center';
 
   /**
-   * TODO
+   * Property that allows to set up the size of the background image
    */
   @property({ type: String }) size = 'cover';
 
   /**
-   * TODO
+   * Property that allows to set up the background color
    */
   @property({ type: String }) color = '#ccc';
 
   /**
-   * TODO
+   * Method to add all the available event listeners
    */
   connectedCallback() {
     super.connectedCallback();
@@ -47,7 +47,7 @@ export class LazyBackground extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to remove all the available event listeners
    */
   disconnectedCallback() {
     document.removeEventListener('readystatechange', () => console.log('removed'), true);
@@ -57,7 +57,7 @@ export class LazyBackground extends LitElement {
   }
 
   /**
-   * TODO
+   * Main init method (called after the component has been added into the DOM)
    */
   init() {
     this.shadowImg = this.shadowRoot.querySelector('.bg-img');
@@ -87,7 +87,7 @@ export class LazyBackground extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to add default stylesheet on the child content
    */
   styleContentWrap() {
     const contentWrapper = this.querySelector('.content');
@@ -109,33 +109,38 @@ export class LazyBackground extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to set up the image root URL
+   * @param url Array of string containing image informations
+   * @returns Image root URL
    */
-  setImgRoot(url: string[]) {
+  setImgRoot(url: string[]): string {
     this.imgRootUrl = url[0];
     return this.imgRootUrl;
   }
 
   /**
-   * TODO
+   * Method to set up the image extension
+   * @param url Array of string containing image informations
+   * @returns Image extension
    */
-  setImgExt(url: string[]) {
+  setImgExt(url: string[]): string {
     this.imgExt = url[1];
     return this.imgExt;
   }
 
   /**
-   * TODO
+   * Method to device pixel ratio
+   * @returns Device pixel ratio value
    */
-  setPixelRatio() {
+  setPixelRatio(): number {
     this.devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
     return this.devicePixelRatio;
   }
 
   /**
-   * TODO
+   * Method to attach shadow CSS to the component
    */
-  getStyles() {
+  getStyles(): string {
     return html`
       <style>
         :host {
@@ -173,9 +178,9 @@ export class LazyBackground extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to render the component into the DOM
    */
-  render() {
+  render(): string {
     return html`
       ${this.getStyles()}
       ${this.responsive

@@ -10,12 +10,12 @@ import { LitElement, html, customElement, property } from 'lit-element';
 @customElement('scroll-indicator')
 export class ScrollIndicator extends LitElement {
   /**
-   * TODO
+   * Property that allows to set up component height
    */
   @property({ type: Number }) height = 3;
 
   /**
-   * TODO
+   * Method to add all the available event listeners
    */
   connectedCallback() {
     super.connectedCallback();
@@ -23,7 +23,7 @@ export class ScrollIndicator extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to remove all the available event listeners
    */
   disconnectedCallback() {
     document.removeEventListener('readystatechange', () => console.log('removed'), true);
@@ -33,7 +33,7 @@ export class ScrollIndicator extends LitElement {
   }
 
   /**
-   * TODO
+   * Main init method (called after the component has been added into the DOM)
    */
   init() {
     if (
@@ -67,21 +67,21 @@ export class ScrollIndicator extends LitElement {
   /**
    * TODO
    */
-  getWindowScroll() {
+  getWindowScroll(): number {
     return document.body.scrollTop || document.documentElement.scrollTop;
   }
 
   /**
    * TODO
    */
-  getScrollHeight() {
+  getScrollHeight(): number {
     return document.documentElement.scrollHeight - (this.hasMovableBar ? this.innerHeight : window.innerHeight);
   }
 
   /**
-   * TODO
+   * Method to attach shadow CSS to the component
    */
-  getStyles() {
+  getStyles(): string {
     return html`
       <style>
         :host .progress-container {
@@ -102,9 +102,9 @@ export class ScrollIndicator extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to render the component into the DOM
    */
-  render() {
+  render(): string {
     return html`
       ${this.getStyles()}
       <div class="progress-container">

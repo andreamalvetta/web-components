@@ -12,54 +12,54 @@ import icon from '../../assets/img/icons/icon-48x48.png';
 @customElement('custom-button')
 export class Button extends LitElement {
   /**
-   * TODO
+   * Property that allows the component to have primary state
    */
   @property({ type: Boolean }) primary = false;
 
   /**
-   * TODO
+   * Property that allows the component to have danger state
    */
   @property({ type: Boolean }) danger = false;
 
   /**
-   * TODO
+   * Property that allows the component to have small state
    */
   @property({ type: Boolean }) small = false;
 
   /**
-   * TODO
+   * Property that allows the component to have large state
    */
   @property({ type: Boolean }) large = false;
 
   /**
-   * TODO
+   * Property that allows the component to have inverted state
    */
   @property({ type: Boolean }) inverted = false;
 
   /**
-   * TODO
+   * Property that allows the component to have link state
    */
   @property({ type: Boolean }) link = false;
 
   /**
-   * TODO
+   * Property that allows the component to have disabled state
    */
   @property({ type: Boolean }) disabled = false;
 
   /**
-   * TODO
+   * Property that allows the component to setup a url
    */
   @property({ type: String }) href = '';
 
   /**
-   * TODO
+   * Property that allows the component to setup an anchor tag
    */
   @property({ type: String }) anchor = '';
 
   /**
-   * TODO
+   * Method to attach shadow CSS to the component
    */
-  getStyles() {
+  getStyles(): string {
     return html`
       <style>
         :host button {
@@ -144,23 +144,23 @@ export class Button extends LitElement {
   }
 
   /**
-   * TODO
+   * Method to handle the href property on button click
    */
   handleHref() {
     console.log(this.href);
   }
 
   /**
-   * TODO
+   * Method to handle the anchor property on button click
    */
   handleAnchor() {
     console.log(this.anchor);
   }
 
   /**
-   * TODO
+   * Method to render the component into the DOM
    */
-  render() {
+  render(): string {
     return html`
       ${this.getStyles()}
       <button @click="${this.href ? this.handleHref : this.handleAnchor}" ?disabled="${this.disabled}">
