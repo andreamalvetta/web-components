@@ -83,21 +83,23 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.ts": [
-      "tslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{css,scss,sass}": [
-      "stylelint --fix",
-      "prettier --write",
-      "git add"
-    ],
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "prettier --write",
+        "git add"
+      ],
+      "*.ts": [
+        "tslint --fix",
+        "prettier --write",
+        "git add"
+      ],
+      "*.{css,scss,sass}": [
+        "stylelint --fix",
+        "prettier --write",
+        "git add"
+      ]
+    },
     "ignore": [
       "docs/*"
     ]
