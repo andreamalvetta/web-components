@@ -6,7 +6,7 @@ const path = require('path');
 module.exports = config => {
   config.set(
     merge(createDefaultConfig(config), {
-      files: [config.grep ? config.grep : 'src/components/**/*.spec.ts'],
+      files: [{ pattern: config.grep ? config.grep : 'src/components/**/*.spec.ts', type: 'module' }],
       colors: true,
       exclude: ['src/**/*.d.ts'],
       preprocessors: {
