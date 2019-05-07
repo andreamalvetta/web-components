@@ -2,6 +2,7 @@
 const createDefaultConfig = require('@open-wc/testing-karma/default-config');
 const merge = require('webpack-merge');
 const path = require('path');
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = config => {
   config.set(
