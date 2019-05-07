@@ -19,6 +19,9 @@ module.exports = config => {
         fixWebpackSourcePaths: true,
         'report-config': {
           html: { outdir: 'html' }
+        },
+        thresholds: {
+          global: { statements: 80, lines: 80, branches: 80, functions: 80 }
         }
       },
       webpackMiddleware: {
