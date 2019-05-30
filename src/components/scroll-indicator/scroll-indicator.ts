@@ -15,6 +15,21 @@ export class ScrollIndicator extends LitElement {
   @property({ type: Number }) height = 3;
 
   /**
+   * TODO
+   */
+  private _hasMovableBar: boolean;
+
+  /**
+   * TODO
+   */
+  private _innerHeight: number;
+
+  /**
+   * TODO
+   */
+  private _width: string;
+
+  /**
    * Method to add all the available event listeners
    */
   connectedCallback() {
@@ -40,16 +55,16 @@ export class ScrollIndicator extends LitElement {
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1)
     ) {
-      this.hasMovableBar = true;
-      this.innerHeight = window.innerHeight + 56;
+      this._hasMovableBar = true;
+      this._innerHeight = window.innerHeight + 56;
     }
 
     if (
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('SamsungBrowser') !== -1) ||
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Edg') !== -1)
     ) {
-      this.hasMovableBar = true;
-      this.innerHeight = window.innerHeight + 112;
+      this._hasMovableBar = true;
+      this._innerHeight = window.innerHeight + 112;
     }
 
     window.addEventListener('load', () => this.scrollFunction());
@@ -60,7 +75,7 @@ export class ScrollIndicator extends LitElement {
    * TODO
    */
   scrollFunction() {
-    this.width = ((this.getWindowScroll() / this.getScrollHeight()) * 100).toFixed(2);
+    this._width = ((this.getWindowScroll() / this.getScrollHeight()) * 100).toFixed(2);
     this.requestUpdate();
   }
 
@@ -75,7 +90,7 @@ export class ScrollIndicator extends LitElement {
    * TODO
    */
   getScrollHeight(): number {
-    return document.documentElement.scrollHeight - (this.hasMovableBar ? this.innerHeight : window.innerHeight);
+    return document.documentElement.scrollHeight - (this._hasMovableBar ? this._innerHeight : window.innerHeight);
   }
 
   /**
@@ -95,7 +110,7 @@ export class ScrollIndicator extends LitElement {
         :host .progress-bar {
           height: ${this.height}px;
           background: #4caf50;
-          width: ${this.width || 0}%;
+          width: ${this._width || 0}%;
         }
       </style>
     `;

@@ -39,6 +39,26 @@ export class LazyBackground extends LitElement {
   @property({ type: String }) color = '#ccc';
 
   /**
+   * TODO
+   */
+  private _isImageLoaded: boolean;
+
+  /**
+   * TODO
+   */
+  private _imgRootUrl: string;
+
+  /**
+   * TODO
+   */
+  private _imgExt: string;
+
+  /**
+   * TODO
+   */
+  private _devicePixelRatio: number;
+
+  /**
    * Method to add all the available event listeners
    */
   connectedCallback() {
@@ -60,7 +80,7 @@ export class LazyBackground extends LitElement {
    * Main init method (called after the component has been added into the DOM)
    */
   init() {
-    this.shadowImg = this.shadowRoot.querySelector('.bg-img');
+    const shadowImg = this.shadowRoot.querySelector('.bg-img');
     this.styleContentWrap();
     if (this.responsive) {
       let url = this.bg.split('_');
@@ -70,20 +90,22 @@ export class LazyBackground extends LitElement {
       this.setPixelRatio();
       this.requestUpdate();
     }
-    this.shadowImg.addEventListener('lazybeforeunveil', this.showImage(), true);
 
-    this.shadowImg.addEventListener(
+    shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg), true);
+
+    shadowImg.addEventListener(
       'load',
-      // tslint:disable-next-line: completed-docs
-      (e: { target: { currentSrc: string; src: string } }) => {
+      (e: Event) => {
         const lazyBg = this.shadowRoot.querySelector('.lazy-background-container .lazy-background');
-        lazyBg.style.backgroundImage = `url(${e.target.currentSrc || e.target.src})`;
+        const target = e.target as HTMLImageElement;
+        lazyBg.style.backgroundImage = `url(${target.currentSrc || target.src})`;
         lazyBg.classList.add('loaded');
       },
       true
     );
-    window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
-    window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
+
+    window.addEventListener('scroll', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
+    window.addEventListener('resize', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
   }
 
   /**
@@ -101,10 +123,10 @@ export class LazyBackground extends LitElement {
   /**
    * TODO
    */
-  showImage() {
-    if (isInViewport(this.shadowImg, 1.5) && !this.isImageLoaded) {
-      this.isImageLoaded = true;
-      lazySizes.loader.unveil(this.shadowImg);
+  showImage(shadowImg: HTMLElement) {
+    if (isInViewport(shadowImg, 1.5) && !this._isImageLoaded) {
+      this._isImageLoaded = true;
+      lazySizes.loader.unveil(shadowImg);
     }
   }
 
@@ -114,8 +136,8 @@ export class LazyBackground extends LitElement {
    * @returns Image root URL
    */
   setImgRoot(url: string[]): string {
-    this.imgRootUrl = url[0];
-    return this.imgRootUrl;
+    this._imgRootUrl = url[0];
+    return this._imgRootUrl;
   }
 
   /**
@@ -124,8 +146,8 @@ export class LazyBackground extends LitElement {
    * @returns Image extension
    */
   setImgExt(url: string[]): string {
-    this.imgExt = url[1];
-    return this.imgExt;
+    this._imgExt = url[1];
+    return this._imgExt;
   }
 
   /**
@@ -133,8 +155,8 @@ export class LazyBackground extends LitElement {
    * @returns Device pixel ratio value
    */
   setPixelRatio(): number {
-    this.devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
-    return this.devicePixelRatio;
+    this._devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
+    return this._devicePixelRatio;
   }
 
   /**
@@ -192,9 +214,9 @@ export class LazyBackground extends LitElement {
                   data-sizes="auto"
                   data-srcset="${theme.imageSizes.map(
                     (size: number, index: number) =>
-                      `${index > 0 ? ', ' : ''}${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${
-                        this.imgExt
-                      } ${size * this.devicePixelRatio}w`
+                      `${index > 0 ? ', ' : ''}${this._imgRootUrl}_${size}w_${this._devicePixelRatio}x.${
+                        this._imgExt
+                      } ${size * this._devicePixelRatio}w`
                   )}"
                 />
               </div>

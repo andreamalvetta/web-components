@@ -17,22 +17,46 @@ export class LazyImage extends LitElement {
    * Property that allows to set up image src
    */
   @property({ type: String }) src = '';
+
   /**
    * Property that allows to declare if the background is responsive or not
    */
   @property({ type: Boolean }) responsive = false;
+
   /**
    * Property that allows to set up image alt description
    */
   @property({ type: String }) alt = '';
+
   /**
    * Property that allows to set up image width
    */
   @property({ type: Number }) width = 0;
+
   /**
    * Property that allows to set up image height
    */
   @property({ type: Number }) height = 0;
+
+  /**
+   * TODO
+   */
+  private _isImageLoaded: boolean;
+
+  /**
+   * TODO
+   */
+  private _imgRootUrl: string;
+
+  /**
+   * TODO
+   */
+  private _imgExt: string;
+
+  /**
+   * TODO
+   */
+  private _devicePixelRatio: number;
 
   /**
    * Method to add all the available event listeners
@@ -56,7 +80,7 @@ export class LazyImage extends LitElement {
    * Main init method (called after the component has been added into the DOM)
    */
   init() {
-    this.shadowImg = this.shadowRoot.querySelector('img');
+    const shadowImg = this.shadowRoot.querySelector('img');
     if (this.responsive) {
       let url = this.src.split('_');
       this.setImgRoot(url);
@@ -65,18 +89,18 @@ export class LazyImage extends LitElement {
       this.setPixelRatio();
       this.requestUpdate();
     }
-    this.shadowImg.addEventListener('lazybeforeunveil', this.showImage(), true);
-    window.addEventListener('scroll', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
-    window.addEventListener('resize', () => window.requestAnimationFrame(this.showImage.bind(this)), true);
+    shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg), true);
+    window.addEventListener('scroll', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
+    window.addEventListener('resize', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
   }
 
   /**
    * TODO
    */
-  showImage() {
-    if (isInViewport(this.shadowImg, 1.5) && !this.isImageLoaded) {
-      this.isImageLoaded = true;
-      lazySizes.loader.unveil(this.shadowImg);
+  showImage(shadowImg: HTMLElement) {
+    if (isInViewport(shadowImg, 1.5) && !this._isImageLoaded) {
+      this._isImageLoaded = true;
+      lazySizes.loader.unveil(shadowImg);
     }
   }
 
@@ -86,8 +110,8 @@ export class LazyImage extends LitElement {
    * @returns Image root URL
    */
   setImgRoot(url: string[]): string {
-    this.imgRootUrl = url[0];
-    return this.imgRootUrl;
+    this._imgRootUrl = url[0];
+    return this._imgRootUrl;
   }
 
   /**
@@ -96,8 +120,8 @@ export class LazyImage extends LitElement {
    * @returns Image extension
    */
   setImgExt(url: string[]): string {
-    this.imgExt = url[1];
-    return this.imgExt;
+    this._imgExt = url[1];
+    return this._imgExt;
   }
 
   /**
@@ -105,8 +129,8 @@ export class LazyImage extends LitElement {
    * @returns Device pixel ratio value
    */
   setPixelRatio(): number {
-    this.devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
-    return this.devicePixelRatio;
+    this._devicePixelRatio = window.devicePixelRatio >= 2 ? 2 : 1;
+    return this._devicePixelRatio;
   }
 
   /**
@@ -162,7 +186,7 @@ export class LazyImage extends LitElement {
                   (size: number, index: number) => html`
                     <source
                       media="${theme.mediaQueries[index]}"
-                      data-srcset="${this.imgRootUrl}_${size}w_${this.devicePixelRatio}x.${this.imgExt}"
+                      data-srcset="${this._imgRootUrl}_${size}w_${this._devicePixelRatio}x.${this._imgExt}"
                     />
                   `
                 )}

@@ -8,6 +8,7 @@
     "no-submodule-imports": false,
     "no-namespace": false,
     "no-implicit-dependencies": { "severity": "warning" },
-    "completed-docs": true
+    "completed-docs": true,
+    "variable-name": [true, "allow-leading-underscore"]
   }
 }
