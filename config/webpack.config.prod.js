@@ -1,7 +1,7 @@
 const { commonConfig, polyfills, helpers, assets, ROOT_DIR, INDEX_TEMPLATE, OUTPUT_PATH } = require('./webpack.common');
 const { resolve } = require('path');
 const merge = require('webpack-merge');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');

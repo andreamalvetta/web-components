@@ -11,8 +11,12 @@ describe('Lazy background component', () => {
   });
 
   it('runs styleContentWrap()', async () => {
-    const el = await fixture('<lazy-background>Lazy background</lazy-background>');
+    const el = await fixture('<lazy-background><div class="content">Lazy background</div></lazy-background>');
     el.styleContentWrap();
+    const contentWrapper = el.querySelector('.content');
+    expect(contentWrapper.style.padding).to.be.equal('30px');
+    expect(contentWrapper.style.position).to.be.equal('relative');
+    expect(contentWrapper.style.zIndex).to.be.equal('2');
   });
 
   it('runs setImgRoot()', async () => {
