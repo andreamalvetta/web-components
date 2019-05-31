@@ -23,7 +23,18 @@ describe('Lazy image component', () => {
   });
 
   it('runs setPixelRatio()', async () => {
+    const dpr = window.devicePixelRatio >= 2 ? 2 : 1;
     const el = await fixture('<lazy-image>Lazy image</lazy-image>');
     el.setPixelRatio();
+    expect(el._devicePixelRatio).to.be.equal(dpr);
+  });
+
+  it('runs responsiveImgHandler()', async () => {
+    const dpr = window.devicePixelRatio >= 2 ? 2 : 1;
+    const el = await fixture('<lazy-image src="assets/img/img1/img1_1500w_1x.jpg" responsive>Lazy image</lazy-image>');
+    el.responsiveImgHandler();
+    expect(el._imgRootUrl).to.be.equal('assets/img/img1/img1');
+    expect(el._imgExt).to.be.equal('jpg');
+    expect(el._devicePixelRatio).to.be.equal(dpr);
   });
 });

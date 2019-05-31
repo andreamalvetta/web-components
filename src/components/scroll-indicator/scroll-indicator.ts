@@ -34,23 +34,45 @@ export class ScrollIndicator extends LitElement {
    */
   connectedCallback() {
     super.connectedCallback();
-    document.addEventListener('readystatechange', () => this.init(), true);
+    this.innerHeightHandler();
+    this.addEventListeners();
   }
 
   /**
    * Method to remove all the available event listeners
    */
   disconnectedCallback() {
-    document.removeEventListener('readystatechange', () => console.log('removed'), true);
-    window.removeEventListener('load', () => console.log('removed'), true);
-    window.removeEventListener('scroll', () => console.log('removed'), true);
+    this.removeEventListeners();
     super.disconnectedCallback();
   }
 
   /**
-   * Main init method (called after the component has been added into the DOM)
+   * TODO
    */
-  init() {
+  addEventListeners() {
+    document.addEventListener(
+      'readystatechange',
+      () => {
+        window.addEventListener('load', () => this.scrollFunction());
+        window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
+      },
+      true
+    );
+  }
+
+  /**
+   * TODO
+   */
+  removeEventListeners() {
+    document.removeEventListener('readystatechange', () => console.log('removed'), true);
+    window.removeEventListener('load', () => console.log('removed'), true);
+    window.removeEventListener('scroll', () => console.log('removed'), true);
+  }
+
+  /**
+   * TODO
+   */
+  innerHeightHandler() {
     if (
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) ||
       (typeof window.orientation !== 'undefined' && navigator.userAgent.indexOf('Firefox') !== -1)
@@ -66,9 +88,6 @@ export class ScrollIndicator extends LitElement {
       this._hasMovableBar = true;
       this._innerHeight = window.innerHeight + 112;
     }
-
-    window.addEventListener('load', () => this.scrollFunction());
-    window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
   }
 
   /**

@@ -10,11 +10,6 @@ describe('Scroll indicator component', () => {
     expect(el).dom.to.equal('<scroll-indicator></scroll-indicator>');
   });
 
-  it('runs init()', async () => {
-    const el = await fixture('<scroll-indicator></scroll-indicator>');
-    el.init();
-  });
-
   it('runs scrollFunction()', async () => {
     const el = await fixture('<scroll-indicator></scroll-indicator>');
     el.scrollFunction();

@@ -32,7 +32,20 @@ describe('Lazy background component', () => {
   });
 
   it('runs setPixelRatio()', async () => {
+    const dpr = window.devicePixelRatio >= 2 ? 2 : 1;
     const el = await fixture('<lazy-background>Lazy background</lazy-background>');
     el.setPixelRatio();
+    expect(el._devicePixelRatio).to.be.equal(dpr);
+  });
+
+  it('runs responsiveImgHandler()', async () => {
+    const dpr = window.devicePixelRatio >= 2 ? 2 : 1;
+    const el = await fixture(
+      '<lazy-background bg="assets/img/img1/img1_1500w_1x.jpg" responsive>Lazy background</lazy-background>'
+    );
+    el.responsiveImgHandler();
+    expect(el._imgRootUrl).to.be.equal('assets/img/img1/img1');
+    expect(el._imgExt).to.be.equal('jpg');
+    expect(el._devicePixelRatio).to.be.equal(dpr);
   });
 });
