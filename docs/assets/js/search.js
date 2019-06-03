@@ -252,13 +252,21 @@ typedoc.search.data = {
     {
       id: 30,
       kind: 2048,
-      name: 'init',
-      url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#init',
+      name: 'addEventListeners',
+      url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#addeventlisteners',
       classes: 'tsd-kind-method tsd-parent-kind-class',
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
       id: 31,
+      kind: 2048,
+      name: 'removeEventListeners',
+      url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#removeeventlisteners',
+      classes: 'tsd-kind-method tsd-parent-kind-class',
+      parent: '"components/lazy-background/lazy-background".LazyBackground'
+    },
+    {
+      id: 32,
       kind: 2048,
       name: 'styleContentWrap',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#stylecontentwrap',
@@ -266,7 +274,7 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 32,
+      id: 33,
       kind: 2048,
       name: 'showImage',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#showimage',
@@ -274,7 +282,15 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 33,
+      id: 34,
+      kind: 2048,
+      name: 'responsiveImgHandler',
+      url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#responsiveimghandler',
+      classes: 'tsd-kind-method tsd-parent-kind-class',
+      parent: '"components/lazy-background/lazy-background".LazyBackground'
+    },
+    {
+      id: 35,
       kind: 2048,
       name: 'setImgRoot',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#setimgroot',
@@ -282,7 +298,7 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 34,
+      id: 36,
       kind: 2048,
       name: 'setImgExt',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#setimgext',
@@ -290,7 +306,7 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 35,
+      id: 37,
       kind: 2048,
       name: 'setPixelRatio',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#setpixelratio',
@@ -298,7 +314,7 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 36,
+      id: 38,
       kind: 2048,
       name: 'getStyles',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#getstyles',
@@ -306,7 +322,7 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 37,
+      id: 39,
       kind: 2048,
       name: 'render',
       url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#render',
@@ -314,14 +330,14 @@ typedoc.search.data = {
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
-      id: 38,
+      id: 40,
       kind: 1,
       name: '"components/lazy-image/lazy-image"',
       url: 'modules/_components_lazy_image_lazy_image_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 39,
+      id: 41,
       kind: 128,
       name: 'LazyImage',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html',
@@ -329,7 +345,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image"'
     },
     {
-      id: 40,
+      id: 42,
       kind: 1024,
       name: 'src',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#src',
@@ -337,7 +353,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 41,
+      id: 43,
       kind: 1024,
       name: 'responsive',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#responsive',
@@ -345,7 +361,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 42,
+      id: 44,
       kind: 1024,
       name: 'alt',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#alt',
@@ -353,7 +369,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 43,
+      id: 45,
       kind: 1024,
       name: 'width',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#width',
@@ -361,7 +377,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 44,
+      id: 46,
       kind: 1024,
       name: 'height',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#height',
@@ -369,7 +385,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 45,
+      id: 47,
       kind: 1024,
       name: '_isImageLoaded',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#_isimageloaded',
@@ -377,7 +393,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 46,
+      id: 48,
       kind: 1024,
       name: '_imgRootUrl',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#_imgrooturl',
@@ -385,7 +401,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 47,
+      id: 49,
       kind: 1024,
       name: '_imgExt',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#_imgext',
@@ -393,7 +409,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 48,
+      id: 50,
       kind: 1024,
       name: '_devicePixelRatio',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#_devicepixelratio',
@@ -401,7 +417,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 49,
+      id: 51,
       kind: 2048,
       name: 'connectedCallback',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#connectedcallback',
@@ -409,7 +425,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 50,
+      id: 52,
       kind: 2048,
       name: 'disconnectedCallback',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#disconnectedcallback',
@@ -417,15 +433,23 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 51,
+      id: 53,
       kind: 2048,
-      name: 'init',
-      url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#init',
+      name: 'addEventListeners',
+      url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#addeventlisteners',
       classes: 'tsd-kind-method tsd-parent-kind-class',
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 52,
+      id: 54,
+      kind: 2048,
+      name: 'removeEventListeners',
+      url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#removeeventlisteners',
+      classes: 'tsd-kind-method tsd-parent-kind-class',
+      parent: '"components/lazy-image/lazy-image".LazyImage'
+    },
+    {
+      id: 55,
       kind: 2048,
       name: 'showImage',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#showimage',
@@ -433,7 +457,15 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 53,
+      id: 56,
+      kind: 2048,
+      name: 'responsiveImgHandler',
+      url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#responsiveimghandler',
+      classes: 'tsd-kind-method tsd-parent-kind-class',
+      parent: '"components/lazy-image/lazy-image".LazyImage'
+    },
+    {
+      id: 57,
       kind: 2048,
       name: 'setImgRoot',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#setimgroot',
@@ -441,7 +473,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 54,
+      id: 58,
       kind: 2048,
       name: 'setImgExt',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#setimgext',
@@ -449,7 +481,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 55,
+      id: 59,
       kind: 2048,
       name: 'setPixelRatio',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#setpixelratio',
@@ -457,7 +489,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 56,
+      id: 60,
       kind: 2048,
       name: 'getStyles',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#getstyles',
@@ -465,7 +497,7 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 57,
+      id: 61,
       kind: 2048,
       name: 'render',
       url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#render',
@@ -473,14 +505,14 @@ typedoc.search.data = {
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
-      id: 58,
+      id: 62,
       kind: 1,
       name: '"components/scroll-indicator/scroll-indicator"',
       url: 'modules/_components_scroll_indicator_scroll_indicator_.html',
       classes: 'tsd-kind-external-module'
     },
     {
-      id: 59,
+      id: 63,
       kind: 128,
       name: 'ScrollIndicator',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html',
@@ -488,7 +520,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator"'
     },
     {
-      id: 60,
+      id: 64,
       kind: 1024,
       name: 'height',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#height',
@@ -496,7 +528,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 61,
+      id: 65,
       kind: 1024,
       name: '_hasMovableBar',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#_hasmovablebar',
@@ -504,7 +536,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 62,
+      id: 66,
       kind: 1024,
       name: '_innerHeight',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#_innerheight',
@@ -512,7 +544,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 63,
+      id: 67,
       kind: 1024,
       name: '_width',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#_width',
@@ -520,7 +552,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 64,
+      id: 68,
       kind: 2048,
       name: 'connectedCallback',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#connectedcallback',
@@ -528,7 +560,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 65,
+      id: 69,
       kind: 2048,
       name: 'disconnectedCallback',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#disconnectedcallback',
@@ -536,15 +568,31 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 66,
+      id: 70,
       kind: 2048,
-      name: 'init',
-      url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#init',
+      name: 'addEventListeners',
+      url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#addeventlisteners',
       classes: 'tsd-kind-method tsd-parent-kind-class',
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 67,
+      id: 71,
+      kind: 2048,
+      name: 'removeEventListeners',
+      url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#removeeventlisteners',
+      classes: 'tsd-kind-method tsd-parent-kind-class',
+      parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
+    },
+    {
+      id: 72,
+      kind: 2048,
+      name: 'innerHeightHandler',
+      url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#innerheighthandler',
+      classes: 'tsd-kind-method tsd-parent-kind-class',
+      parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
+    },
+    {
+      id: 73,
       kind: 2048,
       name: 'scrollFunction',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#scrollfunction',
@@ -552,7 +600,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 68,
+      id: 74,
       kind: 2048,
       name: 'getWindowScroll',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#getwindowscroll',
@@ -560,7 +608,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 69,
+      id: 75,
       kind: 2048,
       name: 'getScrollHeight',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#getscrollheight',
@@ -568,7 +616,7 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 70,
+      id: 76,
       kind: 2048,
       name: 'getStyles',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#getstyles',
@@ -576,16 +624,16 @@ typedoc.search.data = {
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
-      id: 71,
+      id: 77,
       kind: 2048,
       name: 'render',
       url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#render',
       classes: 'tsd-kind-method tsd-parent-kind-class',
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
-    { id: 72, kind: 1, name: '"typings.d"', url: 'modules/_typings_d_.html', classes: 'tsd-kind-external-module' },
+    { id: 78, kind: 1, name: '"typings.d"', url: 'modules/_typings_d_.html', classes: 'tsd-kind-external-module' },
     {
-      id: 73,
+      id: 79,
       kind: 2,
       name: '"*.png"',
       url: 'modules/_typings_d_.___png_.html',
@@ -593,7 +641,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 74,
+      id: 80,
       kind: 32,
       name: 'content',
       url: 'modules/_typings_d_.___png_.html#content',
@@ -601,7 +649,7 @@ typedoc.search.data = {
       parent: '"typings.d"."*.png"'
     },
     {
-      id: 75,
+      id: 81,
       kind: 2,
       name: '"lit-element"',
       url: 'modules/_typings_d_._lit_element_.html',
@@ -609,7 +657,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 76,
+      id: 82,
       kind: 32,
       name: 'LitElement',
       url: 'modules/_typings_d_._lit_element_.html#litelement',
@@ -617,7 +665,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lit-element"'
     },
     {
-      id: 77,
+      id: 83,
       kind: 32,
       name: 'html',
       url: 'modules/_typings_d_._lit_element_.html#html',
@@ -625,7 +673,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lit-element"'
     },
     {
-      id: 78,
+      id: 84,
       kind: 32,
       name: 'customElement',
       url: 'modules/_typings_d_._lit_element_.html#customelement',
@@ -633,7 +681,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lit-element"'
     },
     {
-      id: 79,
+      id: 85,
       kind: 32,
       name: 'property',
       url: 'modules/_typings_d_._lit_element_.html#property',
@@ -641,7 +689,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lit-element"'
     },
     {
-      id: 80,
+      id: 86,
       kind: 2,
       name: '"workbox-window"',
       url: 'modules/_typings_d_._workbox_window_.html',
@@ -649,7 +697,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 81,
+      id: 87,
       kind: 32,
       name: 'Workbox',
       url: 'modules/_typings_d_._workbox_window_.html#workbox',
@@ -657,7 +705,7 @@ typedoc.search.data = {
       parent: '"typings.d"."workbox-window"'
     },
     {
-      id: 82,
+      id: 88,
       kind: 2,
       name: '"lazysizes"',
       url: 'modules/_typings_d_._lazysizes_.html',
@@ -665,7 +713,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 83,
+      id: 89,
       kind: 32,
       name: 'content',
       url: 'modules/_typings_d_._lazysizes_.html#content',
@@ -673,7 +721,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lazysizes"'
     },
     {
-      id: 84,
+      id: 90,
       kind: 2,
       name: '"@open-wc/testing"',
       url: 'modules/_typings_d_.__open_wc_testing_.html',
@@ -681,7 +729,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 85,
+      id: 91,
       kind: 32,
       name: 'html',
       url: 'modules/_typings_d_.__open_wc_testing_.html#html',
@@ -689,7 +737,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@open-wc/testing"'
     },
     {
-      id: 86,
+      id: 92,
       kind: 32,
       name: 'fixture',
       url: 'modules/_typings_d_.__open_wc_testing_.html#fixture',
@@ -697,7 +745,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@open-wc/testing"'
     },
     {
-      id: 87,
+      id: 93,
       kind: 32,
       name: 'expect',
       url: 'modules/_typings_d_.__open_wc_testing_.html#expect',
@@ -705,7 +753,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@open-wc/testing"'
     },
     {
-      id: 88,
+      id: 94,
       kind: 2,
       name: '"@storybook/polymer"',
       url: 'modules/_typings_d_.__storybook_polymer_.html',
@@ -713,7 +761,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 89,
+      id: 95,
       kind: 32,
       name: 'storiesOf',
       url: 'modules/_typings_d_.__storybook_polymer_.html#storiesof',
@@ -721,7 +769,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@storybook/polymer"'
     },
     {
-      id: 90,
+      id: 96,
       kind: 2,
       name: '"@storybook/addon-actions"',
       url: 'modules/_typings_d_.__storybook_addon_actions_.html',
@@ -729,7 +777,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 91,
+      id: 97,
       kind: 32,
       name: 'action',
       url: 'modules/_typings_d_.__storybook_addon_actions_.html#action',
@@ -737,7 +785,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@storybook/addon-actions"'
     },
     {
-      id: 92,
+      id: 98,
       kind: 32,
       name: 'configureActions',
       url: 'modules/_typings_d_.__storybook_addon_actions_.html#configureactions',
@@ -745,7 +793,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@storybook/addon-actions"'
     },
     {
-      id: 93,
+      id: 99,
       kind: 2,
       name: 'WebComponents',
       url: 'modules/_typings_d_.webcomponents.html',
@@ -753,7 +801,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 94,
+      id: 100,
       kind: 32,
       name: 'ready',
       url: 'modules/_typings_d_.webcomponents.html#ready',
@@ -761,7 +809,7 @@ typedoc.search.data = {
       parent: '"typings.d".WebComponents'
     },
     {
-      id: 95,
+      id: 101,
       kind: 32,
       name: 'waitFor',
       url: 'modules/_typings_d_.webcomponents.html#waitfor',
@@ -769,7 +817,7 @@ typedoc.search.data = {
       parent: '"typings.d".WebComponents'
     },
     {
-      id: 96,
+      id: 102,
       kind: 65536,
       name: '__type',
       url: 'modules/_typings_d_.webcomponents.html#waitfor.__type',
