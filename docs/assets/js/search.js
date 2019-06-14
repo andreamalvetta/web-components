@@ -9,7 +9,8 @@ typedoc.search.data = {
     '128': 'Class',
     '1024': 'Property',
     '2048': 'Method',
-    '65536': 'Type literal'
+    '65536': 'Type literal',
+    '262144': 'Accessor'
   },
   rows: [
     {
@@ -315,10 +316,10 @@ typedoc.search.data = {
     },
     {
       id: 38,
-      kind: 2048,
-      name: 'getStyles',
-      url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#getstyles',
-      classes: 'tsd-kind-method tsd-parent-kind-class',
+      kind: 262144,
+      name: 'styles',
+      url: 'classes/_components_lazy_background_lazy_background_.lazybackground.html#styles',
+      classes: 'tsd-kind-get-signature tsd-parent-kind-class tsd-is-static',
       parent: '"components/lazy-background/lazy-background".LazyBackground'
     },
     {
@@ -490,10 +491,10 @@ typedoc.search.data = {
     },
     {
       id: 60,
-      kind: 2048,
-      name: 'getStyles',
-      url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#getstyles',
-      classes: 'tsd-kind-method tsd-parent-kind-class',
+      kind: 262144,
+      name: 'styles',
+      url: 'classes/_components_lazy_image_lazy_image_.lazyimage.html#styles',
+      classes: 'tsd-kind-get-signature tsd-parent-kind-class tsd-is-static',
       parent: '"components/lazy-image/lazy-image".LazyImage'
     },
     {
@@ -617,10 +618,10 @@ typedoc.search.data = {
     },
     {
       id: 76,
-      kind: 2048,
-      name: 'getStyles',
-      url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#getstyles',
-      classes: 'tsd-kind-method tsd-parent-kind-class',
+      kind: 262144,
+      name: 'styles',
+      url: 'classes/_components_scroll_indicator_scroll_indicator_.scrollindicator.html#styles',
+      classes: 'tsd-kind-get-signature tsd-parent-kind-class tsd-is-static',
       parent: '"components/scroll-indicator/scroll-indicator".ScrollIndicator'
     },
     {
@@ -675,13 +676,21 @@ typedoc.search.data = {
     {
       id: 84,
       kind: 32,
+      name: 'css',
+      url: 'modules/_typings_d_._lit_element_.html#css',
+      classes: 'tsd-kind-variable tsd-parent-kind-module',
+      parent: '"typings.d"."lit-element"'
+    },
+    {
+      id: 85,
+      kind: 32,
       name: 'customElement',
       url: 'modules/_typings_d_._lit_element_.html#customelement',
       classes: 'tsd-kind-variable tsd-parent-kind-module',
       parent: '"typings.d"."lit-element"'
     },
     {
-      id: 85,
+      id: 86,
       kind: 32,
       name: 'property',
       url: 'modules/_typings_d_._lit_element_.html#property',
@@ -689,7 +698,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lit-element"'
     },
     {
-      id: 86,
+      id: 87,
       kind: 2,
       name: '"workbox-window"',
       url: 'modules/_typings_d_._workbox_window_.html',
@@ -697,7 +706,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 87,
+      id: 88,
       kind: 32,
       name: 'Workbox',
       url: 'modules/_typings_d_._workbox_window_.html#workbox',
@@ -705,7 +714,7 @@ typedoc.search.data = {
       parent: '"typings.d"."workbox-window"'
     },
     {
-      id: 88,
+      id: 89,
       kind: 2,
       name: '"lazysizes"',
       url: 'modules/_typings_d_._lazysizes_.html',
@@ -713,7 +722,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 89,
+      id: 90,
       kind: 32,
       name: 'content',
       url: 'modules/_typings_d_._lazysizes_.html#content',
@@ -721,7 +730,7 @@ typedoc.search.data = {
       parent: '"typings.d"."lazysizes"'
     },
     {
-      id: 90,
+      id: 91,
       kind: 2,
       name: '"@open-wc/testing"',
       url: 'modules/_typings_d_.__open_wc_testing_.html',
@@ -729,7 +738,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 91,
+      id: 92,
       kind: 32,
       name: 'html',
       url: 'modules/_typings_d_.__open_wc_testing_.html#html',
@@ -737,7 +746,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@open-wc/testing"'
     },
     {
-      id: 92,
+      id: 93,
       kind: 32,
       name: 'fixture',
       url: 'modules/_typings_d_.__open_wc_testing_.html#fixture',
@@ -745,7 +754,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@open-wc/testing"'
     },
     {
-      id: 93,
+      id: 94,
       kind: 32,
       name: 'expect',
       url: 'modules/_typings_d_.__open_wc_testing_.html#expect',
@@ -753,7 +762,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@open-wc/testing"'
     },
     {
-      id: 94,
+      id: 95,
       kind: 2,
       name: '"@storybook/polymer"',
       url: 'modules/_typings_d_.__storybook_polymer_.html',
@@ -761,7 +770,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 95,
+      id: 96,
       kind: 32,
       name: 'storiesOf',
       url: 'modules/_typings_d_.__storybook_polymer_.html#storiesof',
@@ -769,7 +778,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@storybook/polymer"'
     },
     {
-      id: 96,
+      id: 97,
       kind: 2,
       name: '"@storybook/addon-actions"',
       url: 'modules/_typings_d_.__storybook_addon_actions_.html',
@@ -777,7 +786,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 97,
+      id: 98,
       kind: 32,
       name: 'action',
       url: 'modules/_typings_d_.__storybook_addon_actions_.html#action',
@@ -785,7 +794,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@storybook/addon-actions"'
     },
     {
-      id: 98,
+      id: 99,
       kind: 32,
       name: 'configureActions',
       url: 'modules/_typings_d_.__storybook_addon_actions_.html#configureactions',
@@ -793,7 +802,7 @@ typedoc.search.data = {
       parent: '"typings.d"."@storybook/addon-actions"'
     },
     {
-      id: 99,
+      id: 100,
       kind: 2,
       name: 'WebComponents',
       url: 'modules/_typings_d_.webcomponents.html',
@@ -801,7 +810,7 @@ typedoc.search.data = {
       parent: '"typings.d"'
     },
     {
-      id: 100,
+      id: 101,
       kind: 32,
       name: 'ready',
       url: 'modules/_typings_d_.webcomponents.html#ready',
@@ -809,7 +818,7 @@ typedoc.search.data = {
       parent: '"typings.d".WebComponents'
     },
     {
-      id: 101,
+      id: 102,
       kind: 32,
       name: 'waitFor',
       url: 'modules/_typings_d_.webcomponents.html#waitfor',
@@ -817,7 +826,7 @@ typedoc.search.data = {
       parent: '"typings.d".WebComponents'
     },
     {
-      id: 102,
+      id: 103,
       kind: 65536,
       name: '__type',
       url: 'modules/_typings_d_.webcomponents.html#waitfor.__type',

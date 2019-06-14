@@ -1,4 +1,4 @@
-import { LitElement, html, customElement, property } from 'lit-element';
+import { LitElement, html, css, customElement, property } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import lazySizes from 'lazysizes';
 import isInViewport from '../../utils/isInViewport';
@@ -179,40 +179,37 @@ export class LazyBackground extends LitElement {
   /**
    * Method to attach shadow CSS to the component
    */
-  getStyles(): string {
-    return html`
-      <style>
-        :host {
-          margin-bottom: 5px;
-          display: block;
-          position: relative;
-        }
-        :host .lazy-background-container {
-          position: relative;
-          display: block;
-          background-color: ${this.color};
-          width: 100%;
-        }
-        :host .lazy-background-container .lazy-background {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-size: ${this.size};
-          background-position: ${this.position};
-          background-repeat: no-repeat;
-          opacity: 0;
-          z-index: 1;
-        }
-        :host .lazy-background-container .lazy-background.loaded {
-          opacity: 1;
-          transition: opacity 300ms;
-        }
-        :host .bg-img {
-          display: none;
-        }
-      </style>
+  static get styles(): string {
+    return css`
+      :host {
+        margin-bottom: 5px;
+        display: block;
+        position: relative;
+      }
+      :host .lazy-background-container {
+        position: relative;
+        display: block;
+
+        width: 100%;
+      }
+      :host .lazy-background-container .lazy-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-repeat: no-repeat;
+        opacity: 0;
+        z-index: 1;
+      }
+      :host .lazy-background-container .lazy-background.loaded {
+        opacity: 1;
+        transition: opacity 300ms;
+      }
+      :host .bg-img {
+        display: none;
+      }
     `;
   }
 
@@ -221,11 +218,10 @@ export class LazyBackground extends LitElement {
    */
   render(): string {
     return html`
-      ${this.getStyles()}
-      ${this.responsive
-        ? html`
-            <div class="lazy-background-container">
-              <div class="lazy-background">
+      <div class="lazy-background-container" style="background-color: ${this.color};">
+        <div class="lazy-background" style="background-size: ${this.size}; background-position: ${this.position};">
+          ${this.responsive
+            ? html`
                 <img
                   class="bg-img"
                   data-sizes="auto"
@@ -236,18 +232,13 @@ export class LazyBackground extends LitElement {
                       } ${size * this._devicePixelRatio}w`
                   )}"
                 />
-              </div>
-              <slot></slot>
-            </div>
-          `
-        : html`
-            <div class="lazy-background-container">
-              <div class="lazy-background">
+              `
+            : html`
                 <img class="bg-img" data-src="${this.bg}" />
-              </div>
-              <slot></slot>
-            </div>
-          `}
+              `}
+        </div>
+        <slot></slot>
+      </div>
     `;
   }
 }

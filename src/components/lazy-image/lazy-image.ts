@@ -1,4 +1,4 @@
-import { LitElement, html, customElement, property } from 'lit-element';
+import { LitElement, html, css, customElement, property } from 'lit-element';
 import 'lazysizes/plugins/respimg/ls.respimg';
 import lazySizes from 'lazysizes';
 import isInViewport from '../../utils/isInViewport';
@@ -155,39 +155,35 @@ export class LazyImage extends LitElement {
   /**
    * Method to attach shadow CSS to the component
    */
-  getStyles(): string {
-    return html`
-      <style>
-        :host picture {
-          position: relative;
-          display: block;
-          margin-bottom: 5px;
-        }
-        :host picture:after {
-          content: '';
-          display: block;
-          height: 0;
-          width: 100%;
-          /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
-          padding-bottom: ${!isNaN(this.height / this.width) ? ((this.height / this.width) * 100).toFixed(2) : 56.25}%;
-        }
-        :host picture > img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-        :host img {
-          width: 100%;
-          opacity: 0;
-        }
-        :host img.lazyloaded {
-          opacity: 1;
-          transition: opacity 300ms;
-        }
-      </style>
+  static get styles(): string {
+    return css`
+      :host picture {
+        position: relative;
+        display: block;
+        margin-bottom: 5px;
+      }
+      :host picture:after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 100%;
+      }
+      :host picture > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      :host img {
+        width: 100%;
+        opacity: 0;
+      }
+      :host img.lazyloaded {
+        opacity: 1;
+        transition: opacity 300ms;
+      }
     `;
   }
 
@@ -196,7 +192,12 @@ export class LazyImage extends LitElement {
    */
   render(): string {
     return html`
-      ${this.getStyles()}
+      <style>
+        :host picture:after {
+          /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+          padding-bottom: ${!isNaN(this.height / this.width) ? ((this.height / this.width) * 100).toFixed(2) : 56.25}%;
+        }
+      </style>
       ${this.responsive
         ? html`
             <picture>

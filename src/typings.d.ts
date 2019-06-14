@@ -6,6 +6,7 @@ declare module '*.png' {
 declare module 'lit-element' {
   export const LitElement: any;
   export const html: any;
+  export const css: any;
   export const customElement: any;
   export const property: any;
 }

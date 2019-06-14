@@ -1,4 +1,4 @@
-import { LitElement, html, customElement, property } from 'lit-element';
+import { LitElement, html, css, customElement, property } from 'lit-element';
 
 /**
  * How to declare:
@@ -115,23 +115,18 @@ export class ScrollIndicator extends LitElement {
   /**
    * Method to attach shadow CSS to the component
    */
-  getStyles(): string {
-    return html`
-      <style>
-        :host .progress-container {
-          height: ${this.height}px;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1;
-        }
-        :host .progress-bar {
-          height: ${this.height}px;
-          background: #4caf50;
-          width: ${this._width || 0}%;
-        }
-      </style>
+  static get styles(): string {
+    return css`
+      :host .progress-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+      :host .progress-bar {
+        background: #4caf50;
+      }
     `;
   }
 
@@ -140,9 +135,8 @@ export class ScrollIndicator extends LitElement {
    */
   render(): string {
     return html`
-      ${this.getStyles()}
-      <div class="progress-container">
-        <div class="progress-bar"></div>
+      <div class="progress-container" style="height: ${this.height}px;">
+        <div class="progress-bar" style="height: ${this.height}px; width: ${this._width || 0}%;"></div>
       </div>
     `;
   }
