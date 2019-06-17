@@ -102,10 +102,10 @@ typedoc.search.data = {
     },
     {
       id: 11,
-      kind: 2048,
-      name: 'getStyles',
-      url: 'classes/_components_button_button_.button.html#getstyles',
-      classes: 'tsd-kind-method tsd-parent-kind-class',
+      kind: 262144,
+      name: 'styles',
+      url: 'classes/_components_button_button_.button.html#styles',
+      classes: 'tsd-kind-get-signature tsd-parent-kind-class tsd-is-static',
       parent: '"components/button/button".Button'
     },
     {
