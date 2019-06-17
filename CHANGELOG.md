@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.0.7](https://github.com/andreamalvetta/web-components/releases/tag/1.0.7) (2019-06-17)
+
+- Force puppeteer to run from local node_modules
+- Adjust threshold for instabul reporter at 80%
+- Refactor lazy-background component
+- Refactor lazy-image component
+- Refactor scroll-indicator component
+- Refactor button component
+- Update dependencies
+- Update documentation
+
 ## [v1.0.6](https://github.com/andreamalvetta/web-components/releases/tag/1.0.6) (2019-05-03)
 
 - Integrate storybook into the project
