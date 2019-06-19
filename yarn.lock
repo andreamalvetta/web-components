@@ -1322,23 +1322,23 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@open-wc/chai-dom-equals@^0.12.7":
-  version "0.12.7"
-  resolved "https://registry.yarnpkg.com/@open-wc/chai-dom-equals/-/chai-dom-equals-0.12.7.tgz#ea99d0bb05aee091c9a08bd8c4954a49e38eb3c6"
-  integrity sha512-HuPz0UEoladG9CO2bx/hgCGEEX5vgf6RrWPdv3qnTFvPFQ+2rBHYrQjv+J25KdZW4wa1/CBAW6ZssFTJXAlNPQ==
+"@open-wc/chai-dom-equals@^0.12.8":
+  version "0.12.8"
+  resolved "https://registry.yarnpkg.com/@open-wc/chai-dom-equals/-/chai-dom-equals-0.12.8.tgz#c2df3fce07b5df5a643fc0db704fe0f9df78fde6"
+  integrity sha512-d3ra4kjjPssAR9fsNizZFM9JP3jQzawwQopU/Iu3mJOtvpspND1Dx5C5+8ChBmZzt+aZBQFvM71KYy+tx3tfGw==
   dependencies:
-    "@open-wc/semantic-dom-diff" "^0.11.7"
+    "@open-wc/semantic-dom-diff" "^0.11.8"
     "@types/chai" "^4.1.7"
 
-"@open-wc/semantic-dom-diff@^0.11.7":
-  version "0.11.7"
-  resolved "https://registry.yarnpkg.com/@open-wc/semantic-dom-diff/-/semantic-dom-diff-0.11.7.tgz#bf7803e3df11fdb942a5e73a26675827df5ff8c1"
-  integrity sha512-aD5+Oxk2CUpKfN6O2Cd87WuEssDB5Ervb/csh7DCM9fCza1LyKPDlBqdtbGZ/PbURn7KSk1gzQlIpJaWscW9SA==
+"@open-wc/semantic-dom-diff@^0.11.8":
+  version "0.11.8"
+  resolved "https://registry.yarnpkg.com/@open-wc/semantic-dom-diff/-/semantic-dom-diff-0.11.8.tgz#22f6a8826ce05e2a86f1f62d0a9634d1eee2d6e3"
+  integrity sha512-y6bvAHKWAdnKVezWQYfvOpBQZegeKLO7nx+RKxYH/iX07y89sO9OwvpoD+lnC/er4BMCP1rGXrEYeSTZfLdPEQ==
 
-"@open-wc/testing-helpers@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@open-wc/testing-helpers/-/testing-helpers-1.0.0.tgz#57176218847e834da4ee3b90ba18dda8d960de0a"
-  integrity sha512-oIOgCxZHZmEkyM8Kv7Nk2wsnQs6Sj3in/kacrJUq8KqQwP7VsVmBTx/Pr69bkqwgwUGY7r/37ktAQwbFvc2W/Q==
+"@open-wc/testing-helpers@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@open-wc/testing-helpers/-/testing-helpers-1.0.1.tgz#07993d45841a0af3ff062a52629d825fa7ede345"
+  integrity sha512-vYzFpl1WIX45pgn+/+Dblm/c1n0M5r31HJTIJwPQEGum5QzHsIcg70qdiBMYiBaFLw9xCX7eyGBhPOGdqwoLKw==
 
 "@open-wc/testing-karma@^1.1.2":
   version "1.1.2"
@@ -1369,15 +1369,15 @@
     karma-webpack "^5.0.0-alpha.2"
     webpack "^4.28.0"
 
-"@open-wc/testing@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@open-wc/testing/-/testing-1.0.0.tgz#68fe9da523fd609c546ad04156909abea7a4b57c"
-  integrity sha512-WAGQtMZBdVbRXfeBp2yG1+FJ95/bycbfHDFOJYK6MIgPX88bLPnODMMDJzGjRXe6JrekJ1LktWziXewq/hfH1g==
+"@open-wc/testing@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@open-wc/testing/-/testing-1.0.1.tgz#0ec154ad99fe9ff70abf35ba71dd3183baccd5a8"
+  integrity sha512-NgSBIe6HjhT1tIcreg8gs/l8vpnZEGMf3AVVH/heTtT4+6zRYfMOsXPbB/6MD7EWeKUkD69Gi5st7BzlzOk/bQ==
   dependencies:
     "@bundled-es-modules/chai" "^4.2.0"
-    "@open-wc/chai-dom-equals" "^0.12.7"
-    "@open-wc/semantic-dom-diff" "^0.11.7"
-    "@open-wc/testing-helpers" "^1.0.0"
+    "@open-wc/chai-dom-equals" "^0.12.8"
+    "@open-wc/semantic-dom-diff" "^0.11.8"
+    "@open-wc/testing-helpers" "^1.0.1"
     "@types/chai" "^4.1.7"
     "@types/mocha" "^5.0.0"
     mocha "^5.0.0"
