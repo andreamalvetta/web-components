@@ -35,6 +35,16 @@ declare module '@storybook/addon-actions' {
   export const configureActions: any;
 }
 
+declare module '@storybook/addon-knobs' {
+  export const withKnobs: any;
+  export const text: any;
+  export const select: any;
+}
+
+declare module '@storybook/addon-a11y' {
+  export const withA11y: any;
+}
+
 declare namespace WebComponents {
   export const ready: boolean;
   export const waitFor: (callback: () => Promise<any>) => void;

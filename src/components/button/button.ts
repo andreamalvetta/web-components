@@ -162,7 +162,7 @@ export class Button extends LitElement {
   render(): string {
     return html`
       <button @click="${this.href ? this.handleHref : this.handleAnchor}" ?disabled="${this.disabled}">
-        <img src="${icon}" />
+        <img src="${icon}" aria-label="dd" title="dd" />
         <slot></slot>
       </button>
     `;
