@@ -6,11 +6,12 @@ This project has been created using the following repo as reference:<br>
 https://github.com/web-padawan/polymer3-webpack-starter
 
 ## Demo
+
 https://web-components-lit-element.herokuapp.com/
 
 ## Documentation
-https://andreamalvetta.github.io/web-components
 
+https://andreamalvetta.github.io/web-components
 
 ## To-Do List
 
@@ -31,7 +32,7 @@ https://andreamalvetta.github.io/web-components
 
 ## Prerequisites
 
-- Node.js 11.7.0 or later - [https://nodejs.org/en/](https://nodejs.org/en/)
+- Node.js 11.10.1 or later - [https://nodejs.org/en/](https://nodejs.org/en/)
 
 ## Getting started
 
