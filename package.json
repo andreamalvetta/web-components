@@ -90,26 +90,22 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.js": [
-        "eslint --fix",
-        "prettier --write",
-        "git add"
-      ],
-      "*.ts": [
-        "tslint --fix",
-        "prettier --write",
-        "git add"
-      ],
-      "*.{css,scss,sass}": [
-        "stylelint --fix",
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "docs/*"
-    ]
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{css,scss,sass}": [
+      "stylelint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "docs/*": ""
   },
   "scripts": {
     "build": "node src/utils/generate-helpers.js && webpack --env production --config config/webpack.config.prod.js",
