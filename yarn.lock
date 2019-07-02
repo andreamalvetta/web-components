@@ -1374,23 +1374,23 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@open-wc/chai-dom-equals@^0.12.11":
-  version "0.12.11"
-  resolved "https://registry.yarnpkg.com/@open-wc/chai-dom-equals/-/chai-dom-equals-0.12.11.tgz#daa1add6bc411f25597b65a8a9b8046bec95b960"
-  integrity sha512-vzQkp2OekSpSDl4B/IyDXQXXQh3W3oHTKMmERsHOf4QOYEvgI0mtQ/bpXLt4k62Kj4DLB3uADylAJeIcqi1Ukw==
+"@open-wc/chai-dom-equals@^0.12.13":
+  version "0.12.13"
+  resolved "https://registry.yarnpkg.com/@open-wc/chai-dom-equals/-/chai-dom-equals-0.12.13.tgz#e0539b58fe5e052f1d2d43b9d76197abeef531ba"
+  integrity sha512-rQHY0fEYSCnonMR02m/t9SzrAyCoTEeaCfS1kpCJ6phlurTvN1RyfUCA4SSVUAGaRb1pJkvZMNJUIz3FoibKCQ==
   dependencies:
-    "@open-wc/semantic-dom-diff" "^0.11.11"
+    "@open-wc/semantic-dom-diff" "^0.11.13"
     "@types/chai" "^4.1.7"
 
-"@open-wc/semantic-dom-diff@^0.11.11":
-  version "0.11.11"
-  resolved "https://registry.yarnpkg.com/@open-wc/semantic-dom-diff/-/semantic-dom-diff-0.11.11.tgz#731c9d31aa41ccb77b7bb7635cf6d4df85bb565b"
-  integrity sha512-ZNsfzzZNs42d5TtIlTzXmdgfczsJPCf6RD23yS1NtIyyH+H22j8EGp3EnV/25SZjLeXxofADg2mUTf/rTjTbrA==
+"@open-wc/semantic-dom-diff@^0.11.13":
+  version "0.11.13"
+  resolved "https://registry.yarnpkg.com/@open-wc/semantic-dom-diff/-/semantic-dom-diff-0.11.13.tgz#dd1417b7597563667745578b0419943564feb1ff"
+  integrity sha512-3gwpAnLozYSCJCi3oHMGdOPDcnrokOJs4ZDYZn3ViIgx1fMOFaGGMtHsE/sjnB7+tE2VAk47jVYcuOddxvggiA==
 
-"@open-wc/testing-helpers@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@open-wc/testing-helpers/-/testing-helpers-1.0.4.tgz#3500d99b1161e3356719751c1c13f1b1d8756d7b"
-  integrity sha512-w5M5xQQChg6L51/oKGgqboaZdVyszFLvRBwz4Z+IraH6sTLRrxajubqCj42keCOr/bYtHzL8uL3ce7IfFLyNqw==
+"@open-wc/testing-helpers@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@open-wc/testing-helpers/-/testing-helpers-1.0.6.tgz#aaed221b7b2a8d7b2abef4e5ae8220e200752703"
+  integrity sha512-Nbb5FKKEfmeMOSUFleZAywJ8cUOBv0+T/RgZ+CukYa8hgyC2qFl6q+ngg5PHDbS5+QqAulI26HXSAXAlgOPYcQ==
 
 "@open-wc/testing-karma@^1.1.2":
   version "1.1.2"
@@ -1421,15 +1421,15 @@
     karma-webpack "^5.0.0-alpha.2"
     webpack "^4.28.0"
 
-"@open-wc/testing@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@open-wc/testing/-/testing-1.0.4.tgz#54ef753c6d9d2ccdc272758766cb9c33ec6121e6"
-  integrity sha512-H6r/F/qdfsltblI2HmtURwxoQCDBDs19Tb1pP/aQSO76B0rSws9N9cIRBzn+r91+l2/Yxxjtsq4efGQzmfeCoA==
+"@open-wc/testing@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@open-wc/testing/-/testing-1.0.6.tgz#0ed46748dee2fd2ae29889d7533b9193eba4b1c1"
+  integrity sha512-JOEoLGXaOfSDxr+/hjg/gxRN39RanaqNyzOf4Lc6A1KiZY/4XJwBxSO2BQNXH7Uib6eWd38lPGXPo9gAce3psQ==
   dependencies:
     "@bundled-es-modules/chai" "^4.2.0"
-    "@open-wc/chai-dom-equals" "^0.12.11"
-    "@open-wc/semantic-dom-diff" "^0.11.11"
-    "@open-wc/testing-helpers" "^1.0.4"
+    "@open-wc/chai-dom-equals" "^0.12.13"
+    "@open-wc/semantic-dom-diff" "^0.11.13"
+    "@open-wc/testing-helpers" "^1.0.6"
     "@types/chai" "^4.1.7"
     "@types/mocha" "^5.0.0"
     mocha "^5.0.0"
@@ -7533,10 +7533,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lint-staged@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.0.0.tgz#3ab93063f11ee2e6782769149de0f1e815d49731"
-  integrity sha512-32TJoaeyAaj3rvabaXWe0eOhAhnsYRixEmXuSxKbs0uczFbwVjoDhJ/s2g6r1v8jMTw7t5OzXlHR8iaKtz8nLQ==
+lint-staged@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.0.1.tgz#dc31e3808052cf65727d26a3568620e4f75a5aa5"
+  integrity sha512-LZ6n/uzOYJRxmjUrEE6v3wHcL/YOkIMphSwfsyQwmKyFB0l/bRe0AQSG4+QUXHk71C9d2H7Z5KvIZi+qslyrVQ==
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"
