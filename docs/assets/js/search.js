@@ -804,13 +804,61 @@ typedoc.search.data = {
     {
       id: 100,
       kind: 2,
+      name: '"@storybook/addon-knobs"',
+      url: 'modules/_typings_d_.__storybook_addon_knobs_.html',
+      classes: 'tsd-kind-module tsd-parent-kind-external-module tsd-is-not-exported',
+      parent: '"typings.d"'
+    },
+    {
+      id: 101,
+      kind: 32,
+      name: 'withKnobs',
+      url: 'modules/_typings_d_.__storybook_addon_knobs_.html#withknobs',
+      classes: 'tsd-kind-variable tsd-parent-kind-module',
+      parent: '"typings.d"."@storybook/addon-knobs"'
+    },
+    {
+      id: 102,
+      kind: 32,
+      name: 'text',
+      url: 'modules/_typings_d_.__storybook_addon_knobs_.html#text',
+      classes: 'tsd-kind-variable tsd-parent-kind-module',
+      parent: '"typings.d"."@storybook/addon-knobs"'
+    },
+    {
+      id: 103,
+      kind: 32,
+      name: 'select',
+      url: 'modules/_typings_d_.__storybook_addon_knobs_.html#select',
+      classes: 'tsd-kind-variable tsd-parent-kind-module',
+      parent: '"typings.d"."@storybook/addon-knobs"'
+    },
+    {
+      id: 104,
+      kind: 2,
+      name: '"@storybook/addon-a11y"',
+      url: 'modules/_typings_d_.__storybook_addon_a11y_.html',
+      classes: 'tsd-kind-module tsd-parent-kind-external-module tsd-is-not-exported',
+      parent: '"typings.d"'
+    },
+    {
+      id: 105,
+      kind: 32,
+      name: 'withA11y',
+      url: 'modules/_typings_d_.__storybook_addon_a11y_.html#witha11y',
+      classes: 'tsd-kind-variable tsd-parent-kind-module',
+      parent: '"typings.d"."@storybook/addon-a11y"'
+    },
+    {
+      id: 106,
+      kind: 2,
       name: 'WebComponents',
       url: 'modules/_typings_d_.webcomponents.html',
       classes: 'tsd-kind-module tsd-parent-kind-external-module tsd-is-not-exported',
       parent: '"typings.d"'
     },
     {
-      id: 101,
+      id: 107,
       kind: 32,
       name: 'ready',
       url: 'modules/_typings_d_.webcomponents.html#ready',
@@ -818,7 +866,7 @@ typedoc.search.data = {
       parent: '"typings.d".WebComponents'
     },
     {
-      id: 102,
+      id: 108,
       kind: 32,
       name: 'waitFor',
       url: 'modules/_typings_d_.webcomponents.html#waitfor',
@@ -826,7 +874,7 @@ typedoc.search.data = {
       parent: '"typings.d".WebComponents'
     },
     {
-      id: 103,
+      id: 109,
       kind: 65536,
       name: '__type',
       url: 'modules/_typings_d_.webcomponents.html#waitfor.__type',
