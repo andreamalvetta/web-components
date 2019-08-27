@@ -81,25 +81,21 @@ export class LazyImage extends LitElement {
    * TODO
    */
   addEventListeners() {
-    document.addEventListener(
-      'readystatechange',
-      () => {
-        const shadowImg = this.shadowRoot.querySelector('img');
-        shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg), true);
-        window.addEventListener('scroll', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
-        window.addEventListener('resize', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
-      },
-      true
-    );
+    document.addEventListener('readystatechange', () => {
+      const shadowImg = this.shadowRoot.querySelector('img');
+      shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg));
+      window.addEventListener('scroll', () => window.requestAnimationFrame(() => this.showImage(shadowImg)));
+      window.addEventListener('resize', () => window.requestAnimationFrame(() => this.showImage(shadowImg)));
+    });
   }
 
   /**
    * TODO
    */
   removeEventListeners() {
-    document.removeEventListener('readystatechange', () => console.log('removed'), true);
-    window.removeEventListener('scroll', () => console.log('removed'), true);
-    window.removeEventListener('resize', () => console.log('removed'), true);
+    document.removeEventListener('readystatechange', () => console.log('removed'));
+    window.removeEventListener('scroll', () => console.log('removed'));
+    window.removeEventListener('resize', () => console.log('removed'));
   }
   /**
    * TODO

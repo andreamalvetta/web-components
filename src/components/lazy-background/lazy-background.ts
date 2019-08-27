@@ -86,19 +86,15 @@ export class LazyBackground extends LitElement {
       'readystatechange',
       () => {
         const shadowImg = this.shadowRoot.querySelector('img');
-        shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg), true);
-        shadowImg.addEventListener(
-          'load',
-          (e: Event) => {
-            const lazyBg = this.shadowRoot.querySelector('.lazy-background-container .lazy-background');
-            const target = e.target as HTMLImageElement;
-            lazyBg.style.backgroundImage = `url(${target.currentSrc || target.src})`;
-            lazyBg.classList.add('loaded');
-          },
-          true
-        );
-        window.addEventListener('scroll', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
-        window.addEventListener('resize', () => window.requestAnimationFrame(() => this.showImage(shadowImg)), true);
+        shadowImg.addEventListener('lazybeforeunveil', this.showImage(shadowImg));
+        shadowImg.addEventListener('load', (e: Event) => {
+          const lazyBg = this.shadowRoot.querySelector('.lazy-background-container .lazy-background');
+          const target = e.target as HTMLImageElement;
+          lazyBg.style.backgroundImage = `url(${target.currentSrc || target.src})`;
+          lazyBg.classList.add('loaded');
+        });
+        window.addEventListener('scroll', () => window.requestAnimationFrame(() => this.showImage(shadowImg)));
+        window.addEventListener('resize', () => window.requestAnimationFrame(() => this.showImage(shadowImg)));
       },
       true
     );
@@ -108,9 +104,9 @@ export class LazyBackground extends LitElement {
    * TODO
    */
   removeEventListeners() {
-    document.removeEventListener('readystatechange', () => console.log('removed'), true);
-    window.removeEventListener('scroll', () => console.log('removed'), true);
-    window.removeEventListener('resize', () => console.log('removed'), true);
+    document.removeEventListener('readystatechange', () => console.log('removed'));
+    window.removeEventListener('scroll', () => console.log('removed'));
+    window.removeEventListener('resize', () => console.log('removed'));
   }
 
   /**

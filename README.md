@@ -13,23 +13,6 @@ https://web-components-lit-element.herokuapp.com/
 
 https://andreamalvetta.github.io/web-components
 
-## To-Do List
-
-- [x] Tidy-up webpack config
-- [x] Integrate Storybook in the project
-- [x] Investigate on event handlers, event propagation, etc.
-- [x] Create a demo
-- [ ] More browser testing with Browserstack
-- [x] Setup CSS/SCSS handler into webpack
-- [x] Setup images handler into webpack
-- [x] Setup fonts handler into webpack
-- [ ] SEO content generation (see https://github.com/GoogleChrome/rendertron)
-- [x] Unit tests
-- [ ] Add contributions instructions (CONTRIBUTING.md)
-- [x] Force service worker update
-- [ ] Remove hover state on devices with touch
-- [x] Documentation generator (see https://typedoc.org/)
-
 ## Prerequisites
 
 - Node.js 11.10.1 or later - [https://nodejs.org/en/](https://nodejs.org/en/)

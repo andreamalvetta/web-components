@@ -50,23 +50,19 @@ export class ScrollIndicator extends LitElement {
    * TODO
    */
   addEventListeners() {
-    document.addEventListener(
-      'readystatechange',
-      () => {
-        window.addEventListener('load', () => this.scrollFunction());
-        window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
-      },
-      true
-    );
+    document.addEventListener('readystatechange', () => {
+      window.addEventListener('load', () => this.scrollFunction());
+      window.addEventListener('scroll', () => window.requestAnimationFrame(this.scrollFunction.bind(this)));
+    });
   }
 
   /**
    * TODO
    */
   removeEventListeners() {
-    document.removeEventListener('readystatechange', () => console.log('removed'), true);
-    window.removeEventListener('load', () => console.log('removed'), true);
-    window.removeEventListener('scroll', () => console.log('removed'), true);
+    document.removeEventListener('readystatechange', () => console.log('removed'));
+    window.removeEventListener('load', () => console.log('removed'));
+    window.removeEventListener('scroll', () => console.log('removed'));
   }
 
   /**
